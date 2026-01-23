@@ -986,6 +986,7 @@ comoi/
 **Goal:** Set up infrastructure, learn Effect.js, establish patterns
 
 1. **Week 1: Project Setup**
+   - Initialize developer AI agents workflow with subagents, skills, worktrees, graphite, linear (project management)
    - Initialize Turborepo monorepo
    - Set up Convex project
    - Configure Next.js (web + vendor apps)

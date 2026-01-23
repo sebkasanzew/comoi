@@ -1,0 +1,4 @@
+{
+  "trunk": "main",
+  "ignore_branches": ["release/*", "hotfix/*"]
+}

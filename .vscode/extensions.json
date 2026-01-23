@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "github.copilot",
+    "github.copilot-chat",
+    "withgraphite.graphite-vscode",
+    "linear.linear",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "convex.convex",
+    "ms-vscode.vscode-typescript-next",
+    "streetsidesoftware.code-spell-checker"
+  ],
+  "unwantedRecommendations": []
+}

@@ -1,0 +1,73 @@
+{
+  // Editor
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.rulers": [100],
+
+  // TypeScript
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.suggest.autoImports": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+
+  // GitHub Copilot
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false
+  },
+  "github.copilot.editor.enableAutoCompletions": true,
+
+  // Files
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/.git": true,
+    "**/dist": true,
+    "**/.next": true,
+    "**/.turbo": true
+  },
+
+  // Search
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.next": true,
+    "**/pnpm-lock.yaml": true
+  },
+
+  // ESLint
+  "eslint.workingDirectories": [
+    { "pattern": "apps/*" },
+    { "pattern": "packages/*" },
+    { "directory": "convex" }
+  ],
+
+  // Tailwind CSS
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ],
+
+  // Spell Checker
+  "cSpell.words": [
+    "comoi",
+    "convex",
+    "effectjs",
+    "graphite",
+    "momo",
+    "turborepo",
+    "typecheck",
+    "vnpay",
+    "zalo"
+  ]
+}

@@ -153,3 +153,64 @@ The plan provides:
 5. **Zalo-first vendor approach** - Market fit for Vietnam
 
 **Next Steps**: Begin Phase 1 implementation (Project setup + Effect.js foundation)
+
+---
+
+## AI-Assisted Development Workflow
+
+This project uses **AI-first development** with GitHub Copilot, Graphite (stacked diffs), and Linear (project management).
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the complete workflow guide.
+
+### Quick Reference for AI Agents
+
+#### Context Files to Reference
+When starting a new session, provide these files for context:
+- `AGENTS.md` — Project overview and decisions
+- `PLAN.md` — Detailed architecture and data models
+- `CONTRIBUTING.md` — Development workflow and conventions
+
+#### Effect.js Patterns
+```typescript
+// Always use Effect.gen for readability
+const program = Effect.gen(function* (_) {
+  const service = yield* _(MyService);
+  return yield* _(service.doSomething());
+});
+
+// Type errors explicitly
+class MyError extends Data.TaggedError("MyError")<{
+  reason: "NOT_FOUND" | "INVALID";
+}> {}
+
+// Use Layers for DI
+const live = Effect.provide(program, MyServiceLive);
+```
+
+#### Convex Patterns
+```typescript
+// Queries and mutations
+export const myQuery = query({
+  args: { id: v.id("table") },
+  handler: async (ctx, args) => {
+    // Use Effect for business logic
+    const program = Effect.gen(function* (_) {
+      // ...
+    });
+    return Effect.runPromise(program);
+  }
+});
+```
+
+#### Commit Messages
+Use Conventional Commits:
+- `feat(scope): description` — New feature
+- `fix(scope): description` — Bug fix
+- `refactor(scope): description` — Code change
+- `test(scope): description` — Tests
+- `docs(scope): description` — Documentation
+
+#### Project Links
+- **GitHub**: https://github.com/sebkasanzew/comoi
+- **Linear**: https://linear.app/comoi
+- **Graphite**: Use `gt` CLI for stacked diffs
