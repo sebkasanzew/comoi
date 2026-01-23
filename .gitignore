@@ -10,8 +10,10 @@ ios/
 
 # Testing
 coverage/
+test-results/
+playwright-report/
 
-# Turbo
+# Playwright
 .turbo
 
 # Environment files

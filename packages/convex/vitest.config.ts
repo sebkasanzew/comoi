@@ -4,5 +4,6 @@ export default defineConfig({
   test: {
     globals: true,
     passWithNoTests: true,
+    include: ["convex/**/__tests__/**/*.test.ts"],
   },
 });

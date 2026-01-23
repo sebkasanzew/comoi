@@ -1,6 +1,6 @@
 import reactHooksPlugin from "eslint-plugin-react-hooks";
 import globals from "globals";
-import baseConfig from "./base.ts";
+import baseConfig from "./base.js";
 
 /**
  * React Native ESLint configuration

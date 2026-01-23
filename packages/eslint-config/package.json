@@ -7,15 +7,18 @@
   "exports": {
     "./base": "./base.ts",
     "./nextjs": "./nextjs.ts",
-    "./react-native": "./react-native.ts"
+    "./react-native": "./react-native.ts",
+    "./playwright": "./playwright.ts"
   },
   "dependencies": {
-    "@eslint/js": "^9.21.0",
-    "eslint-plugin-react-hooks": "^5.1.0",
-    "globals": "^15.14.0",
-    "typescript-eslint": "^8.26.0"
+    "@eslint/js": "9.39.2",
+    "eslint-plugin-playwright": "2.5.0",
+    "eslint-plugin-react-hooks": "7.0.1",
+    "eslint-plugin-turbo": "2.7.5",
+    "globals": "17.1.0",
+    "typescript-eslint": "8.53.1"
   },
   "peerDependencies": {
-    "eslint": "^9.21.0"
+    "eslint": ">=9.21.0"
   }
 }

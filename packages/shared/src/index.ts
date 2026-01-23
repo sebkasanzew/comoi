@@ -5,15 +5,15 @@
  */
 
 // Re-export types
-export type { Currency, StockStatus, OrderStatus, PaymentStatus, PaymentMethod } from "./types";
+export type { Currency, OrderStatus, PaymentMethod, PaymentStatus, StockStatus } from "./types";
 
 // Re-export constants
 export {
   CURRENCIES,
-  STOCK_STATUSES,
   ORDER_STATUSES,
-  PAYMENT_STATUSES,
   PAYMENT_METHODS,
+  PAYMENT_STATUSES,
+  STOCK_STATUSES,
 } from "./types";
 
 // Re-export utilities

@@ -23,12 +23,12 @@
     "clean": "rm -rf dist .turbo"
   },
   "dependencies": {
-    "effect": "^3.14.1"
+    "effect": "3.19.15"
   },
   "devDependencies": {
     "@comoi/eslint-config": "workspace:*",
     "@comoi/typescript-config": "workspace:*",
-    "eslint": "^9.21.0",
-    "vitest": "^3.0.6"
+    "eslint": "9.39.2",
+    "vitest": "4.0.18"
   }
 }

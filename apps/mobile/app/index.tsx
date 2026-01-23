@@ -1,35 +1,14 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
 
 export default function Index() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Welcome to Comoi</Text>
-      <Text style={styles.subtitle}>
+    <View className="flex-1 items-center justify-center bg-white p-6">
+      <Text className="text-center text-3xl font-bold text-gray-900">Welcome to Comoi</Text>
+      <Text className="mt-4 text-center text-base text-gray-600">
         Find and compare prices from local mini-markets in Vietnam.
       </Text>
       <StatusBar style="auto" />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 24,
-    backgroundColor: "#fff",
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-  subtitle: {
-    fontSize: 16,
-    color: "#666",
-    textAlign: "center",
-    marginTop: 16,
-  },
-});

@@ -4,8 +4,10 @@
   "compilerOptions": {
     "lib": ["ES2022"],
     "jsx": "react-jsx",
+    "jsxImportSource": "nativewind",
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "allowJs": true
+    "allowJs": true,
+    "noEmit": true
   }
 }

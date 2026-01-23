@@ -112,20 +112,72 @@ Consumers want:
 - Low-friction vendor onboarding
 
 ## Architecture Decisions (Final)
-- **Next.js** with App Router for Web-Frontend and API layer
+- **Next.js 16+** with App Router for Web-Frontend and API layer
 - **Effect.js** for type-safe error handling, dependency injection, and business logic composition
 - **Convex** for database, real-time sync, and backend functions
-- **React Native + Expo** for Mobile Apps
+- **React Native + Expo 54** for Mobile Apps
 - **Convex Optimistic Updates** for offline-tolerance (no WatermelonDB needed for MVP)
 - **Testing** with Playwright (E2E), Vitest (unit/integration), Convex Test
 - **Turborepo** for monorepo management
-- **TypeScript** for all layers
+- **Bun** as package manager and runtime
+- **Biome** for linting and formatting
+- **ESLint** for additional code quality checks
+- **TypeScript 5.9+** for all layers
 - **CI/CD** with GitHub Actions
+- **Renovate** for automated dependency updates
 - **Infrastructure** on Vercel (Next.js) + Convex Cloud
 - **Payment integration**: MoMo + VNPay + PayOS (COD fallback)
 - **Messaging**: Zalo OA + ZNS for vendor communication
 - **i18n**: i18next + react-i18next
 - **Maps**: Google Maps Platform
+
+---
+
+## Project Setup Status ✅
+
+**Phase 1 - Week 1**: Project Foundation Complete
+
+### Monorepo Structure
+```
+comoi/
+├── apps/
+│   ├── web/        # Next.js 16 consumer web app
+│   ├── vendor/     # Next.js 16 vendor dashboard
+│   └── mobile/     # Expo 54 React Native app
+├── packages/
+│   ├── convex/            # Convex backend (schema, functions)
+│   ├── shared/            # Shared types, utils, constants
+│   ├── ui/                # Shared UI components
+│   ├── eslint-config/     # Shared ESLint configurations
+│   └── typescript-config/ # Shared TypeScript configurations
+└── .github/
+    └── workflows/         # CI/CD pipelines
+```
+
+### Key Dependencies
+| Package | Version | Purpose |
+|---------|---------|---------|
+| Bun | 1.3.6 | Package manager & runtime |
+| Turborepo | 2.7.5 | Monorepo build system |
+| TypeScript | 5.9.3 | Type safety |
+| Biome | 2.3.12 | Linting & formatting |
+| Next.js | 16.1.4 | Web framework |
+| Expo | 54.0.32 | Mobile framework |
+| Convex | 1.31.6 | Backend & database |
+| Effect | 3.19.15 | Business logic composition |
+| Vitest | 4.0.18 | Unit testing |
+| React | 19.2.3 | UI library |
+
+### Scripts
+```bash
+bun run dev        # Start all apps in development
+bun run build      # Build all packages and apps
+bun run lint       # Run Biome + ESLint
+bun run format     # Format with Biome
+bun run typecheck  # TypeScript type checking
+bun run test       # Run all tests
+bun run check      # Run lint + typecheck + test
+```
 
 ---
 
@@ -152,7 +204,9 @@ The plan provides:
 4. **Modular monolith** - Faster MVP, can split later if needed
 5. **Zalo-first vendor approach** - Market fit for Vietnam
 
-**Next Steps**: Begin Phase 1 implementation (Project setup + Effect.js foundation)
+**Current Phase**: Phase 1 - Foundation (Weeks 1-4)
+- ✅ Week 1: Monorepo setup with Turborepo
+- ⏳ Weeks 2-4: Convex schema, Effect.js services, core services
 
 ---
 

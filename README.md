@@ -2,9 +2,12 @@
 
 **A modern grocery marketplace connecting consumers with local mini-markets in Southeast Asia**
 
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)](https://www.typescriptlang.org/)
-[![Convex](https://img.shields.io/badge/Convex-Backend-orange.svg)](https://convex.dev/)
-[![Effect](https://img.shields.io/badge/Effect-TS-purple.svg)](https://effect.website/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9+-blue.svg)](https://www.typescriptlang.org/)
+[![Convex](https://img.shields.io/badge/Convex-1.31-orange.svg)](https://convex.dev/)
+[![Effect](https://img.shields.io/badge/Effect-3.19-purple.svg)](https://effect.website/)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black.svg)](https://nextjs.org/)
+[![Expo](https://img.shields.io/badge/Expo-54-000020.svg)](https://expo.dev/)
+[![Bun](https://img.shields.io/badge/Bun-1.3-fbf0df.svg)](https://bun.sh/)
 
 ---
 
@@ -53,25 +56,30 @@ Comoi provides:
 
 ## 🛠️ Tech Stack
 
-### Frontend
-- **[Next.js 16+](https://nextjs.org/)** - Web application with App Router
-- **[React Native](https://reactnative.dev/) + [Expo](https://expo.dev/)** - iOS & Android apps
-- **[TypeScript](https://www.typescriptlang.org/)** - Type safety across all layers
-
-### Backend
-- **[Convex](https://convex.dev/)** - Reactive database, real-time sync, type-safe functions
-- **[Effect.js](https://effect.website/)** - Type-safe error handling, dependency injection, composable business logic
-
-### Infrastructure
-- **[Vercel](https://vercel.com/)** - Web hosting and deployment
-- **[Convex Cloud](https://convex.dev/)** - Backend and database hosting
-- **[Turborepo](https://turbo.build/)** - Monorepo management
+| Layer | Technology | Version |
+|-------|-----------|---------|
+| **Package Manager** | [Bun](https://bun.sh/) | 1.3.6 |
+| **Monorepo** | [Turborepo](https://turbo.build/) | 2.7.5 |
+| **Language** | [TypeScript](https://www.typescriptlang.org/) | 5.9.3 |
+| **Web Apps** | [Next.js](https://nextjs.org/) (App Router) | 16.1.4 |
+| **Mobile App** | [Expo](https://expo.dev/) + React Native | 54.0.32 |
+| **Backend/DB** | [Convex](https://convex.dev/) | 1.31.6 |
+| **Business Logic** | [Effect.js](https://effect.website/) | 3.19.15 |
+| **UI Library** | [React](https://react.dev/) | 19.2.3 |
+| **Linting** | [Biome](https://biomejs.dev/) + [ESLint](https://eslint.org/) | 2.3.12 / 9.39 |
+| **Testing** | [Vitest](https://vitest.dev/) | 4.0.18 |
+| **i18n** | [i18next](https://www.i18next.com/) | 25.8.0 |
 
 ### Integrations
 - **Payment**: MoMo, VNPay, PayOS
 - **Messaging**: Zalo OA, ZNS notifications
 - **Maps**: Google Maps Platform
-- **i18n**: i18next + react-i18next
+
+### Infrastructure
+- **Web Hosting**: [Vercel](https://vercel.com/)
+- **Backend**: [Convex Cloud](https://convex.dev/)
+- **CI/CD**: GitHub Actions
+- **Dependency Updates**: Renovate
 
 ---
 
@@ -80,24 +88,27 @@ Comoi provides:
 ```
 comoi/
 ├── apps/
-│   ├── web/                    # Next.js web app (consumer)
-│   ├── mobile/                 # React Native app (Expo)
-│   └── vendor/                 # Vendor dashboard (Next.js)
+│   ├── web/                    # Next.js 16 consumer web app
+│   ├── vendor/                 # Next.js 16 vendor dashboard
+│   └── mobile/                 # Expo 54 React Native app
 │
 ├── packages/
+│   ├── convex/                 # Convex backend (schema, functions)
+│   │   └── convex/
+│   │       ├── schema.ts       # Database schema
+│   │       └── _generated/     # Auto-generated types
 │   ├── shared/                 # Shared types, utils, constants
-│   └── ui/                     # Shared UI components
+│   ├── ui/                     # Shared UI components
+│   ├── eslint-config/          # Shared ESLint configurations
+│   └── typescript-config/      # Shared TypeScript configurations
 │
-├── convex/                     # Convex backend
-│   ├── schema.ts               # Database schema
-│   ├── services/               # Effect.js services
-│   ├── products.ts             # Queries & mutations
-│   ├── orders.ts
-│   ├── vendors.ts
-│   └── http.ts                 # Webhooks & API endpoints
+├── .github/
+│   └── workflows/              # CI/CD pipelines
 │
+├── biome.json                  # Biome linting/formatting config
+├── turbo.json                  # Turborepo task definitions
 ├── PLAN.md                     # Detailed architecture plan
-├── AGENTS.md                   # Project context & decisions
+├── AGENTS.md                   # Project context & AI agent guide
 └── README.md                   # This file
 ```
 
@@ -107,11 +118,9 @@ comoi/
 
 ### Prerequisites
 
-- **Node.js** 20+ and **npm** or **pnpm**
-- **Convex CLI**: `npm install -g convex`
-- **Expo CLI**: `npm install -g expo-cli`
-- Google Maps API key
-- Payment provider accounts (MoMo/VNPay sandbox)
+- **Bun** 1.3.6+ - [Installation guide](https://bun.sh/docs/installation)
+- **Git** - For version control
+- (Optional) **Convex CLI**: `bun add -g convex`
 
 ### Installation
 
@@ -123,53 +132,57 @@ comoi/
 
 2. **Install dependencies**
    ```bash
-   npm install
+   bun install
    ```
 
-3. **Set up Convex**
+3. **Run development servers**
    ```bash
-   npx convex dev
+   # Start all apps in development mode
+   bun run dev
    ```
 
-4. **Configure environment variables**
-   ```bash
-   cp .env.example .env.local
-   # Add your API keys and secrets
-   ```
+   This starts:
+   - Web app at `http://localhost:3000`
+   - Vendor dashboard at `http://localhost:3001`
+   - Mobile app via Expo
 
-5. **Run development servers**
-   ```bash
-   # Start all apps
-   npm run dev
-
-   # Or run individually
-   npm run dev:web        # Next.js web app
-   npm run dev:mobile     # Expo mobile app
-   npm run dev:vendor     # Vendor dashboard
-   ```
-
-### Running Tests
+### Available Scripts
 
 ```bash
-# Unit tests
-npm run test
+# Development
+bun run dev           # Start all apps in development
+bun run build         # Build all packages and apps
 
-# E2E tests
-npm run test:e2e
+# Code Quality
+bun run lint          # Run Biome + ESLint
+bun run lint:fix      # Fix linting issues
+bun run format        # Format code with Biome
+bun run format:check  # Check formatting
+bun run typecheck     # TypeScript type checking
 
-# Convex function tests
-npm run test:convex
+# Testing
+bun run test          # Run all tests
+bun run test:watch    # Run tests in watch mode
+bun run check         # Run lint + typecheck + test
+
+# Maintenance
+bun run clean         # Clean all build artifacts
 ```
 
 ---
 
 ## 🗺️ Roadmap
 
-### Phase 1: Foundation (Weeks 1-4) ✅
-- [x] Monorepo setup with Turborepo
-- [x] Convex schema and authentication
-- [x] Effect.js service architecture
-- [ ] Core services implementation
+### Phase 1: Foundation (Weeks 1-4) 🚧
+- [x] Monorepo setup with Turborepo + Bun
+- [x] Next.js 16 web apps (consumer + vendor)
+- [x] Expo 54 mobile app scaffold
+- [x] Convex schema design
+- [x] Shared packages (ui, shared, configs)
+- [x] CI/CD with GitHub Actions
+- [x] Biome + ESLint setup
+- [ ] Effect.js service layer
+- [ ] Core business logic implementation
 
 ### Phase 2: Consumer MVP (Weeks 5-8)
 - [ ] Product catalog and search
@@ -190,7 +203,7 @@ npm run test:convex
 - [ ] Basic analytics
 
 ### Phase 5: Mobile App (Weeks 17-20)
-- [ ] React Native app with Expo
+- [ ] Full React Native implementation
 - [ ] Offline support with Convex optimistic updates
 - [ ] Mobile payments
 - [ ] Push notifications
@@ -235,8 +248,11 @@ We welcome contributions! Please follow these steps:
 - Follow TypeScript best practices
 - Use Effect.js for business logic and error handling
 - Write tests for new features
-- Follow the existing code style (ESLint + Prettier)
+- Follow the existing code style (Biome + ESLint)
+- Use Conventional Commits for commit messages
 - Update documentation as needed
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the complete workflow guide.
 
 ---
 
