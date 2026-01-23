@@ -1,6 +1,6 @@
+// @ts-check
 import reactHooksPlugin from "eslint-plugin-react-hooks";
 import globals from "globals";
-// @ts-check
 import baseConfig from "./base.js";
 
 /**
