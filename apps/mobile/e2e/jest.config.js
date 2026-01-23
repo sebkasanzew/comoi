@@ -1,6 +1,6 @@
-import type { Config } from "@jest/types";
-
-const config: Config.InitialOptions = {
+/* eslint-disable @typescript-eslint/no-require-imports */
+/** @type {import('@jest/types').Config.InitialOptions} */
+const config = {
   rootDir: "..",
   testMatch: ["<rootDir>/e2e/**/*.test.ts"],
   testTimeout: 120000,
@@ -12,4 +12,4 @@ const config: Config.InitialOptions = {
   verbose: true,
 };
 
-export default config;
+module.exports = config;

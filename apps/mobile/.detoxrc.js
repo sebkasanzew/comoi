@@ -3,29 +3,36 @@ const config = {
   testRunner: {
     args: {
       $0: "jest",
-      config: "e2e/jest.config.ts",
+      config: "e2e/jest.config.js",
     },
     jest: {
       setupTimeout: 120000,
     },
+  },
+  behavior: {
+    init: {
+      exposeGlobals: true,
+    },
+    launchApp: "auto",
   },
   apps: {
     "ios.debug": {
       type: "ios.app",
       binaryPath: "ios/build/Build/Products/Debug-iphonesimulator/Comoi.app",
       build:
-        "cd ios && xcodebuild -workspace Comoi.xcworkspace -scheme Comoi -configuration Debug -sdk iphonesimulator -derivedDataPath build",
+        "cd ios && RCT_NO_LAUNCH_PACKAGER=1 xcodebuild -workspace Comoi.xcworkspace -scheme Comoi -configuration Debug -sdk iphonesimulator -derivedDataPath build -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.0' CODE_SIGN_IDENTITY= CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO SKIP_BUNDLING=NO",
     },
     "ios.release": {
       type: "ios.app",
       binaryPath: "ios/build/Build/Products/Release-iphonesimulator/Comoi.app",
       build:
-        "cd ios && xcodebuild -workspace Comoi.xcworkspace -scheme Comoi -configuration Release -sdk iphonesimulator -derivedDataPath build",
+        "cd ios && xcodebuild -workspace Comoi.xcworkspace -scheme Comoi -configuration Release -sdk iphonesimulator -derivedDataPath build -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.0' CODE_SIGN_IDENTITY= CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO",
     },
     "android.debug": {
       type: "android.apk",
       binaryPath: "android/app/build/outputs/apk/debug/app-debug.apk",
-      build: "cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug",
+      build:
+        "cd android && EXPO_USE_COMMUNITY_AUTOLINKING=1 ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug",
     },
     "android.release": {
       type: "android.apk",
@@ -37,7 +44,7 @@ const config = {
     simulator: {
       type: "ios.simulator",
       device: {
-        type: "iPhone 15",
+        type: "iPhone 16 Pro",
       },
     },
     attached: {
