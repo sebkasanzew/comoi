@@ -43,6 +43,10 @@ export default tseslint.config(
       "**/build/**",
       "**/.expo/**",
       "**/convex/_generated/**",
+      "**/*.config.js",
+      "**/*.config.ts",
+      "**/eslint.config.js",
+      "**/next-env.d.ts",
     ],
   }
 );
