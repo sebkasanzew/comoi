@@ -1,0 +1,12 @@
+{
+  "name": "@comoi/typescript-config",
+  "version": "0.0.0",
+  "private": true,
+  "license": "AGPL-3.0-or-later",
+  "exports": {
+    "./base.json": "./base.json",
+    "./nextjs.json": "./nextjs.json",
+    "./react-native.json": "./react-native.json",
+    "./convex.json": "./convex.json"
+  }
+}

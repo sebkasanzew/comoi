@@ -1,0 +1,32 @@
+{
+  "name": "@comoi/convex",
+  "version": "0.0.0",
+  "private": true,
+  "license": "AGPL-3.0-or-later",
+  "type": "module",
+  "scripts": {
+    "dev": "convex dev",
+    "deploy": "convex deploy --typecheck=disable",
+    "build": "tsc --noEmit",
+    "lint": "biome check . && eslint .",
+    "lint:fix": "biome check --write . && eslint . --fix",
+    "format": "biome format --write .",
+    "format:check": "biome format .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "clean": "rm -rf .turbo"
+  },
+  "dependencies": {
+    "@comoi/shared": "workspace:*",
+    "convex": "^1.21.0",
+    "effect": "^3.14.1"
+  },
+  "devDependencies": {
+    "@comoi/eslint-config": "workspace:*",
+    "@comoi/typescript-config": "workspace:*",
+    "convex-test": "^0.0.35",
+    "eslint": "^9.21.0",
+    "vitest": "^3.0.6"
+  }
+}

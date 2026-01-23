@@ -1,0 +1,9 @@
+{
+  "extends": "@comoi/typescript-config/convex.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "./dist"
+  },
+  "include": ["convex/**/*"],
+  "exclude": ["node_modules", "dist", "convex/_generated"]
+}

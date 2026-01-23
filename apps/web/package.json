@@ -1,0 +1,42 @@
+{
+  "name": "@comoi/web",
+  "version": "0.0.0",
+  "private": true,
+  "license": "AGPL-3.0-or-later",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "biome check . && eslint .",
+    "lint:fix": "biome check --write . && eslint . --fix",
+    "format": "biome format --write .",
+    "format:check": "biome format .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "clean": "rm -rf .next .turbo node_modules/.cache"
+  },
+  "dependencies": {
+    "@comoi/convex": "workspace:*",
+    "@comoi/shared": "workspace:*",
+    "@comoi/ui": "workspace:*",
+    "convex": "^1.21.0",
+    "convex-helpers": "^0.1.83",
+    "effect": "^3.14.1",
+    "i18next": "^24.2.3",
+    "next": "^15.2.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-i18next": "^15.4.1"
+  },
+  "devDependencies": {
+    "@comoi/eslint-config": "workspace:*",
+    "@comoi/typescript-config": "workspace:*",
+    "@types/node": "^22.13.5",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.21.0",
+    "vitest": "^3.0.6"
+  }
+}
