@@ -1,0 +1,38 @@
+{
+  "name": "@comoi/ui",
+  "version": "0.0.0",
+  "private": true,
+  "license": "AGPL-3.0-or-later",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "lint": "biome check . && eslint .",
+    "lint:fix": "biome check --write . && eslint . --fix",
+    "format": "biome format --write .",
+    "format:check": "biome format .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "clean": "rm -rf dist .turbo"
+  },
+  "dependencies": {
+    "react": "19.2.3"
+  },
+  "devDependencies": {
+    "@comoi/eslint-config": "workspace:*",
+    "@comoi/typescript-config": "workspace:*",
+    "@types/react": "19.2.9",
+    "eslint": "9.39.2",
+    "vitest": "4.0.18"
+  },
+  "peerDependencies": {
+    "react": ">=19.0.0"
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":semanticCommits",
+    ":dependencyDashboard",
+    "group:monorepos",
+    "group:recommended"
+  ],
+  "description": "Renovate configuration for Comoi - automated dependency updates",
+  "labels": ["dependencies", "renovate"],
+  "schedule": ["every 3 days"],
+  "timezone": "Europe/Berlin",
+  "minimumReleaseAge": "3 days",
+  "prConcurrentLimit": 3,
+  "prHourlyLimit": 2,
+  "packageRules": [
+    {
+      "description": "Group all non-major npm dependencies into a single PR",
+      "matchManagers": ["npm"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "npm dependencies (non-major)",
+      "groupSlug": "npm-minor-patch"
+    },
+    {
+      "description": "Group all major npm dependencies into a single PR",
+      "matchManagers": ["npm"],
+      "matchUpdateTypes": ["major"],
+      "groupName": "npm dependencies (major)",
+      "groupSlug": "npm-major"
+    },
+    {
+      "description": "Group TypeScript and related type packages",
+      "matchPackagePatterns": ["^typescript", "^@types/"],
+      "groupName": "TypeScript",
+      "groupSlug": "typescript"
+    },
+    {
+      "description": "Group React ecosystem packages",
+      "matchPackagePatterns": ["^react", "^@react-", "^react-dom"],
+      "groupName": "React",
+      "groupSlug": "react"
+    },
+    {
+      "description": "Group Next.js packages",
+      "matchPackagePatterns": ["^next", "^@next/"],
+      "groupName": "Next.js",
+      "groupSlug": "nextjs"
+    },
+    {
+      "description": "Group Expo packages",
+      "matchPackagePatterns": ["^expo", "^@expo/"],
+      "groupName": "Expo",
+      "groupSlug": "expo"
+    },
+    {
+      "description": "Group Convex packages",
+      "matchPackagePatterns": ["^convex"],
+      "groupName": "Convex",
+      "groupSlug": "convex"
+    },
+    {
+      "description": "Group Effect.js packages",
+      "matchPackagePatterns": ["^effect", "^@effect/"],
+      "groupName": "Effect.js",
+      "groupSlug": "effect"
+    },
+    {
+      "description": "Group ESLint packages",
+      "matchPackagePatterns": ["^eslint", "^@eslint/", "eslint-plugin-", "eslint-config-"],
+      "groupName": "ESLint",
+      "groupSlug": "eslint"
+    },
+    {
+      "description": "Group Biome packages",
+      "matchPackagePatterns": ["^@biomejs/"],
+      "groupName": "Biome",
+      "groupSlug": "biome"
+    },
+    {
+      "description": "Group Vitest packages",
+      "matchPackagePatterns": ["^vitest", "^@vitest/"],
+      "groupName": "Vitest",
+      "groupSlug": "vitest"
+    },
+    {
+      "description": "Group Turborepo packages",
+      "matchPackagePatterns": ["^turbo"],
+      "groupName": "Turborepo",
+      "groupSlug": "turborepo"
+    },
+    {
+      "description": "Group React Native packages",
+      "matchPackagePatterns": ["^react-native", "^@react-native", "^@react-navigation"],
+      "groupName": "React Native",
+      "groupSlug": "react-native"
+    },
+    {
+      "description": "Group i18next packages",
+      "matchPackagePatterns": ["^i18next", "^react-i18next"],
+      "groupName": "i18next",
+      "groupSlug": "i18next"
+    },
+    {
+      "description": "Automerge minor and patch updates for dev dependencies",
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true,
+      "automergeType": "pr"
+    },
+    {
+      "description": "Do not automerge major updates",
+      "matchUpdateTypes": ["major"],
+      "automerge": false
+    }
+  ],
+  "vulnerabilityAlerts": {
+    "labels": ["security"],
+    "schedule": ["at any time"]
+  },
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["before 6am on monday"]
+  }
+}
