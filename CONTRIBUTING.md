@@ -44,10 +44,9 @@ We embrace AI as a **pair programming partner**, not just an autocomplete tool. 
 |------|---------|--------------|
 | **VS Code** | Primary IDE | [Download](https://code.visualstudio.com/) |
 | **GitHub Copilot** | AI pair programming | VS Code Extension |
-| **Graphite CLI** | Stacked diffs | `npm i -g @withgraphite/graphite-cli` |
+| **Graphite CLI** | Stacked diffs | `bun add -g @withgraphite/graphite-cli` |
 | **Linear** | Project management | [linear.app/comoi](https://linear.app/comoi) |
-| **Node.js 20+** | Runtime | `brew install node` or [nvm](https://github.com/nvm-sh/nvm) |
-| **pnpm** | Package manager | `npm i -g pnpm` |
+| **Bun** | Package manager & runtime | `curl -fsSL https://bun.sh/install \| bash` |
 
 ### Recommended VS Code Extensions
 
@@ -58,8 +57,8 @@ We embrace AI as a **pair programming partner**, not just an autocomplete tool. 
     "github.copilot-chat",
     "withgraphite.graphite-vscode",
     "linear.linear",
+    "biomejs.biome",
     "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
     "bradlc.vscode-tailwindcss"
   ]
 }
@@ -73,7 +72,7 @@ git clone https://github.com/sebkasanzew/comoi.git
 cd comoi
 
 # Install dependencies
-pnpm install
+bun install
 
 # Set up Graphite
 gt auth --token <your-graphite-token>
@@ -101,7 +100,7 @@ gt log
 │  └─────────┘      └─────────────┘     └──────────┘     └─────────┘         │
 │       │                 │                  │                │               │
 │       ▼                 ▼                  ▼                ▼               │
-│  Break down        Code with AI      Run `pnpm check`   `gt create`        │
+│  Break down        Code with AI      Run `bun check`    `gt create`        │
 │  into tasks        assistance        Fix issues         `gt submit`        │
 │                                                                              │
 └─────────────────────────────────────────────────────────────────────────────┘
@@ -241,23 +240,23 @@ For coordinated changes across files:
 
 ```bash
 # Type check
-pnpm typecheck
+bun run typecheck
 
 # Lint
-pnpm lint
+bun run lint
 
 # Test
-pnpm test
+bun run test
 
 # All checks (recommended)
-pnpm check
+bun run check
 ```
 
 **Quick verification loop:**
 ```bash
 # Watch mode for rapid iteration
-pnpm test:watch
-pnpm dev  # In another terminal
+bun run test:watch
+bun run dev  # In another terminal
 ```
 
 ### Step 4: Ship with Graphite
@@ -631,7 +630,7 @@ gt create -m "feat(scope): description"
 
 # During work: Iterate with Copilot
 # ... code with AI assistance ...
-pnpm check  # Verify after each change
+bun run check  # Verify after each change
 
 # End of feature: Submit PR
 gt submit
@@ -654,9 +653,9 @@ alias gm="gt modify"
 alias gsub="gt submit"
 
 # Project
-alias check="pnpm check"
-alias dev="pnpm dev"
-alias test="pnpm test"
+alias check="bun run check"
+alias dev="bun run dev"
+alias test="bun run test"
 ```
 
 ### Getting Help

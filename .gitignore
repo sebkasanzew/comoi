@@ -52,3 +52,8 @@ yarn-error.log*
 
 # Biome
 .biome-logs/
+
+# Package manager locks (bun.lockb is committed)
+pnpm-lock.yaml
+yarn.lock
+package-lock.json

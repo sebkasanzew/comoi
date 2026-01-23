@@ -4,8 +4,7 @@ This guide walks you through setting up the Comoi development environment and ex
 
 ## Prerequisites
 
-- **Node.js 20+** - [Download](https://nodejs.org/) or use [nvm](https://github.com/nvm-sh/nvm)
-- **pnpm** - Install with `npm install -g pnpm`
+- **Bun** - Install with `curl -fsSL https://bun.sh/install | bash`
 - **VS Code** - [Download](https://code.visualstudio.com/)
 
 ## Quick Start
@@ -16,10 +15,10 @@ git clone https://github.com/sebkasanzew/comoi.git
 cd comoi
 
 # Install dependencies
-pnpm install
+bun install
 
 # Run all apps in development mode
-pnpm dev
+bun run dev
 ```
 
 ## External Services Setup
@@ -41,10 +40,10 @@ Convex provides our database, real-time subscriptions, and serverless functions.
 cd packages/convex
 
 # Login to Convex CLI
-npx convex login
+bunx convex login
 
 # Initialize Convex (link to your project)
-npx convex dev
+bunx convex dev
 ```
 
 This will:
@@ -71,7 +70,7 @@ Expo simplifies React Native development with managed workflows and OTA updates.
 #### Create an Expo Account
 
 1. Sign up at [https://expo.dev](https://expo.dev)
-2. Install EAS CLI: `npm install -g eas-cli`
+2. Install EAS CLI: `bun add -g eas-cli`
 3. Login: `eas login`
 
 #### Configure Expo
@@ -89,12 +88,12 @@ eas init --id your-expo-project-id
 ```bash
 # Start Expo development server
 cd apps/mobile
-pnpm dev
+bun run dev
 
 # Or run on specific platform
-pnpm ios      # iOS Simulator
-pnpm android  # Android Emulator
-pnpm web      # Web browser
+bun run ios      # iOS Simulator
+bun run android  # Android Emulator
+bun run web      # Web browser
 ```
 
 #### Build for Production
@@ -162,50 +161,50 @@ For testing, use COD (Cash on Delivery). Set up payment providers when ready for
 
 ```bash
 # Install dependencies
-pnpm install
+bun install
 
 # Development (all apps)
-pnpm dev
+bun run dev
 
 # Build all packages
-pnpm build
+bun run build
 
 # Run tests
-pnpm test
+bun run test
 
 # Type checking
-pnpm typecheck
+bun run typecheck
 
 # Linting (Biome + ESLint)
-pnpm lint
+bun run lint
 
 # Fix linting issues
-pnpm lint:fix
+bun run lint:fix
 
 # Format code
-pnpm format
+bun run format
 
 # All checks (lint + typecheck + test)
-pnpm check
+bun run check
 ```
 
 ### Running Individual Apps
 
 ```bash
 # Web app (consumer)
-cd apps/web && pnpm dev
+cd apps/web && bun run dev
 # Opens at http://localhost:3000
 
 # Vendor dashboard
-cd apps/vendor && pnpm dev
+cd apps/vendor && bun run dev
 # Opens at http://localhost:3001
 
 # Mobile app
-cd apps/mobile && pnpm dev
+cd apps/mobile && bun run dev
 # Opens Expo dev server
 
 # Convex backend
-cd packages/convex && pnpm dev
+cd packages/convex && bun run dev
 # Starts Convex development server
 ```
 
@@ -235,8 +234,7 @@ comoi/
 │   ├── eslint-config/ # Shared ESLint configuration
 │   └── typescript-config/ # Shared TypeScript configuration
 ├── biome.json         # Biome configuration
-├── turbo.json         # Turborepo configuration
-└── pnpm-workspace.yaml # PNPM workspaces
+└── turbo.json         # Turborepo configuration
 ```
 
 ---
@@ -248,40 +246,40 @@ comoi/
 **"Cannot find Convex deployment"**
 ```bash
 cd packages/convex
-npx convex login
-npx convex dev
+bunx convex login
+bunx convex dev
 ```
 
 **Schema changes not reflecting**
 ```bash
-npx convex dev --once  # Push schema changes
+bunx convex dev --once  # Push schema changes
 ```
 
 ### Expo Issues
 
 **"Expo CLI not found"**
 ```bash
-npm install -g expo-cli eas-cli
+bun add -g expo-cli eas-cli
 ```
 
 **Metro bundler issues**
 ```bash
 cd apps/mobile
-npx expo start --clear
+bunx expo start --clear
 ```
 
 ### Build Issues
 
 **TypeScript errors after dependency changes**
 ```bash
-pnpm install
-pnpm build
+bun install
+bun run build
 ```
 
 **Stale cache issues**
 ```bash
-pnpm clean
-pnpm install
+bun run clean
+bun install
 ```
 
 ---

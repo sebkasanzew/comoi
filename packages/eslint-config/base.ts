@@ -1,4 +1,3 @@
-// @ts-check
 import eslint from "@eslint/js";
 import globals from "globals";
 import tseslint from "typescript-eslint";
@@ -45,7 +44,7 @@ export default tseslint.config(
       "**/convex/_generated/**",
       "**/*.config.js",
       "**/*.config.ts",
-      "**/eslint.config.js",
+      "**/eslint.config.ts",
       "**/next-env.d.ts",
     ],
   }

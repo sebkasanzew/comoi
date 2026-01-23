@@ -5,9 +5,9 @@
   "license": "AGPL-3.0-or-later",
   "type": "module",
   "exports": {
-    "./base": "./base.js",
-    "./nextjs": "./nextjs.js",
-    "./react-native": "./react-native.js"
+    "./base": "./base.ts",
+    "./nextjs": "./nextjs.ts",
+    "./react-native": "./react-native.ts"
   },
   "dependencies": {
     "@eslint/js": "^9.21.0",

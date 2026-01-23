@@ -1,7 +1,6 @@
-// @ts-check
 import reactHooksPlugin from "eslint-plugin-react-hooks";
 import globals from "globals";
-import baseConfig from "./base.js";
+import baseConfig from "./base.ts";
 
 /**
  * Next.js ESLint configuration
