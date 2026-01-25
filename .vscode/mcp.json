@@ -11,6 +11,11 @@
       "headers": {
         "Accept": "text/event-stream"
       }
+    },
+    "graphite": {
+      "type": "stdio",
+      "command": "gt",
+      "args": ["mcp"]
     }
   }
 }
