@@ -115,6 +115,7 @@ Consumers want:
 - **Next.js 16+** with App Router for Web-Frontend and API layer
 - **Effect.js** for type-safe error handling, dependency injection, and business logic composition
 - **Convex** for database, real-time sync, and backend functions
+- **Clerk** for authentication (Email/Password, OAuth, Passkeys, 2FA)
 - **React Native + Expo 54** for Mobile Apps
 - **Convex Optimistic Updates** for offline-tolerance (no WatermelonDB needed for MVP)
 - **Testing** with Playwright (E2E), Vitest (unit/integration), Convex Test
@@ -130,6 +131,7 @@ Consumers want:
 - **Messaging**: Zalo OA + ZNS for vendor communication
 - **i18n**: i18next + react-i18next
 - **Maps**: Google Maps Platform
+- **Vendor Dashboard**: Merged into web app (route-based separation at /vendor/*)
 
 ---
 
@@ -141,11 +143,10 @@ Consumers want:
 ```
 comoi/
 ├── apps/
-│   ├── web/        # Next.js 16 consumer web app
-│   ├── vendor/     # Next.js 16 vendor dashboard
+│   ├── web/        # Next.js 16 consumer + vendor web app
 │   └── mobile/     # Expo 54 React Native app
 ├── packages/
-│   ├── convex/            # Convex backend (schema, functions)
+│   ├── convex/            # Convex backend (schema, functions, auth)
 │   ├── shared/            # Shared types, utils, constants
 │   ├── ui/                # Shared UI components
 │   ├── eslint-config/     # Shared ESLint configurations
@@ -164,6 +165,7 @@ comoi/
 | Next.js | 16.1.4 | Web framework |
 | Expo | 54.0.32 | Mobile framework |
 | Convex | 1.31.6 | Backend & database |
+| Clerk | 6.36+ | Authentication |
 | Effect | 3.19.15 | Business logic composition |
 | Vitest | 4.0.18 | Unit testing |
 | React | 19.2.3 | UI library |

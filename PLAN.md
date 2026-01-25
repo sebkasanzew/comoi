@@ -77,7 +77,7 @@ Build a **modular monolith** with Next.js (web + API) and React Native/Expo (mob
 | **Backend/Functions** | Convex + Effect.js | Type-safe mutations/queries, reactive, Effect for composition |
 | **Database** | Convex | Document DB, reactive subscriptions, built-in real-time sync, excellent DX |
 | **Business Logic** | Effect.js | Type-safe errors, dependency injection, testable, composable |
-| **Authentication** | Convex Auth | Built-in, supports phone OTP, social login, type-safe |
+| **Authentication** | Convex Auth | Built-in, Email/Password, OAuth (Google, Apple, Facebook), future Passkeys |
 | **Offline Strategy** | Convex Optimistic Updates + Local Cache | Convex handles sync automatically, optimistic UI for perceived performance |
 | **Maps/Geo** | Google Maps Platform | Best Vietnam coverage, Places API for autocomplete |
 | **Payments** | MoMo + VNPay + PayOS | Cover 90%+ of Vietnamese digital payments |

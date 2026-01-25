@@ -6,8 +6,28 @@ import { v } from "convex/values";
  *
  * A grocery marketplace connecting consumers with local mini-markets in Vietnam.
  * See PLAN.md for detailed architecture documentation.
+ *
+ * Authentication is handled by Clerk - user data synced via webhooks.
  */
 export default defineSchema({
+  /**
+   * Users (synced from Clerk via webhooks)
+   * Stores Clerk user data for application use
+   */
+  users: defineTable({
+    clerk_id: v.string(), // Clerk user ID
+    email: v.optional(v.string()),
+    phone: v.optional(v.string()),
+    name: v.optional(v.string()),
+    image_url: v.optional(v.string()),
+    role: v.union(v.literal("customer"), v.literal("vendor"), v.literal("admin")),
+    created_at: v.number(),
+    updated_at: v.number(),
+  })
+    .index("by_clerk_id", ["clerk_id"])
+    .index("by_email", ["email"])
+    .index("by_role", ["role"]),
+
   /**
    * Vendors (Mini-markets)
    */

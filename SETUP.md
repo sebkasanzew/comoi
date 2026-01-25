@@ -58,12 +58,71 @@ Add your Convex URL to the web apps:
 ```bash
 # apps/web/.env.local
 NEXT_PUBLIC_CONVEX_URL=https://your-deployment.convex.cloud
-
-# apps/vendor/.env.local
-NEXT_PUBLIC_CONVEX_URL=https://your-deployment.convex.cloud
 ```
 
-### 2. Expo (Mobile App)
+### 2. Clerk (Authentication)
+
+Clerk provides authentication with support for email/password, OAuth, and passkeys.
+
+#### Create a Clerk Application
+
+1. Sign up at [https://clerk.com](https://clerk.com)
+2. Create a new application named "Comoi"
+3. Configure your sign-in options:
+   - Email/Password
+   - Google OAuth
+   - Facebook OAuth (popular in Vietnam)
+   - Apple OAuth (for iOS users)
+
+#### Configure Clerk for Web (Next.js)
+
+1. Copy your API keys from the Clerk Dashboard
+
+```bash
+# apps/web/.env.local
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_xxx
+CLERK_SECRET_KEY=sk_test_xxx
+```
+
+2. Optional: Configure sign-in/sign-up URLs
+
+```bash
+# apps/web/.env.local
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+```
+
+#### Configure Clerk for Mobile (Expo)
+
+1. In Clerk Dashboard, create a new "Mobile" application or use the same app
+2. Add your API keys to Expo environment
+
+```bash
+# apps/mobile/.env
+EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_xxx
+```
+
+#### Configure Convex to Validate Clerk JWTs
+
+1. Get your Clerk JWT Issuer Domain from:
+   - Clerk Dashboard → Configure → JWT Templates → Convex
+   - Or use: `https://<your-instance>.clerk.accounts.dev`
+
+2. Add to Convex Environment Variables:
+   - Go to [Convex Dashboard](https://dashboard.convex.dev)
+   - Navigate to Settings > Environment Variables
+   - Add: `CLERK_JWT_ISSUER_DOMAIN=https://<your-instance>.clerk.accounts.dev`
+
+#### Create a Convex JWT Template in Clerk (Important!)
+
+1. Go to Clerk Dashboard → JWT Templates
+2. Click "New template"
+3. Select "Convex" from the list
+4. Save the template
+
+This ensures Clerk issues JWTs that Convex can validate.
+
+### 3. Expo (Mobile App)
 
 Expo simplifies React Native development with managed workflows and OTA updates.
 
@@ -106,7 +165,7 @@ eas build --platform ios
 eas build --platform android
 ```
 
-### 3. Google Maps Platform (Optional for Development)
+### 4. Google Maps Platform (Optional for Development)
 
 Required for location-based features like finding nearby vendors.
 
@@ -131,7 +190,7 @@ NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your-api-key
 # apps/mobile - add to app.json config
 ```
 
-### 4. Payment Providers (Production Only)
+### 5. Payment Providers (Production Only)
 
 For testing, use COD (Cash on Delivery). Set up payment providers when ready for production.
 
@@ -191,13 +250,10 @@ bun run check
 ### Running Individual Apps
 
 ```bash
-# Web app (consumer)
+# Web app (consumer + vendor)
 cd apps/web && bun run dev
-# Opens at http://localhost:3000
-
-# Vendor dashboard
-cd apps/vendor && bun run dev
-# Opens at http://localhost:3001
+# Consumer: http://localhost:3000
+# Vendor dashboard: http://localhost:3000/vendor
 
 # Mobile app
 cd apps/mobile && bun run dev
