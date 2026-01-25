@@ -1,0 +1,16 @@
+{
+  "servers": {
+    "convex-mcp": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "convex@latest", "mcp", "start"]
+    },
+    "clerk-mcp": {
+      "type": "http",
+      "url": "https://mcp.clerk.com/mcp",
+      "headers": {
+        "Accept": "text/event-stream"
+      }
+    }
+  }
+}

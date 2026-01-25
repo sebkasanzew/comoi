@@ -51,6 +51,8 @@ yarn-error.log*
 
 # TypeScript
 *.tsbuildinfo
+# Next.js generated TypeScript route types
+apps/web/next-env.d.ts
 
 # Biome
 .biome-logs/

@@ -69,6 +69,7 @@ Comoi provides:
 | **Linting** | [Biome](https://biomejs.dev/) + [ESLint](https://eslint.org/) | 2.3.12 / 9.39 |
 | **Testing** | [Vitest](https://vitest.dev/) | 4.0.18 |
 | **i18n** | [i18next](https://www.i18next.com/) | 25.8.0 |
+| **Authentication** | [Convex Auth](https://labs.convex.dev/auth) | 0.0.90 |
 
 ### Integrations
 - **Payment**: MoMo, VNPay, PayOS
@@ -88,14 +89,18 @@ Comoi provides:
 ```
 comoi/
 ├── apps/
-│   ├── web/                    # Next.js 16 consumer web app
-│   ├── vendor/                 # Next.js 16 vendor dashboard
+│   ├── web/                    # Next.js 16 consumer + vendor web app
+│   │   └── src/app/
+│   │       ├── vendor/         # Vendor dashboard routes
+│   │       └── auth/           # Authentication pages
 │   └── mobile/                 # Expo 54 React Native app
 │
 ├── packages/
-│   ├── convex/                 # Convex backend (schema, functions)
+│   ├── convex/                 # Convex backend (schema, functions, auth)
 │   │   └── convex/
-│   │       ├── schema.ts       # Database schema
+│   │       ├── schema.ts       # Database schema (with authTables)
+│   │       ├── auth.ts         # Authentication configuration
+│   │       ├── http.ts         # HTTP routes (OAuth callbacks)
 │   │       └── _generated/     # Auto-generated types
 │   ├── shared/                 # Shared types, utils, constants
 │   ├── ui/                     # Shared UI components
@@ -135,15 +140,38 @@ comoi/
    bun install
    ```
 
-3. **Run development servers**
+3. **Set up Convex** (if not already connected)
+   ```bash
+   cd packages/convex
+   npx convex dev
+   ```
+   Follow the prompts to authenticate and create a deployment.
+
+4. **Configure environment variables**
+   
+   Copy `.env.example` to `.env.local` in each app folder:
+   ```bash
+   # Root level for Convex package
+   cp .env.example .env.local
+   
+   # Web app
+   cp apps/web/.env.example apps/web/.env.local
+   
+   # Mobile app
+   cp apps/mobile/.env.example apps/mobile/.env.local
+   ```
+   
+   Update `NEXT_PUBLIC_CONVEX_URL` / `EXPO_PUBLIC_CONVEX_URL` with your Convex deployment URL.
+
+5. **Run development servers**
    ```bash
    # Start all apps in development mode
    bun run dev
    ```
 
    This starts:
-   - Web app at `http://localhost:3000`
-   - Vendor dashboard at `http://localhost:3001`
+   - Web app (consumer + vendor) at `http://localhost:3000`
+   - Vendor dashboard at `http://localhost:3000/vendor`
    - Mobile app via Expo
 
 ### Available Scripts
