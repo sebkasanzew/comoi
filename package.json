@@ -17,6 +17,7 @@
     "test": "turbo run test",
     "test:watch": "turbo run test:watch",
     "test:ui": "turbo run test:ui",
+    "test:e2e": "cd apps/mobile && bun run test:e2e",
     "check": "turbo run lint typecheck test",
     "seed": "cd packages/convex && bun run seed",
     "seed:reset": "cd packages/convex && bun run seed:reset",

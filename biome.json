@@ -148,6 +148,12 @@
       }
     },
     {
+      "includes": ["**/scripts/**/*.ts", "**/scripts/**/*.tsx"],
+      "javascript": {
+        "globals": ["Bun"]
+      }
+    },
+    {
       "includes": ["**/e2e/**/*.ts", "**/e2e/**/*.tsx"],
       "javascript": {
         "globals": [

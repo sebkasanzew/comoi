@@ -3,8 +3,8 @@ name: CI
 on:
   push:
     branches: [main]
+  # Run CI for pull requests targeting any branch so stacked PRs (Graphite) get checks.
   pull_request:
-    branches: [main]
 
 permissions:
   contents: read

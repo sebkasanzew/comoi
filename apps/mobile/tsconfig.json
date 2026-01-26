@@ -3,6 +3,7 @@
   "compilerOptions": {
     "strict": true,
     "baseUrl": ".",
+    "types": ["bun", "jest"],
     "paths": {
       "@/*": ["./*"],
       "tailwind.config": ["./tailwind.config.ts"]

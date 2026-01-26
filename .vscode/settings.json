@@ -1,27 +1,9 @@
 {
-  // Editor
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "biomejs.biome",
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit",
-    "quickfix.biome": "explicit",
-    "source.organizeImports.biome": "explicit"
-  },
-  "editor.tabSize": 2,
-  "editor.insertSpaces": true,
-  "editor.rulers": [100],
-
-  // Biome (fast linting and formatting)
+  // Formatters
   "[javascript]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
   "[javascriptreact]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  },
-  "[typescriptreact]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
   "[json]": {
@@ -30,54 +12,15 @@
   "[jsonc]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
-
-  // TypeScript
-  "typescript.preferences.importModuleSpecifier": "relative",
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "typescript.suggest.autoImports": true,
-  "typescript.tsdk": "node_modules/typescript/lib",
-
-  // GitHub Copilot
-  "github.copilot.enable": {
-    "*": true,
-    "plaintext": false,
-    "markdown": true,
-    "scminput": false
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
   },
-  "github.copilot.editor.enableAutoCompletions": true,
-
-  // Files
-  "files.associations": {
-    "*.css": "tailwindcss"
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
   },
-  "files.exclude": {
-    "**/node_modules": true,
-    "**/.git": true,
-    "**/dist": true,
-    "**/.next": true,
-    "**/.turbo": true
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
   },
-
-  // Search
-  "search.exclude": {
-    "**/node_modules": true,
-    "**/dist": true,
-    "**/.next": true,
-    "**/pnpm-lock.yaml": true
-  },
-
-  // ESLint
-  "eslint.workingDirectories": [
-    { "pattern": "apps/*" },
-    { "pattern": "packages/*" },
-    { "directory": "convex" }
-  ],
-
-  // Tailwind CSS
-  "tailwindCSS.experimental.classRegex": [
-    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
-    ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
-  ],
 
   // Spell Checker
   "cSpell.words": [
@@ -90,5 +33,80 @@
     "typecheck",
     "vnpay",
     "zalo"
-  ]
+  ],
+
+  // Chat
+  "chat.tools.terminal.autoApprove": {
+    "adb": true,
+    "jar": true,
+    "javap": true,
+    "unzip": true
+  },
+
+  // Editor
+  "editor.codeActionsOnSave": {
+    "source.fixAll.biome": "explicit"
+  },
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.formatOnSave": true,
+  "editor.insertSpaces": true,
+  "editor.rulers": [100],
+  "editor.tabSize": 2,
+
+  // ESLint
+  "eslint.workingDirectories": [
+    {
+      "pattern": "apps/*"
+    },
+    {
+      "pattern": "packages/*"
+    },
+    {
+      "directory": "convex"
+    }
+  ],
+
+  // Files
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.next": true,
+    "**/.turbo": true,
+    "**/dist": true,
+    "**/node_modules": true
+  },
+
+  // GitHub Copilot
+  "github.copilot.editor.enableAutoCompletions": true,
+  "github.copilot.enable": {
+    "*": true,
+    "markdown": true,
+    "plaintext": false,
+    "scminput": false
+  },
+
+  // Java
+  "java.configuration.updateBuildConfiguration": "disabled",
+
+  // Search
+  "search.exclude": {
+    "**/.next": true,
+    "**/dist": true,
+    "**/node_modules": true,
+    "**/pnpm-lock.yaml": true
+  },
+
+  // Tailwind CSS
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ],
+
+  // TypeScript
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.suggest.autoImports": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.updateImportsOnFileMove.enabled": "always"
 }
