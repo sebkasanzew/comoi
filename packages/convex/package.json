@@ -7,6 +7,8 @@
   "scripts": {
     "dev": "convex dev",
     "deploy": "convex deploy --typecheck=disable",
+    "seed": "convex run seed:runSeed",
+    "seed:reset": "convex run seed:runSeed '{\"reset\": true}'",
     "build": "tsc --noEmit",
     "lint": "biome check . && eslint .",
     "lint:fix": "biome check --write . && eslint . --fix",
@@ -19,6 +21,7 @@
   },
   "dependencies": {
     "@comoi/shared": "workspace:*",
+    "@faker-js/faker": "10.2.0",
     "convex": "1.31.6",
     "effect": "3.19.15"
   },

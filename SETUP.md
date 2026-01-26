@@ -264,6 +264,53 @@ cd packages/convex && bun run dev
 # Starts Convex development server
 ```
 
+### Seeding Development Data
+
+The project includes a seed system for populating the database with realistic Vietnamese grocery marketplace data using `@faker-js/faker`.
+
+#### Quick Seed
+
+```bash
+# From project root - seed with default counts
+bun run seed
+
+# Reset and reseed (clears all tables first)
+bun run seed:reset
+```
+
+#### Custom Seed Configuration
+
+```bash
+# From packages/convex directory
+cd packages/convex
+
+# Seed with custom counts
+bunx convex run seed:runSeed '{"categories": 10, "products": 50, "vendors": 20}'
+
+# Custom counts with reset
+bunx convex run seed:runSeed '{"reset": true, "customers": 100, "orders": 200}'
+```
+
+#### Default Counts
+| Table | Default Count |
+|-------|---------------|
+| Categories | 8 |
+| Products | ~50 (all from categories) |
+| Vendors | 12 |
+| Customers | 25 |
+| Orders | 50 |
+
+> **Note:** Price offers are auto-generated (each vendor carries 60-90% of products). Order items are created with each order (1-5 items per order).
+
+#### What Gets Seeded
+
+- **Categories**: 8 Vietnamese grocery categories (Vegetables, Meat, Seafood, Dairy, Rice, Seasonings, Beverages, Dry Goods)
+- **Products**: Realistic Vietnamese grocery items with names in Vietnamese and English
+- **Vendors**: Mini-markets with Vietnamese names, addresses, and phone numbers
+- **Price Offers**: Vendor-specific pricing with stock status
+- **Customers**: Vietnamese names, phone numbers, and addresses
+- **Orders**: Realistic orders with multiple items, various statuses, and payment methods
+
 ### VS Code Extensions
 
 Open the project in VS Code and install recommended extensions:
