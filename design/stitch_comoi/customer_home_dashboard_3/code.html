@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Search &amp; Category Results</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec13",
+                        "primary-dark": "#0eb50e",
+                        "primary-contrast": "#117a11",
+                        "primary-contrast-dark": "#0d630d",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102210",
+                    },
+                    fontFamily: {
+                        "display": ["Be Vietnam Pro", "sans-serif"],
+                        "body": ["Be Vietnam Pro", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(844px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#111811] dark:text-white font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden pb-24">
+<div class="sticky top-0 z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-gray-100 dark:border-white/5">
+<div class="px-4 py-3 flex items-center gap-3">
+<button class="flex items-center justify-center w-8 h-8 -ml-1 text-gray-800 dark:text-white rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined" style="font-size: 24px;">arrow_back</span>
+</button>
+<div class="flex-1">
+<label class="flex w-full items-center h-10 bg-white dark:bg-white/10 border border-gray-200 dark:border-transparent rounded-lg px-3 shadow-sm">
+<span class="material-symbols-outlined text-gray-400" style="font-size: 20px;">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-sm ml-2 placeholder-gray-400 dark:text-white" placeholder="Tìm kiếm trong Trái cây tươi..." value="Táo Envy"/>
+<span class="material-symbols-outlined text-gray-400" style="font-size: 20px;">close</span>
+</label>
+</div>
+<button class="relative p-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-white/10 rounded-full transition-colors">
+<span class="material-symbols-outlined" style="font-size: 24px;">shopping_cart</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+</button>
+</div>
+<div class="px-4 pb-3 overflow-x-auto no-scrollbar flex gap-2">
+<button class="flex items-center gap-1 px-3 py-1.5 bg-primary-contrast text-white rounded-full text-xs font-medium whitespace-nowrap shadow-sm">
+<span class="material-symbols-outlined" style="font-size: 16px;">tune</span>
+                    Lọc
+                </button>
+<button class="flex items-center gap-1 px-3 py-1.5 bg-white dark:bg-white/10 border border-primary-contrast text-primary-contrast dark:text-primary-contrast rounded-full text-xs font-medium whitespace-nowrap shadow-sm">
+                    Giá: Thấp đến Cao
+                    <span class="material-symbols-outlined" style="font-size: 16px;">close</span>
+</button>
+<button class="flex items-center gap-1 px-3 py-1.5 bg-white dark:bg-white/10 border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-300 rounded-full text-xs font-medium whitespace-nowrap">
+                    Gần tôi
+                </button>
+<button class="flex items-center gap-1 px-3 py-1.5 bg-white dark:bg-white/10 border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-300 rounded-full text-xs font-medium whitespace-nowrap">
+                    Đánh giá cao
+                </button>
+<button class="flex items-center gap-1 px-3 py-1.5 bg-white dark:bg-white/10 border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-300 rounded-full text-xs font-medium whitespace-nowrap">
+                    Giao nhanh
+                </button>
+</div>
+</div>
+<div class="px-4 py-3 flex items-center justify-between">
+<h1 class="text-base font-bold text-[#111811] dark:text-white">Kết quả cho "Trái cây tươi"</h1>
+<span class="text-xs text-gray-500 dark:text-gray-400">128 sản phẩm</span>
+</div>
+<div class="px-4 grid grid-cols-2 gap-3 pb-4">
+<div class="flex flex-col bg-white dark:bg-white/5 rounded-xl border border-gray-100 dark:border-white/5 overflow-hidden shadow-sm hover:shadow-md transition-all">
+<div class="relative w-full aspect-square">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAFwWJPbTExrlYq52t7n9FkrggoVKzmWMofE9k1RKmcSBZyWhzIbvoie_jof5J10bvI2-LAQuMcVN-yznwHZE-ueVomGHmhY5FFKbD-AtTVefFu9PQeGlPvT6p_UtbtgXA830kgaEH3su8lUUXDO6v83WTegtmfQrjIiuby-rqnVu7AGDEpY1gpqNuFqH19gB2K5XxSEHCvK_6RhWGLUGOoao9wLmy8wB6kl7bu0AxY7N2BiUQ6_OAkFu8qei1kAaMJ5zVa2kf_Xgko')"></div>
+<div class="absolute top-2 left-2 bg-green-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">Rẻ nhất</div>
+<button class="absolute top-2 right-2 p-1.5 bg-white/80 dark:bg-black/50 backdrop-blur-sm rounded-full text-gray-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined" style="font-size: 18px;">favorite</span>
+</button>
+</div>
+<div class="p-3 flex flex-col flex-1">
+<div class="flex items-start justify-between gap-2 mb-1">
+<h3 class="font-medium text-sm text-[#111811] dark:text-white line-clamp-2 leading-snug">Táo Envy Mỹ Size Lớn (1kg)</h3>
+</div>
+<div class="mt-auto">
+<div class="flex items-baseline gap-1.5 mb-2">
+<span class="text-primary-contrast-dark dark:text-primary font-bold text-lg">145.000đ</span>
+<span class="text-xs text-gray-400">/kg</span>
+</div>
+<div class="flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-green-600" style="font-size: 14px;">storefront</span>
+<span class="text-[11px] text-gray-600 dark:text-gray-300 truncate font-medium">WinMart+ (0.5km)</span>
+</div>
+<button class="w-full py-2 px-3 rounded-lg bg-white border border-primary-contrast text-primary-contrast text-xs font-bold hover:bg-green-50 active:bg-green-100 transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">compare_arrows</span>
+                            So sánh giá
+                        </button>
+</div>
+</div>
+</div>
+<div class="flex flex-col bg-white dark:bg-white/5 rounded-xl border border-gray-100 dark:border-white/5 overflow-hidden shadow-sm hover:shadow-md transition-all">
+<div class="relative w-full aspect-square">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD3Y3J8KCK-P1WaZ9JEN_SJwuy5d4hWw2G48sNCsMX5DU1EZEBhszz2vULlkcCjQBL61cOuLnrMt_dy9YMIdx9Nrww86wKSQtXabSw3cUD9BtqHSWX6IYwVo_9FVKM3GB1tah2153sZnPkrmWTJ-B499xnWuHltLxJgOcmB91BWOYPma-_zseUxiy-lZAkeiZemYr-hThzyRq1CkcKzIDlOqyEHJMYluJ5gncMPLvtFSRpxEC0TI-96ZGCVM-Aq4CLCl6qVc0QLDhp_')"></div>
+<button class="absolute top-2 right-2 p-1.5 bg-white/80 dark:bg-black/50 backdrop-blur-sm rounded-full text-gray-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined" style="font-size: 18px;">favorite</span>
+</button>
+</div>
+<div class="p-3 flex flex-col flex-1">
+<div class="flex items-start justify-between gap-2 mb-1">
+<h3 class="font-medium text-sm text-[#111811] dark:text-white line-clamp-2 leading-snug">Cam Sành Vắt Nước (Túi 2kg)</h3>
+</div>
+<div class="mt-auto">
+<div class="flex items-baseline gap-1.5 mb-2">
+<span class="text-primary-contrast-dark dark:text-primary font-bold text-lg">45.000đ</span>
+<span class="text-xs text-gray-400">/túi</span>
+</div>
+<div class="flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-green-600" style="font-size: 14px;">storefront</span>
+<span class="text-[11px] text-gray-600 dark:text-gray-300 truncate font-medium">Chợ Bến Thành (1.2km)</span>
+</div>
+<button class="w-full py-2 px-3 rounded-lg bg-primary-contrast text-white text-xs font-bold hover:bg-primary-contrast-dark shadow-md shadow-primary-contrast/20 transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">add_shopping_cart</span>
+                            Thêm vào giỏ
+                        </button>
+</div>
+</div>
+</div>
+<div class="flex flex-col bg-white dark:bg-white/5 rounded-xl border border-gray-100 dark:border-white/5 overflow-hidden shadow-sm hover:shadow-md transition-all">
+<div class="relative w-full aspect-square">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD1o9NfxVYmP3oOqrIJeV1aOY-rez9dXdnh-_dG0d8ZV13dZ_Dz40gR1vPk4OmnVXJ2nXXjP-eTKY8LiEu3LvBa3iBCyTJkyXNpzFbFX9l5cluQUOJkJqTaAB4tTuBCpk20xMup8BODXsJAvzAzrI4ze9YxeJHFBanHJOPFNfMXLwGo-KD27nMThg3BLhJV5wtDFfQWEnNtb7JUoiqS9JELVufl7l_gdUwfl0HlO6QQSOTs-vNjU7UBx9dubL6872nbIqNwZITao5P3')"></div>
+<div class="absolute top-2 left-2 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">-15%</div>
+<button class="absolute top-2 right-2 p-1.5 bg-white/80 dark:bg-black/50 backdrop-blur-sm rounded-full text-gray-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined" style="font-size: 18px;">favorite</span>
+</button>
+</div>
+<div class="p-3 flex flex-col flex-1">
+<div class="flex items-start justify-between gap-2 mb-1">
+<h3 class="font-medium text-sm text-[#111811] dark:text-white line-clamp-2 leading-snug">Dưa Hấu Không Hạt Long An (3kg)</h3>
+</div>
+<div class="mt-auto">
+<div class="flex items-baseline gap-1.5 mb-2">
+<span class="text-primary-contrast-dark dark:text-primary font-bold text-lg">35.000đ</span>
+<span class="text-xs text-gray-400 line-through decoration-1">42k</span>
+</div>
+<div class="flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-green-600" style="font-size: 14px;">storefront</span>
+<span class="text-[11px] text-gray-600 dark:text-gray-300 truncate font-medium">Bách Hóa Xanh (0.8km)</span>
+</div>
+<button class="w-full py-2 px-3 rounded-lg bg-white border border-primary-contrast text-primary-contrast text-xs font-bold hover:bg-green-50 active:bg-green-100 transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">compare_arrows</span>
+                            So sánh giá
+                        </button>
+</div>
+</div>
+</div>
+<div class="flex flex-col bg-white dark:bg-white/5 rounded-xl border border-gray-100 dark:border-white/5 overflow-hidden shadow-sm hover:shadow-md transition-all">
+<div class="relative w-full aspect-square">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD4vF5qAqE6Q7usFTFoyWWwNt6Pa7cLAQ0v5MpJVMV_PLl8KLhpKHWDQtOX9Yh-_euJrs5fM3C0ULdHgZEnDM8Ak3HwOcDjcSH63zjXR9ocWtj1ZM0UCtHv2S5pOJUa1HXI-GCQfflnBJXFPvv5O7Aor4RMt4WlLybcEwZh-23ceMTF0uBGt18QpYlo5qQnjP4fuIf9jYbxgbklOm6hfmYAc6fWImfk9PMaCxgtnJ07mwM_5B6zMKmAZlr2275MEF7PvlZrglyCTOXl')"></div>
+<button class="absolute top-2 right-2 p-1.5 bg-white/80 dark:bg-black/50 backdrop-blur-sm rounded-full text-gray-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined" style="font-size: 18px;">favorite</span>
+</button>
+</div>
+<div class="p-3 flex flex-col flex-1">
+<div class="flex items-start justify-between gap-2 mb-1">
+<h3 class="font-medium text-sm text-[#111811] dark:text-white line-clamp-2 leading-snug">Nho Xanh Ninh Thuận (500g)</h3>
+</div>
+<div class="mt-auto">
+<div class="flex items-baseline gap-1.5 mb-2">
+<span class="text-primary-contrast-dark dark:text-primary font-bold text-lg">65.000đ</span>
+<span class="text-xs text-gray-400">/hộp</span>
+</div>
+<div class="flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-green-600" style="font-size: 14px;">storefront</span>
+<span class="text-[11px] text-gray-600 dark:text-gray-300 truncate font-medium">Co.op Food (2.1km)</span>
+</div>
+<button class="w-full py-2 px-3 rounded-lg bg-white border border-primary-contrast text-primary-contrast text-xs font-bold hover:bg-green-50 active:bg-green-100 transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">compare_arrows</span>
+                            So sánh giá
+                        </button>
+</div>
+</div>
+</div>
+<div class="flex flex-col bg-white dark:bg-white/5 rounded-xl border border-gray-100 dark:border-white/5 overflow-hidden shadow-sm hover:shadow-md transition-all">
+<div class="relative w-full aspect-square">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAAiGi7HwJ2eTEHO0TkpfzUHg3-toeZ8wK5eut3XzTnbolITFD267bU8gTECELeWAPUeiIDSc8hgxiJbiB4Off1pfcTXECv8NNpZST51jar4z-Gd_t_aVLk1CKFP9ph0rM7SU20JOkHioExtOK6kAtcMsTk7X3ON728LZsEzHzJ0tno6TkgYGhKeN1JzS75lULDXWzq1dSTtazJ_AyvKU02M99JEY91wHwoftBOY1T2L--zS20nX2KOT2ED4NyGXept2QheWO-7c8ny')"></div>
+<button class="absolute top-2 right-2 p-1.5 bg-white/80 dark:bg-black/50 backdrop-blur-sm rounded-full text-gray-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined" style="font-size: 18px;">favorite</span>
+</button>
+</div>
+<div class="p-3 flex flex-col flex-1">
+<div class="flex items-start justify-between gap-2 mb-1">
+<h3 class="font-medium text-sm text-[#111811] dark:text-white line-clamp-2 leading-snug">Xoài Cát Chu Vàng (1kg)</h3>
+</div>
+<div class="mt-auto">
+<div class="flex items-baseline gap-1.5 mb-2">
+<span class="text-primary-contrast-dark dark:text-primary font-bold text-lg">55.000đ</span>
+<span class="text-xs text-gray-400">/kg</span>
+</div>
+<div class="flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-green-600" style="font-size: 14px;">storefront</span>
+<span class="text-[11px] text-gray-600 dark:text-gray-300 truncate font-medium">Sạp Chị Ba (0.3km)</span>
+</div>
+<button class="w-full py-2 px-3 rounded-lg bg-primary-contrast text-white text-xs font-bold hover:bg-primary-contrast-dark shadow-md shadow-primary-contrast/20 transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">add_shopping_cart</span>
+                            Thêm vào giỏ
+                        </button>
+</div>
+</div>
+</div>
+<div class="flex flex-col bg-white dark:bg-white/5 rounded-xl border border-gray-100 dark:border-white/5 overflow-hidden shadow-sm hover:shadow-md transition-all">
+<div class="relative w-full aspect-square">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBKQIQ3irk8b_8H8Pcqu8uo2aGx6y8l7Xb5pXlmuS-WKmyPeD3oqEEgSoIAr7K9gJ_bv1xaOVoIVi-75p8We_i66oGB-ug5PEKNi00tyrJYIrAS7WgfwbddqoofEvBALnQ0fqHkqNZ8182PLDMo6JJ7rTIsFkAG2Xil0I4sCaInODEYTfn5w5zfZYm6WsYtAqNHggnNd8Iwd7tVf2XYK1R1fi0OUrXEZE8tej8OC6cV7tUIjAbuDkDxyWIZYniwue4yhfUSX9aoblnw')"></div>
+<div class="absolute top-2 left-2 bg-blue-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">Mua 2 tặng 1</div>
+<button class="absolute top-2 right-2 p-1.5 bg-white/80 dark:bg-black/50 backdrop-blur-sm rounded-full text-gray-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined" style="font-size: 18px;">favorite</span>
+</button>
+</div>
+<div class="p-3 flex flex-col flex-1">
+<div class="flex items-start justify-between gap-2 mb-1">
+<h3 class="font-medium text-sm text-[#111811] dark:text-white line-clamp-2 leading-snug">Chuối Già Nam Mỹ (Nải 1kg)</h3>
+</div>
+<div class="mt-auto">
+<div class="flex items-baseline gap-1.5 mb-2">
+<span class="text-primary-contrast-dark dark:text-primary font-bold text-lg">22.000đ</span>
+<span class="text-xs text-gray-400">/nải</span>
+</div>
+<div class="flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-green-600" style="font-size: 14px;">storefront</span>
+<span class="text-[11px] text-gray-600 dark:text-gray-300 truncate font-medium">WinMart+ (0.5km)</span>
+</div>
+<button class="w-full py-2 px-3 rounded-lg bg-white border border-primary-contrast text-primary-contrast text-xs font-bold hover:bg-green-50 active:bg-green-100 transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">compare_arrows</span>
+                            So sánh giá
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<div class="px-4 pb-8 flex justify-center">
+<button class="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-white/10 rounded-full text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-200 transition-colors">
+                Xem thêm sản phẩm
+                <span class="material-symbols-outlined" style="font-size: 20px;">expand_more</span>
+</button>
+</div>
+<div class="fixed bottom-0 left-0 right-0 bg-white dark:bg-[#102210] border-t border-gray-100 dark:border-white/5 px-6 py-2 pb-5 z-50">
+<div class="flex justify-between items-center">
+<button class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 w-12">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Trang chủ</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 w-12">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="text-[10px] font-medium">Đơn hàng</span>
+</button>
+<div class="relative -top-5">
+<button class="flex items-center justify-center w-14 h-14 rounded-full bg-primary-contrast text-white shadow-lg shadow-primary-contrast/40 hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[24px]">search</span>
+</button>
+</div>
+<button class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 w-12">
+<span class="material-symbols-outlined">favorite</span>
+<span class="text-[10px] font-medium">Đã lưu</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 w-12">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Tài khoản</span>
+</button>
+</div>
+</div>
+</div>
+
+</body></html>

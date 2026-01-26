@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Customer Order History</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec13",
+                        "primary-dark": "#0eb50e",
+                        "primary-contrast": "#117a11",
+                        "primary-contrast-dark": "#0d630d",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102210",
+                    },
+                    fontFamily: {
+                        "display": ["Be Vietnam Pro", "sans-serif"],
+                        "body": ["Be Vietnam Pro", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#111811] dark:text-white font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden pb-24">
+<div class="sticky top-0 z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm p-4 border-b border-gray-100 dark:border-white/5">
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center rounded-full h-10 w-10 hover:bg-gray-100 dark:hover:bg-white/10 text-[#111811] dark:text-white transition-all">
+<span class="material-symbols-outlined" style="font-size: 24px;">arrow_back</span>
+</button>
+<h1 class="text-xl font-bold leading-tight">Lịch sử đơn hàng</h1>
+<div class="flex-1"></div>
+<button class="flex items-center justify-center rounded-full h-10 w-10 hover:bg-gray-100 dark:hover:bg-white/10 text-[#111811] dark:text-white transition-all">
+<span class="material-symbols-outlined" style="font-size: 24px;">filter_list</span>
+</button>
+</div>
+</div>
+<div class="px-4 py-2 space-y-6">
+<div>
+<h2 class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3 mt-2 px-1">Tháng 10, 2023</h2>
+<div class="space-y-4">
+<div class="bg-white dark:bg-white/5 rounded-2xl p-4 shadow-sm border border-gray-100 dark:border-white/5">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-gray-100 dark:bg-white/10 flex items-center justify-center overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC0WSkS5XoJVl1WkrVPQqlEtjKKqgyRbBl2-d95elrtJmAZdsWxk_p9ZNlQN3o5SwS7DOMkGYKWOOvFEcfdifDlACwq1jKI81oRR_lAHlAVkMq7Pm_MK6qmhPEaFNpZTL3p-FwaUytHQ9rBKEQjdLEm0R6RwWbPLq905kXXU1ZIJnkVK7yZn2Y8Qazh-aH2V8RaHb-VIU9PyeG_6Ym1ljEPTV0kmxFMWcvdyqoxnGrOQpCmvVkaY3dA9f0hKUxqtu8JLwoEudp21wDL");'></div>
+</div>
+<div>
+<h3 class="font-bold text-base leading-tight">WinMart+ Quận 1</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">20 Th10, 14:30 • 5 món</p>
+</div>
+</div>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                                Hoàn tất
+                            </span>
+</div>
+<div class="flex items-center justify-between py-3 border-t border-b border-gray-50 dark:border-white/5 mb-3">
+<div class="flex -space-x-2 overflow-hidden">
+<img alt="" class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#102210] object-cover bg-gray-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBB8t5p4NwDqvOLNZoMcAJGM9cwpO16HXWDuYYG9FeXHCZ0Nzv9JpF4rC4IvljPbMxpOhAOGeDReZbEyUzq2dyRDB5F5yZn7OukAMjrcg78fatYJWjsMfpULAYDhXmRM6bgcxEfi-b_IZWKfHsTFcP5UNhQZlwS7xpmUwx4sDZkgu01wwY_WRpuY2KnnXb8cUtyv_13N38kxJcatfQIR_6zbRwVzZeLgkPRSrCXZ8teJZX1OGlvNKqf-5a902zEEFWrK-_PgbZJKjPA"/>
+<img alt="" class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#102210] object-cover bg-gray-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvM0vCxm079gGx2cZnHCBbP2YrojMhFNfmH16CW01rVSTF1ueU17zR1XR7zLQRG4xTTSHf9TUu4wEq6i_ddRfgrLcL0sfwaFpZ17j5g3jBTojvnioJ90hE2rd7ARj1olNi95W-1nwWNqPZlSftOMmJYZ6MvYZTxwPz2HKnJUb3bIAJAtKflOnBVjBSkPcewuBGNnQb1MtH9i-8m-OSjbcQwbEuXRkJxU2vhhfjugPMHyIJwNiwr_g-_doq9Mxw1Qt9-u6quRtJzd0M"/>
+<img alt="" class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#102210] object-cover bg-gray-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKQIQ3irk8b_8H8Pcqu8uo2aGx6y8l7Xb5pXlmuS-WKmyPeD3oqEEgSoIAr7K9gJ_bv1xaOVoIVi-75p8We_i66oGB-ug5PEKNi00tyrJYIrAS7WgfwbddqoofEvBALnQ0fqHkqNZ8182PLDMo6JJ7rTIsFkAG2Xil0I4sCaInODEYTfn5w5zfZYm6WsYtAqNHggnNd8Iwd7tVf2XYK1R1fi0OUrXEZE8tej8OC6cV7tUIjAbuDkDxyWIZYniwue4yhfUSX9aoblnw"/>
+<div class="h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#102210] bg-gray-100 dark:bg-white/10 flex items-center justify-center text-[10px] font-bold text-gray-500">+2</div>
+</div>
+<div class="text-right">
+<p class="text-xs text-gray-500 dark:text-gray-400">Tổng tiền</p>
+<p class="font-bold text-base text-primary-contrast">345.000đ</p>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 py-2.5 rounded-lg border border-gray-200 dark:border-white/10 text-sm font-bold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+                                Chi tiết
+                            </button>
+<button class="flex-1 py-2.5 rounded-lg bg-primary-contrast text-white text-sm font-bold hover:bg-primary-contrast-dark transition-colors shadow-lg shadow-primary-contrast/20">
+                                Đặt lại
+                            </button>
+</div>
+</div>
+<div class="bg-white dark:bg-white/5 rounded-2xl p-4 shadow-sm border border-gray-100 dark:border-white/5 opacity-80">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-gray-100 dark:bg-white/10 flex items-center justify-center overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDj2pR8Oq8UWz03NCWg6yJtgwTyEHpR_AjgIQLGQ_VmuL2Nw26Cwc1M2bRxf6GHkPnTzrQyqVvAIMSlktiiGIgvBQAi0MQEdaFZVjY6i_pJnZgT1LeigTPcd5j-O7v5SJ6YVk_7kf-khHa1nbzwrmoD4Bqny1NLcQhZEDAajw39Qz0kCOD5eNA5155FPj3KmUozMfmFLgwdLXDtDOXTkXFhAcH-ha643XhpLbhcKQGD_o19_N6V5Uyb_ipTSXrXHqSZi9J8HqPNf0Yn");'></div>
+</div>
+<div>
+<h3 class="font-bold text-base leading-tight text-gray-500 dark:text-gray-400 line-through">Co.op Food Bến Thành</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">15 Th10, 09:15 • 3 món</p>
+</div>
+</div>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-gray-100 text-gray-600 dark:bg-white/10 dark:text-gray-300">
+                                Đã hủy
+                            </span>
+</div>
+<div class="flex items-center justify-between py-3 border-t border-b border-gray-50 dark:border-white/5 mb-3">
+<div class="flex -space-x-2 overflow-hidden opacity-50">
+<img alt="" class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#102210] object-cover bg-gray-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2ZZl6HwfMKQ1DlwTRauM_0qdSz1PELm9RII-TVv_k6_EA4hpjQRUvBJ7eSC5T86tcCPS3g7kJKkcMrwO7P_8bMx38qdvs7dg4jQ8XeWQdFESuezp-cEP6NO6B8tWIa2gTO69gyefuBGUx5R-64IFwdce9zBRrtsUjzXTIkrArgxaD6N-c84V61Hf4SXX82jFXxP9GJYuw0kNAPOs-8E3aA4kN6OEQ55S-XtKpvDqCY3jv5mKS7NDFFoLeLdMxpz7-w60rohD7YiPL"/>
+<img alt="" class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#102210] object-cover bg-gray-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQ3qh83__nGXgn62Yq21aOZoBYv4iPD9gaOWVfUGDO5gsuYjGt0Nl7ykYKIm13hewCwflY_XV0Mu4Rgpul4xIELGI6LxjN2kyhuXxgqBGhrwLqYPmYRmJ-GYupxTmItvHrvpWrn7jpScokExv61XP5INxulL4uLqBzLBtiW2yKCykWygQuuY1gNIdnye-M3-_TlNjCucRRB8p1sCMdXNpCRj6jHNHY_8yktFewniHPPBPhU0PZ5YU-BtyKqegOU26GFXauSdZi2w6s"/>
+</div>
+<div class="text-right opacity-50">
+<p class="text-xs text-gray-500 dark:text-gray-400">Tổng tiền</p>
+<p class="font-bold text-base text-gray-700 dark:text-gray-300">120.000đ</p>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="w-full py-2.5 rounded-lg border border-gray-200 dark:border-white/10 text-sm font-bold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+                                Xem chi tiết hủy
+                            </button>
+</div>
+</div>
+<div class="bg-white dark:bg-white/5 rounded-2xl p-4 shadow-sm border border-gray-100 dark:border-white/5 border-l-4 border-l-yellow-400">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-gray-100 dark:bg-white/10 flex items-center justify-center overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDFK75iJdYzLABSw5yRTHosQpPMauj1OcOUqz08hy7dFi4EpzoRzpwSXSubHGNlQx6uYMjWeVzEJLTsho5sZvZj9JJ79ba-yXEB_ZD77irMFl59P68W6xqwXd6SnWfi0Ts3PO5PFbNiJ4SYae8GZCXW4d2dKCpunh4x1ofqLavBTiDpFlG82xrseM1sT7aWCJ-NWqxhBz4m3c1Uq2FkoyCDYzUxsZ7h5hisXOCVla3E0y62QUKhb4NjfIpn-O_YOiyQlhhATvURWeOX");'></div>
+</div>
+<div>
+<h3 class="font-bold text-base leading-tight">Bách Hóa Xanh</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Hôm nay, 10:05 • 8 món</p>
+</div>
+</div>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400">
+                                Đang giao
+                            </span>
+</div>
+<div class="flex items-center justify-between py-3 border-t border-b border-gray-50 dark:border-white/5 mb-3">
+<div class="flex -space-x-2 overflow-hidden">
+<img alt="" class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#102210] object-cover bg-gray-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1o9NfxVYmP3oOqrIJeV1aOY-rez9dXdnh-_dG0d8ZV13dZ_Dz40gR1vPk4OmnVXJ2nXXjP-eTKY8LiEu3LvBa3iBCyTJkyXNpzFbFX9l5cluQUOJkJqTaAB4tTuBCpk20xMup8BODXsJAvzAzrI4ze9YxeJHFBanHJOPFNfMXLwGo-KD27nMThg3BLhJV5wtDFfQWEnNtb7JUoiqS9JELVufl7l_gdUwfl0HlO6QQSOTs-vNjU7UBx9dubL6872nbIqNwZITao5P3"/>
+<img alt="" class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#102210] object-cover bg-gray-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuz8RBiUNhK2Rqh4HHRpBR9gv0tnP97cIypY11F1L0cK_utt9LjkdSIw2iOK0jJFdS2iiw8ra-u0DUFnxovE8ig5FrqHAnPjGQNOzTViKlCcBiPDy-EBj7LUWf-vQz_VGQzizjP6o2OyxOcYRkJOrKPXd39HDEreinJHE6v3K8BxKO2KQ1obJpMzWI4Ot_sxK1wiw-l4JaMorqV08SSPKYQ5V_T9ZjVpKMG0Kh1usXcrTIsDvzsQ7q4N-5iGdbowMz04EjVtITyjMj"/>
+<img alt="" class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#102210] object-cover bg-gray-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFwWJPbTExrlYq52t7n9FkrggoVKzmWMofE9k1RKmcSBZyWhzIbvoie_jof5J10bvI2-LAQuMcVN-yznwHZE-ueVomGHmhY5FFKbD-AtTVefFu9PQeGlPvT6p_UtbtgXA830kgaEH3su8lUUXDO6v83WTegtmfQrjIiuby-rqnVu7AGDEpY1gpqNuFqH19gB2K5XxSEHCvK_6RhWGLUGOoao9wLmy8wB6kl7bu0AxY7N2BiUQ6_OAkFu8qei1kAaMJ5zVa2kf_Xgko"/>
+<div class="h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#102210] bg-gray-100 dark:bg-white/10 flex items-center justify-center text-[10px] font-bold text-gray-500">+5</div>
+</div>
+<div class="text-right">
+<p class="text-xs text-gray-500 dark:text-gray-400">Tổng tiền</p>
+<p class="font-bold text-base text-primary-contrast">560.000đ</p>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="w-full py-2.5 rounded-lg bg-primary-contrast text-white text-sm font-bold hover:bg-primary-contrast-dark transition-colors shadow-lg shadow-primary-contrast/20 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">local_shipping</span>
+                                Theo dõi đơn hàng
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h2 class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3 mt-6 px-1">Tháng 9, 2023</h2>
+<div class="space-y-4">
+<div class="bg-white dark:bg-white/5 rounded-2xl p-4 shadow-sm border border-gray-100 dark:border-white/5">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-gray-100 dark:bg-white/10 flex items-center justify-center overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC0WSkS5XoJVl1WkrVPQqlEtjKKqgyRbBl2-d95elrtJmAZdsWxk_p9ZNlQN3o5SwS7DOMkGYKWOOvFEcfdifDlACwq1jKI81oRR_lAHlAVkMq7Pm_MK6qmhPEaFNpZTL3p-FwaUytHQ9rBKEQjdLEm0R6RwWbPLq905kXXU1ZIJnkVK7yZn2Y8Qazh-aH2V8RaHb-VIU9PyeG_6Ym1ljEPTV0kmxFMWcvdyqoxnGrOQpCmvVkaY3dA9f0hKUxqtu8JLwoEudp21wDL");'></div>
+</div>
+<div>
+<h3 class="font-bold text-base leading-tight">WinMart+ Quận 1</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">28 Th9, 18:00 • 2 món</p>
+</div>
+</div>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                                Hoàn tất
+                            </span>
+</div>
+<div class="flex items-center justify-between py-3 border-t border-b border-gray-50 dark:border-white/5 mb-3">
+<div class="flex -space-x-2 overflow-hidden">
+<img alt="" class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#102210] object-cover bg-gray-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQ3qh83__nGXgn62Yq21aOZoBYv4iPD9gaOWVfUGDO5gsuYjGt0Nl7ykYKIm13hewCwflY_XV0Mu4Rgpul4xIELGI6LxjN2kyhuXxgqBGhrwLqYPmYRmJ-GYupxTmItvHrvpWrn7jpScokExv61XP5INxulL4uLqBzLBtiW2yKCykWygQuuY1gNIdnye-M3-_TlNjCucRRB8p1sCMdXNpCRj6jHNHY_8yktFewniHPPBPhU0PZ5YU-BtyKqegOU26GFXauSdZi2w6s"/>
+<img alt="" class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#102210] object-cover bg-gray-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAiGi7HwJ2eTEHO0TkpfzUHg3-toeZ8wK5eut3XzTnbolITFD267bU8gTECELeWAPUeiIDSc8hgxiJbiB4Off1pfcTXECv8NNpZST51jar4z-Gd_t_aVLk1CKFP9ph0rM7SU20JOkHioExtOK6kAtcMsTk7X3ON728LZsEzHzJ0tno6TkgYGhKeN1JzS75lULDXWzq1dSTtazJ_AyvKU02M99JEY91wHwoftBOY1T2L--zS20nX2KOT2ED4NyGXept2QheWO-7c8ny"/>
+</div>
+<div class="text-right">
+<p class="text-xs text-gray-500 dark:text-gray-400">Tổng tiền</p>
+<p class="font-bold text-base text-primary-contrast">89.000đ</p>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 py-2.5 rounded-lg border border-gray-200 dark:border-white/10 text-sm font-bold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+                                Chi tiết
+                            </button>
+<button class="flex-1 py-2.5 rounded-lg bg-primary-contrast text-white text-sm font-bold hover:bg-primary-contrast-dark transition-colors shadow-lg shadow-primary-contrast/20">
+                                Đặt lại
+                            </button>
+</div>
+</div>
+<div class="bg-white dark:bg-white/5 rounded-2xl p-4 shadow-sm border border-gray-100 dark:border-white/5">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-gray-100 dark:bg-white/10 flex items-center justify-center overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDj2pR8Oq8UWz03NCWg6yJtgwTyEHpR_AjgIQLGQ_VmuL2Nw26Cwc1M2bRxf6GHkPnTzrQyqVvAIMSlktiiGIgvBQAi0MQEdaFZVjY6i_pJnZgT1LeigTPcd5j-O7v5SJ6YVk_7kf-khHa1nbzwrmoD4Bqny1NLcQhZEDAajw39Qz0kCOD5eNA5155FPj3KmUozMfmFLgwdLXDtDOXTkXFhAcH-ha643XhpLbhcKQGD_o19_N6V5Uyb_ipTSXrXHqSZi9J8HqPNf0Yn");'></div>
+</div>
+<div>
+<h3 class="font-bold text-base leading-tight">Co.op Food Bến Thành</h3>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">10 Th9, 11:20 • 12 món</p>
+</div>
+</div>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                                Hoàn tất
+                            </span>
+</div>
+<div class="flex items-center justify-between py-3 border-t border-b border-gray-50 dark:border-white/5 mb-3">
+<div class="flex -space-x-2 overflow-hidden">
+<img alt="" class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#102210] object-cover bg-gray-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1o9NfxVYmP3oOqrIJeV1aOY-rez9dXdnh-_dG0d8ZV13dZ_Dz40gR1vPk4OmnVXJ2nXXjP-eTKY8LiEu3LvBa3iBCyTJkyXNpzFbFX9l5cluQUOJkJqTaAB4tTuBCpk20xMup8BODXsJAvzAzrI4ze9YxeJHFBanHJOPFNfMXLwGo-KD27nMThg3BLhJV5wtDFfQWEnNtb7JUoiqS9JELVufl7l_gdUwfl0HlO6QQSOTs-vNjU7UBx9dubL6872nbIqNwZITao5P3"/>
+<img alt="" class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#102210] object-cover bg-gray-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuz8RBiUNhK2Rqh4HHRpBR9gv0tnP97cIypY11F1L0cK_utt9LjkdSIw2iOK0jJFdS2iiw8ra-u0DUFnxovE8ig5FrqHAnPjGQNOzTViKlCcBiPDy-EBj7LUWf-vQz_VGQzizjP6o2OyxOcYRkJOrKPXd39HDEreinJHE6v3K8BxKO2KQ1obJpMzWI4Ot_sxK1wiw-l4JaMorqV08SSPKYQ5V_T9ZjVpKMG0Kh1usXcrTIsDvzsQ7q4N-5iGdbowMz04EjVtITyjMj"/>
+<img alt="" class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#102210] object-cover bg-gray-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4vF5qAqE6Q7usFTFoyWWwNt6Pa7cLAQ0v5MpJVMV_PLl8KLhpKHWDQtOX9Yh-_euJrs5fM3C0ULdHgZEnDM8Ak3HwOcDjcSH63zjXR9ocWtj1ZM0UCtHv2S5pOJUa1HXI-GCQfflnBJXFPvv5O7Aor4RMt4WlLybcEwZh-23ceMTF0uBGt18QpYlo5qQnjP4fuIf9jYbxgbklOm6hfmYAc6fWImfk9PMaCxgtnJ07mwM_5B6zMKmAZlr2275MEF7PvlZrglyCTOXl"/>
+<div class="h-8 w-8 rounded-full ring-2 ring-white dark:ring-[#102210] bg-gray-100 dark:bg-white/10 flex items-center justify-center text-[10px] font-bold text-gray-500">+9</div>
+</div>
+<div class="text-right">
+<p class="text-xs text-gray-500 dark:text-gray-400">Tổng tiền</p>
+<p class="font-bold text-base text-primary-contrast">980.000đ</p>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 py-2.5 rounded-lg border border-gray-200 dark:border-white/10 text-sm font-bold text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+                                Chi tiết
+                            </button>
+<button class="flex-1 py-2.5 rounded-lg bg-primary-contrast text-white text-sm font-bold hover:bg-primary-contrast-dark transition-colors shadow-lg shadow-primary-contrast/20">
+                                Đặt lại
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed bottom-0 left-0 right-0 bg-white dark:bg-[#102210] border-t border-gray-100 dark:border-white/5 px-6 py-2 pb-5 z-50">
+<div class="flex justify-between items-center">
+<button class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 w-12 transition-colors">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Trang chủ</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary-contrast w-12 transition-colors">
+<span class="material-symbols-outlined fill-current">receipt_long</span>
+<span class="text-[10px] font-medium">Đơn hàng</span>
+</button>
+<div class="relative -top-5">
+<button class="flex items-center justify-center w-14 h-14 rounded-full bg-primary-contrast text-white shadow-lg shadow-primary-contrast/40 hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" style="font-size: 28px;">qr_code_scanner</span>
+</button>
+</div>
+<button class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 w-12 transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+<span class="text-[10px] font-medium">Đã lưu</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 w-12 transition-colors">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Tài khoản</span>
+</button>
+</div>
+</div>
+</div>
+
+</body></html>

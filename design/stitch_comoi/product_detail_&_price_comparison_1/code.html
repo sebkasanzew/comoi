@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Detail &amp; Price Comparison</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;900&amp;family=Noto+Sans:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec13",
+                        "primary-dark": "#15803d", // Darker green for accessible text
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102210",
+                    },
+                    fontFamily: {
+                        "display": ["Be Vietnam Pro", "Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>.no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-neutral-900 dark:text-white font-display antialiased">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden pb-24">
+<div class="sticky top-0 z-50 flex items-center bg-white/90 dark:bg-[#102210]/90 backdrop-blur-md p-4 pb-2 justify-between border-b border-gray-100 dark:border-gray-800">
+<div class="text-neutral-900 dark:text-white flex size-12 shrink-0 items-center justify-start cursor-pointer">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</div>
+<h2 class="text-neutral-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center truncate px-2">Fresh Vegetables</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="relative flex cursor-pointer items-center justify-center rounded-lg h-12 bg-transparent text-neutral-900 dark:text-white min-w-0 p-0">
+<span class="material-symbols-outlined text-2xl">shopping_cart</span>
+<span class="absolute top-2 right-0 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white">2</span>
+</button>
+</div>
+</div>
+<div class="relative w-full bg-white dark:bg-background-dark">
+<div class="flex overflow-x-auto snap-x snap-mandatory no-scrollbar pb-4 pt-2 px-4 gap-4">
+<div class="flex-shrink-0 w-full snap-center">
+<div class="w-full aspect-[4/3] bg-center bg-no-repeat bg-cover rounded-xl shadow-sm relative overflow-hidden" data-alt="Fresh organic bok choy close up with water droplets" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCNp6YG0TUYVElAzC4XQCaN1D4r6qfZJFxkD4K9VSMK85uRvY_q_tlmJVgzEuWTrbllIi0TDv0GtQD_LZqoxUfjAbMIkJNcpzo8d5F-Yo5jKj1-Ufogvvab5pf98gzAWzsGz-5awuiJ6r9IdIo0Mu8W6zTBEi79dYoiJ8TyQzBjEuhCxFbNuSrmB_CgWfy46HBm7jIuH-5vl5XtN9p8xRvlAVX4emHKPT23XKqvHnrAPNgcB9RJiJnkchKLzKLcsP2D-AAx-D9L9lYC");'>
+<button class="absolute top-3 right-3 p-2 bg-white/80 dark:bg-black/50 backdrop-blur-sm rounded-full text-gray-500 dark:text-white hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+</div>
+</div>
+<div class="flex-shrink-0 w-full snap-center">
+<div class="w-full aspect-[4/3] bg-center bg-no-repeat bg-cover rounded-xl shadow-sm relative overflow-hidden" data-alt="Bok choy in a wooden basket on a farm table" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDF8GERl-P8XNgnpHdoRfAQxgAFdlckeFh_GfUZbK2yhSb1KXGqDB_82IF5VC1hnJ-AFOiIQ02-FF4bw_3hb0zNZo1XT1iuHUkKs-wV-f5j_IzNBjart3c3YHupYL4L7G3sY-oQkYpjYy3enxOj93bAzcYCwTVYJUARmhko6Yqhjg_wq99bNf4DoPcc6TNub0_jA34xeWggDvw_gy0Tb496KSE-keLDff-oCXOUQTAyEE1E3edGT63eMd22mI6mVBOlfVvFzcsylLet");'>
+</div>
+</div>
+</div>
+<div class="flex justify-center gap-1.5 pb-4">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-2 h-2 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+</div>
+</div>
+<div class="flex flex-col gap-1 px-4">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded text-xs font-semibold bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100 uppercase tracking-wide">Organic</span>
+<span class="px-2 py-0.5 rounded text-xs font-semibold bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-300">VietGAP</span>
+</div>
+<h1 class="text-neutral-900 dark:text-white tracking-tight text-2xl font-bold leading-tight pt-2">Organic Bok Choy (Cải Thìa)</h1>
+<div class="flex items-center gap-1.5 mt-1 mb-3 cursor-pointer">
+<span class="material-symbols-outlined text-yellow-400 text-lg fill-1">star</span>
+<span class="text-sm font-bold text-neutral-900 dark:text-white">4.8</span>
+<span class="text-sm text-gray-500 dark:text-gray-400">(120 reviews)</span>
+<span class="material-symbols-outlined text-gray-400 text-lg">chevron_right</span>
+</div>
+<div class="flex items-baseline gap-2 mb-4">
+<span class="text-sm text-gray-500 dark:text-gray-400">From</span>
+<span class="text-2xl font-black text-primary-dark dark:text-primary">15.000₫</span>
+</div>
+<div class="flex flex-col gap-2 mb-4">
+<label class="text-sm font-medium text-gray-700 dark:text-gray-300">Select Weight</label>
+<div class="flex gap-3 flex-wrap">
+<button class="flex h-10 min-w-[80px] shrink-0 items-center justify-center rounded-lg bg-primary text-neutral-900 font-bold border-2 border-primary transition-all">
+                        500g
+                    </button>
+<button class="flex h-10 min-w-[80px] shrink-0 items-center justify-center rounded-lg bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 font-medium border-2 border-transparent hover:border-gray-200 dark:hover:border-gray-700 transition-all">
+                        1kg
+                    </button>
+</div>
+</div>
+<div class="mb-6">
+<p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed line-clamp-3">
+                    Freshly harvested organic bok choy, perfect for stir-fry or soups. Features crunchy white stalks and tender dark green leaves. Sourced daily from certified Da Lat farms.
+                </p>
+<button class="text-primary-dark dark:text-primary font-bold text-sm mt-1">Read more</button>
+</div>
+</div>
+<div class="h-2 bg-gray-100 dark:bg-black/20 w-full mb-6"></div>
+<div class="flex flex-col px-4 gap-4">
+<div class="flex items-center justify-between">
+<h3 class="text-lg font-bold text-neutral-900 dark:text-white">Compare Prices</h3>
+<div class="flex bg-gray-100 dark:bg-gray-800 rounded-lg p-0.5">
+<button class="px-3 py-1 rounded-md bg-white dark:bg-gray-700 shadow-sm text-xs font-bold text-neutral-900 dark:text-white">Lowest Price</button>
+<button class="px-3 py-1 rounded-md text-xs font-medium text-gray-500 dark:text-gray-400">Nearest</button>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<div class="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm border border-primary/30 relative overflow-hidden">
+<div class="absolute top-0 left-0 bg-primary text-[#102210] text-[10px] font-bold px-2 py-0.5 rounded-br-lg z-10">BEST DEAL</div>
+<div class="flex gap-4 items-center">
+<div class="h-12 w-12 rounded-lg bg-gray-50 dark:bg-white flex items-center justify-center shrink-0 border border-gray-100 overflow-hidden">
+<div class="w-full h-full bg-contain bg-center bg-no-repeat" data-alt="WinMart logo red background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBV4fUADHSaiN18YMr3n5pZjZIyYgt7zclbGIpLF3mbiX74FLbe8RdmDmwGQ7oNLe9d_sNOfFsVS0YS6sBaj3GsCyOVAKv0hjK8eIBhOnyaFBot8_T8-3lL5TxYrG387GQ-OBC9N5OT9vnDborPQKjVUOLs-3mGzu_Ba6DXREh60KPXj4k1GHlUXJGwn7zyDNya1u6jSKgbMJlYbNYCvWjBXTyZ55rzlFjHG6khYWfQdfptII1ZbG6hh3lwfztcAWzwyWnsTLOAr4qH");'></div>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-bold text-neutral-900 dark:text-white truncate">WinMart+</h4>
+<div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[14px]">distance</span> 0.5km</span>
+<span>•</span>
+<span class="flex items-center gap-0.5 text-yellow-500"><span class="material-symbols-outlined text-[14px] fill-1">star</span> 4.5</span>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="text-lg font-black text-primary-dark dark:text-primary">15.000₫</span>
+<button class="h-8 px-4 rounded-lg bg-primary text-[#102210] text-sm font-bold flex items-center gap-1 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-lg">add</span> Add
+                            </button>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm border border-gray-100 dark:border-gray-700">
+<div class="flex gap-4 items-center">
+<div class="h-12 w-12 rounded-lg bg-gray-50 dark:bg-white flex items-center justify-center shrink-0 border border-gray-100 overflow-hidden">
+<div class="w-full h-full bg-contain bg-center bg-no-repeat" data-alt="Bach Hoa Xanh logo green background" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCT_oAOnlH4fCy2GS4ea9ZmlAeaXENmOxs5HFMrdWMvdRT5rZzXw7g4Q8tt-VZpXk52xeDdqflF_DFZ-dcPlR4ofmtsa2QKZM0A3n-Fcn2foDItqoxJ7d51wI2fsFz4m_Y_AZxgqTMG62Kn3anp6Hzx0rwnAdVvkcHmF-5YEjly-CgyclLwQlaSyN0Tl2-secM8T2fqUeDOvbYvI5KV-fJMYnS3WRcZpkot_JuvW_rvWW_pwfNFD5qKLgWey7E5FYyrrSnzID8gcUgW");'></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2">
+<h4 class="font-bold text-neutral-900 dark:text-white truncate">Bach Hoa Xanh</h4>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-100">Closest</span>
+</div>
+<div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[14px]">distance</span> 0.2km</span>
+<span>•</span>
+<span class="text-green-600 dark:text-green-400">Open now</span>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="text-lg font-bold text-neutral-900 dark:text-white">16.500₫</span>
+<button class="h-8 px-4 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary-dark dark:text-primary text-sm font-bold flex items-center gap-1 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-lg">add</span> Add
+                            </button>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm border border-gray-100 dark:border-gray-700">
+<div class="flex gap-4 items-center">
+<div class="h-12 w-12 rounded-lg bg-gray-50 dark:bg-white flex items-center justify-center shrink-0 border border-gray-100 overflow-hidden">
+<div class="w-full h-full bg-contain bg-center bg-no-repeat" data-alt="Coop Food logo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBwKnL7Rm7C4tIJwBAcVw6-58YuYTPiw5foKFaUXRIOHeY_m-ji0a70lv9tuB7MK651ihvfwLudCii9oU_eY4of1SJ1ajWu1pRrZ0B7vZvN9f_akjc5ReyF7RrxPP6fnrqJuj5XDQ55gksZs9Xn8Ti_iBliQdJZwKqONVFdUZGeNKMXwZ1blMnHB4AtfYU0TYf_rgJGUVDppv2auRRVDGKRrqkkAXW-OOu1geUp_7w-i3HaL69DjD_dZW36eMK-63eHTf-8gutPrAzX");'></div>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-bold text-neutral-900 dark:text-white truncate">Co.op Food</h4>
+<div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[14px]">distance</span> 1.2km</span>
+<span>•</span>
+<span class="flex items-center gap-0.5 text-yellow-500"><span class="material-symbols-outlined text-[14px] fill-1">star</span> 4.2</span>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="text-lg font-bold text-neutral-900 dark:text-white">17.000₫</span>
+<button class="h-8 px-4 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary-dark dark:text-primary text-sm font-bold flex items-center gap-1 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-lg">add</span> Add
+                            </button>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm border border-gray-100 dark:border-gray-700 opacity-60">
+<div class="flex gap-4 items-center">
+<div class="h-12 w-12 rounded-lg bg-gray-50 dark:bg-white flex items-center justify-center shrink-0 border border-gray-100 overflow-hidden">
+<div class="w-full h-full bg-contain bg-center bg-no-repeat" data-alt="Generic local market logo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAr9-TvB5Mv8Pl2Vycv0y-fBp-XWNq4id1w97U4nrfd-1X0w83RTkLhK68sCggs3WyYXVehiWvtCwf2ivkzoD53-CddIhw5Javg2rxVekJPzhasV-TSpcRyAwfupFk7X7JKWwbKAeN8nmk8YtYXkx-xjHYG0RNR3T2udVDmoAI_3qpYKW3BkBNlIrofFbLa-EHZJlimxuZAuJHpWhkEGdfKFHLHzwIpKhwXQqtOG5s8fsIBL1JUIPwmKkvYIitaoivi2a-NACVO4AsS");'></div>
+</div>
+<div class="flex-1 min-w-0">
+<h4 class="font-bold text-neutral-900 dark:text-white truncate">Cho Local Market</h4>
+<div class="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[14px]">distance</span> 0.1km</span>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="text-lg font-bold text-gray-400">14.000₫</span>
+<button class="h-8 px-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-400 text-xs font-bold flex items-center justify-center gap-1 cursor-not-allowed" disabled="">
+                                Out of Stock
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="h-2 bg-gray-100 dark:bg-black/20 w-full my-6"></div>
+<div class="px-4 mb-6">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-lg font-bold text-neutral-900 dark:text-white">Rating &amp; Reviews</h3>
+<span class="text-primary-dark dark:text-primary text-sm font-bold">View All</span>
+</div>
+<div class="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm border border-gray-100 dark:border-gray-700">
+<div class="flex items-start gap-4">
+<div class="flex flex-col items-center justify-center gap-1 pr-4 border-r border-gray-100 dark:border-gray-700">
+<p class="text-4xl font-black tracking-tighter text-neutral-900 dark:text-white">4.8</p>
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined text-[16px] fill-1">star</span>
+<span class="material-symbols-outlined text-[16px] fill-1">star</span>
+<span class="material-symbols-outlined text-[16px] fill-1">star</span>
+<span class="material-symbols-outlined text-[16px] fill-1">star</span>
+<span class="material-symbols-outlined text-[16px] fill-1">star_half</span>
+</div>
+<p class="text-xs text-gray-400">120 reviews</p>
+</div>
+<div class="flex-1 flex flex-col gap-1.5 justify-center">
+<div class="flex items-center gap-2 text-xs">
+<span class="w-3 text-right font-medium">5</span>
+<div class="flex-1 h-1.5 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[85%] rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center gap-2 text-xs">
+<span class="w-3 text-right font-medium">4</span>
+<div class="flex-1 h-1.5 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[10%] rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center gap-2 text-xs">
+<span class="w-3 text-right font-medium">3</span>
+<div class="flex-1 h-1.5 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[3%] rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center gap-2 text-xs">
+<span class="w-3 text-right font-medium">2</span>
+<div class="flex-1 h-1.5 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[1%] rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center gap-2 text-xs">
+<span class="w-3 text-right font-medium">1</span>
+<div class="flex-1 h-1.5 bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
+<div class="bg-gray-300 dark:bg-gray-600 h-full w-[1%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed bottom-0 left-0 w-full z-40 p-4 bg-white dark:bg-[#102210] border-t border-gray-100 dark:border-gray-800 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+<div class="flex gap-3">
+<div class="flex flex-col justify-center">
+<span class="text-xs text-gray-500 dark:text-gray-400">Total (2 items)</span>
+<span class="text-xl font-black text-neutral-900 dark:text-white">46.500₫</span>
+</div>
+<button class="flex-1 bg-neutral-900 dark:bg-primary text-white dark:text-[#102210] font-bold rounded-xl h-12 flex items-center justify-between px-6 hover:opacity-90 transition-opacity">
+<span>View Cart</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="h-1 w-full"></div>
+</div>
+</div></body></html>

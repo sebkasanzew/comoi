@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dark Mode Cart - Modern Depth</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#13ec13",
+              "background-light": "#f6f8f6",
+              "background-dark": "#102210",
+              "card-dark": "#152815", // Slightly lighter than background-dark for depth
+            },
+            fontFamily: {
+              "display": ["Be Vietnam Pro", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+            boxShadow: {
+                "glow": "0 0 20px rgba(19, 236, 19, 0.3)",
+                "depth": "0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3)",
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+        
+        /* Hide number input spinners */
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; 
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white overflow-hidden h-screen flex flex-col">
+<!-- Header -->
+<header class="flex items-center justify-between p-4 bg-background-dark/95 backdrop-blur-sm z-20 shrink-0 border-b border-white/5">
+<button class="text-white flex size-10 items-center justify-center rounded-full active:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h2 class="text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center">My Cart (3)</h2>
+<button class="flex w-12 items-center justify-center">
+<p class="text-primary text-base font-semibold">Edit</p>
+</button>
+</header>
+<!-- Main Scrollable Content -->
+<main class="flex-1 overflow-y-auto px-4 pb-32 pt-2 scroll-smooth">
+<!-- Vendor Card 1: WinMart+ -->
+<section class="mt-4 rounded-2xl bg-card-dark border border-white/5 shadow-depth overflow-hidden relative group">
+<!-- Tactile Depth Gradient Overlay -->
+<div class="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none h-20"></div>
+<!-- Vendor Header -->
+<div class="flex items-center gap-3 px-4 py-3 border-b border-white/5 relative z-10">
+<div class="flex items-center justify-center">
+<input checked="" class="h-5 w-5 rounded border-white/20 bg-transparent text-primary focus:ring-0 focus:ring-offset-0 focus:border-primary checked:bg-primary transition-all cursor-pointer" type="checkbox"/>
+</div>
+<div class="flex-1 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">storefront</span>
+<h3 class="text-white text-base font-bold truncate">WinMart+</h3>
+<span class="material-symbols-outlined text-white/40 text-lg">chevron_right</span>
+</div>
+</div>
+<!-- Product Items -->
+<div class="flex flex-col">
+<!-- Item 1 -->
+<div class="flex gap-4 px-4 py-4 border-b border-white/5 last:border-0 relative z-10">
+<div class="shrink-0">
+<!-- Custom Checkbox for Item -->
+<input checked="" class="h-5 w-5 rounded border-white/20 bg-transparent text-primary focus:ring-0 focus:ring-offset-0 checked:bg-primary transition-all cursor-pointer mt-6" type="checkbox"/>
+</div>
+<div class="bg-white/5 bg-center bg-no-repeat bg-cover rounded-xl h-20 w-20 shrink-0 border border-white/5" data-alt="Fresh milk carton with blue label" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAT0b-iOB7jvWvLICdGFSzhMFh1y5RkIOoqmNQR2Wnsy_wIE0zYpmM9lh6xSez5j8fUGi-1Rlk9TeUH5oaRQ1BM_ZgEOwVYDiVnOCqt-cWyErXvLwQXvnXZJc-bRk956pvgVzox36feO32rPXEcUI5iV0mgU8mpps6Qfm-6n-CwdJypPzki68IrUHVEp5zUORxrMxemwdXmUjA2XEZJ9Ac6OKBvnlMLP1F9z7qrSgz3-raqETj0rOifOr5UvWg3MNTQDDW0PHzfsIgY");'></div>
+<div class="flex flex-1 flex-col justify-between h-20">
+<div>
+<p class="text-white text-base font-medium leading-tight line-clamp-2">Vinamilk 100% Fresh Milk (1L)</p>
+<p class="text-white/50 text-xs mt-1">No Sugar</p>
+</div>
+<div class="flex items-end justify-between">
+<div>
+<p class="text-primary text-base font-bold">32.000₫</p>
+<p class="text-white/30 text-xs line-through">35.000₫</p>
+</div>
+<!-- Stepper -->
+<div class="flex items-center bg-[#253825] rounded-full h-8 px-1 border border-white/5">
+<button class="w-8 h-full flex items-center justify-center text-white/80 active:text-white transition-colors">
+<span class="material-symbols-outlined text-base">remove</span>
+</button>
+<input class="w-6 p-0 text-center bg-transparent border-none text-sm font-semibold text-white focus:ring-0" readonly="" type="number" value="2"/>
+<button class="w-8 h-full flex items-center justify-center text-white/80 active:text-white transition-colors">
+<span class="material-symbols-outlined text-base">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex gap-4 px-4 py-4 relative z-10">
+<div class="shrink-0">
+<input checked="" class="h-5 w-5 rounded border-white/20 bg-transparent text-primary focus:ring-0 focus:ring-offset-0 checked:bg-primary transition-all cursor-pointer mt-6" type="checkbox"/>
+</div>
+<div class="bg-white/5 bg-center bg-no-repeat bg-cover rounded-xl h-20 w-20 shrink-0 border border-white/5" data-alt="Package of instant noodles red packaging" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD1VmAMBHFyw3nUR9_A7U16aA0MlFsrDhwUOOiufMV0O97H_EWogH81pbgyIdvYZcq9ZxmlNCU7PZkVfGtK-I_Nd9-3qQpjoPUHlQ2fo3qSZEZMoBJ4kdFAjt0EkYYKGTa-i4Wm1vAuatK-5O47solI5zZGeTkxuHSF8al-zDScd62Ps8B_qY_TQQyfxMh7bEn4qAtKNp8rhpclZ9JcuZLSxPDrMvazAqXlkhLPB2bRIwW-dSTNzIx5igBlL2lnyn7icPQJqG2yrHr7");'></div>
+<div class="flex flex-1 flex-col justify-between h-20">
+<div>
+<p class="text-white text-base font-medium leading-tight line-clamp-2">Hao Hao Instant Noodles</p>
+<p class="text-white/50 text-xs mt-1">Sour &amp; Spicy Shrimp</p>
+</div>
+<div class="flex items-end justify-between">
+<p class="text-primary text-base font-bold">4.500₫</p>
+<!-- Stepper -->
+<div class="flex items-center bg-[#253825] rounded-full h-8 px-1 border border-white/5">
+<button class="w-8 h-full flex items-center justify-center text-white/80 active:text-white transition-colors">
+<span class="material-symbols-outlined text-base">remove</span>
+</button>
+<input class="w-6 p-0 text-center bg-transparent border-none text-sm font-semibold text-white focus:ring-0" readonly="" type="number" value="5"/>
+<button class="w-8 h-full flex items-center justify-center text-white/80 active:text-white transition-colors">
+<span class="material-symbols-outlined text-base">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Vendor Footer/Shipping info -->
+<div class="px-4 py-3 bg-white/[0.02] border-t border-white/5 flex justify-between items-center text-xs">
+<span class="text-white/60">Shipping from <span class="text-white font-medium">District 1</span></span>
+<span class="text-primary font-medium">Free delivery over 100k</span>
+</div>
+</section>
+<!-- Vendor Card 2: Circle K -->
+<section class="mt-4 rounded-2xl bg-card-dark border border-white/5 shadow-depth overflow-hidden relative group">
+<div class="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none h-20"></div>
+<div class="flex items-center gap-3 px-4 py-3 border-b border-white/5 relative z-10">
+<div class="flex items-center justify-center">
+<input class="h-5 w-5 rounded border-white/20 bg-transparent text-primary focus:ring-0 focus:ring-offset-0 focus:border-primary checked:bg-primary transition-all cursor-pointer" type="checkbox"/>
+</div>
+<div class="flex-1 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">local_convenience_store</span>
+<h3 class="text-white text-base font-bold truncate">Circle K</h3>
+<span class="material-symbols-outlined text-white/40 text-lg">chevron_right</span>
+</div>
+</div>
+<div class="flex flex-col">
+<!-- Item 3 -->
+<div class="flex gap-4 px-4 py-4 relative z-10 opacity-60">
+<div class="shrink-0">
+<input class="h-5 w-5 rounded border-white/20 bg-transparent text-primary focus:ring-0 focus:ring-offset-0 checked:bg-primary transition-all cursor-pointer mt-6" type="checkbox"/>
+</div>
+<div class="bg-white/5 bg-center bg-no-repeat bg-cover rounded-xl h-20 w-20 shrink-0 border border-white/5" data-alt="Red can of soda" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDVIhokrldSEbUsStPcziESfrwcvdTbObfxKuMVM7eaZFPTTwq0KPDY3qu9UVksueEtwpYGPmRd9cHizvBWHu6h-8920m37KAvZFnTcCrUScchxpJPOEdYkDAh4AfvtDZhbiKvuyJHGNdiGpVZuIXanNy8VtTqrT8CnZ6w8BZtIVqIuQiXZh8faBcItS17oNicHn_Sr6Xj7-g5PR851GNa2_OoBprl8gCcvhXAqGknmcTTRJH37vIX5Hw_xtwaSpTyPn8CCgn-kOBjj");'></div>
+<div class="flex flex-1 flex-col justify-between h-20">
+<div>
+<p class="text-white text-base font-medium leading-tight line-clamp-2">Coca-Cola Original (320ml)</p>
+<p class="text-white/50 text-xs mt-1">Can</p>
+</div>
+<div class="flex items-end justify-between">
+<p class="text-white text-base font-bold">10.000₫</p>
+<!-- Stepper -->
+<div class="flex items-center bg-[#253825] rounded-full h-8 px-1 border border-white/5">
+<button class="w-8 h-full flex items-center justify-center text-white/80 active:text-white transition-colors">
+<span class="material-symbols-outlined text-base">remove</span>
+</button>
+<input class="w-6 p-0 text-center bg-transparent border-none text-sm font-semibold text-white focus:ring-0" readonly="" type="number" value="1"/>
+<button class="w-8 h-full flex items-center justify-center text-white/80 active:text-white transition-colors">
+<span class="material-symbols-outlined text-base">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Vouchers Section -->
+<section class="mt-6 rounded-xl bg-card-dark/50 border border-white/5 p-4 flex items-center justify-between active:bg-white/5 transition-colors cursor-pointer">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">local_activity</span>
+<span class="text-sm font-medium">Platform Vouchers</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs text-white/50">2 available</span>
+<span class="material-symbols-outlined text-white/40 text-lg">chevron_right</span>
+</div>
+</section>
+<!-- Bill Details -->
+<section class="mt-6 mb-8 px-2">
+<h3 class="text-sm font-bold text-white mb-3 uppercase tracking-wider opacity-80">Order Summary</h3>
+<div class="space-y-3">
+<div class="flex justify-between text-sm">
+<span class="text-white/60">Subtotal (3 items)</span>
+<span class="font-medium">86.500₫</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-white/60">Shipping Fee</span>
+<span class="font-medium">15.000₫</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-white/60">Discount</span>
+<span class="text-primary font-medium">-5.000₫</span>
+</div>
+<div class="h-px bg-white/10 my-2"></div>
+<div class="flex justify-between items-center">
+<span class="text-base font-bold">Total Payment</span>
+<span class="text-xl font-bold text-primary">96.500₫</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Sticky Checkout Bar -->
+<div class="fixed bottom-0 left-0 w-full z-30">
+<!-- Blur Container -->
+<div class="absolute inset-0 bg-[#102210]/70 backdrop-blur-xl border-t border-white/10 shadow-[0_-4px_30px_rgba(0,0,0,0.5)]"></div>
+<div class="relative flex items-center justify-between p-4 pb-8 gap-4">
+<!-- Select All (Optional space filler or action) -->
+<div class="flex flex-col justify-center">
+<p class="text-xs text-white/60 mb-0.5">Total</p>
+<p class="text-xl font-bold text-white tracking-tight">96.500₫</p>
+<p class="text-[10px] text-primary">Saved 8.000₫</p>
+</div>
+<!-- Checkout Button -->
+<button class="flex-1 max-w-[200px] h-12 bg-primary text-[#0b1a0b] text-base font-bold rounded-xl flex items-center justify-center gap-2 shadow-glow active:scale-[0.98] transition-all relative overflow-hidden group">
+<span class="relative z-10">Checkout (3)</span>
+<!-- Inner shine effect -->
+<div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 rounded-xl"></div>
+</button>
+</div>
+</div>
+</body></html>

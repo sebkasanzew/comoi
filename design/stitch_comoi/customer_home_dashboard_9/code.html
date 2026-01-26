@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Multi-Vendor Cart - High Efficiency</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec13",
+                        "primary-dark": "#0eb50e",
+                        "primary-contrast": "#117a11",
+                        "primary-contrast-dark": "#0d630d",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102210",
+                    },
+                    fontFamily: {
+                        "display": ["Be Vietnam Pro", "sans-serif"],
+                        "body": ["Be Vietnam Pro", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }.toggle-checkbox:checked {
+            right: 0;
+            border-color: #117a11;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #117a11;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#111811] dark:text-white font-display pb-40">
+<div class="sticky top-0 z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-gray-200 dark:border-white/10 px-4 py-3 flex items-center justify-between">
+<button class="p-1 -ml-1 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/10 rounded-full">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold text-center">Giỏ hàng (4)</h1>
+<button class="text-sm font-bold text-primary-contrast dark:text-primary hover:opacity-80 px-2 py-1">Sửa</button>
+</div>
+<div class="mx-4 mt-4 bg-[#e8f5e9] dark:bg-primary-contrast/20 border border-primary-contrast/20 rounded-xl p-3 flex items-start gap-3 shadow-sm">
+<div class="bg-primary-contrast text-white rounded-full p-1.5 shrink-0 flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined fill-current" style="font-size: 20px;">savings</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-primary-contrast dark:text-white">Tiết kiệm thông minh: 45.000đ</p>
+<p class="text-xs text-[#1e4620] dark:text-gray-200 mt-0.5 leading-snug">Bạn đã tiết kiệm được nhờ tính năng tự động so sánh giá giữa các siêu thị!</p>
+</div>
+</div>
+<div class="mt-4 bg-white dark:bg-white/5 mx-4 rounded-xl shadow-sm border border-gray-100 dark:border-white/5 overflow-hidden">
+<div class="flex items-center gap-3 p-3 border-b border-gray-100 dark:border-white/5 bg-gray-50/50 dark:bg-white/5">
+<input checked="" class="w-5 h-5 rounded text-primary-contrast border-gray-300 focus:ring-primary-contrast bg-white dark:bg-white/10" type="checkbox"/>
+<div class="flex items-center gap-2 flex-1 min-w-0">
+<span class="material-symbols-outlined text-gray-500" style="font-size: 20px;">storefront</span>
+<span class="font-bold text-sm truncate">WinMart+ Quận 1</span>
+<span class="bg-primary-contrast/10 text-primary-contrast dark:bg-primary-contrast/30 dark:text-primary text-[10px] font-bold px-1.5 py-0.5 rounded uppercase whitespace-nowrap">Giá tốt nhất</span>
+</div>
+</div>
+<div class="p-3 border-b border-gray-100 dark:border-white/5 last:border-0 relative hover:bg-gray-50 dark:hover:bg-white/5 transition-colors group">
+<div class="flex gap-3 items-start">
+<div class="flex items-center pt-2">
+<input checked="" class="w-5 h-5 rounded text-primary-contrast border-gray-300 focus:ring-primary-contrast bg-white dark:bg-white/10" type="checkbox"/>
+</div>
+<div class="w-16 h-16 bg-gray-100 dark:bg-white/10 rounded-lg shrink-0 overflow-hidden border border-gray-100 dark:border-white/5">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBB8t5p4NwDqvOLNZoMcAJGM9cwpO16HXWDuYYG9FeXHCZ0Nzv9JpF4rC4IvljPbMxpOhAOGeDReZbEyUzq2dyRDB5F5yZn7OukAMjrcg78fatYJWjsMfpULAYDhXmRM6bgcxEfi-b_IZWKfHsTFcP5UNhQZlwS7xpmUwx4sDZkgu01wwY_WRpuY2KnnXb8cUtyv_13N38kxJcatfQIR_6zbRwVzZeLgkPRSrCXZ8teJZX1OGlvNKqf-5a902zEEFWrK-_PgbZJKjPA')"></div>
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between gap-1">
+<div>
+<h3 class="text-sm font-bold text-[#111811] dark:text-white line-clamp-1">Thịt Ba Chỉ Heo (500g)</h3>
+<p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Thịt tươi trong ngày • VietGAP</p>
+</div>
+<div class="flex items-end justify-between mt-1">
+<div class="flex items-baseline gap-1.5">
+<span class="text-primary-contrast dark:text-primary font-bold text-base">85k</span>
+<span class="text-xs text-gray-400 line-through decoration-gray-400">100k</span>
+</div>
+<div class="flex items-center border border-gray-200 dark:border-white/20 rounded-lg h-7 bg-white dark:bg-white/5 shadow-sm">
+<button class="w-7 h-full flex items-center justify-center text-gray-500 hover:text-primary-contrast hover:bg-gray-50 dark:hover:bg-white/10 rounded-l-lg transition-colors"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span class="w-6 text-center text-xs font-bold tabular-nums">1</span>
+<button class="w-7 h-full flex items-center justify-center text-primary-contrast hover:bg-gray-50 dark:hover:bg-white/10 rounded-r-lg transition-colors"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-3 pl-8 flex items-center justify-end border-t border-dashed border-gray-100 dark:border-white/5 pt-2">
+<label class="relative inline-flex items-center cursor-pointer group/toggle">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-8 h-4 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0 after:left-[0px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:shadow-sm after:transition-all peer-checked:bg-primary-contrast peer-checked:after:border-primary-contrast"></div>
+<span class="ml-2 text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wide peer-checked:text-primary-contrast dark:peer-checked:text-primary transition-colors">Mua định kỳ</span>
+</label>
+</div>
+</div>
+<div class="p-3 border-b border-gray-100 dark:border-white/5 last:border-0 relative hover:bg-gray-50 dark:hover:bg-white/5 transition-colors group">
+<div class="flex gap-3 items-start">
+<div class="flex items-center pt-2">
+<input checked="" class="w-5 h-5 rounded text-primary-contrast border-gray-300 focus:ring-primary-contrast bg-white dark:bg-white/10" type="checkbox"/>
+</div>
+<div class="w-16 h-16 bg-gray-100 dark:bg-white/10 rounded-lg shrink-0 overflow-hidden border border-gray-100 dark:border-white/5">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA2ZZl6HwfMKQ1DlwTRauM_0qdSz1PELm9RII-TVv_k6_EA4hpjQRUvBJ7eSC5T86tcCPS3g7kJKkcMrwO7P_8bMx38qdvs7dg4jQ8XeWQdFESuezp-cEP6NO6B8tWIa2gTO69gyefuBGUx5R-64IFwdce9zBRrtsUjzXTIkrArgxaD6N-c84V61Hf4SXX82jFXxP9GJYuw0kNAPOs-8E3aA4kN6OEQ55S-XtKpvDqCY3jv5mKS7NDFFoLeLdMxpz7-w60rohD7YiPL')"></div>
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between gap-1">
+<div>
+<h3 class="text-sm font-bold text-[#111811] dark:text-white line-clamp-1">Mì Hảo Hảo (Thùng 30 gói)</h3>
+<p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Vị Tôm chua cay</p>
+</div>
+<div class="flex items-end justify-between mt-1">
+<div class="flex items-baseline gap-1.5">
+<span class="text-primary-contrast dark:text-primary font-bold text-base">105k</span>
+</div>
+<div class="flex items-center border border-gray-200 dark:border-white/20 rounded-lg h-7 bg-white dark:bg-white/5 shadow-sm">
+<button class="w-7 h-full flex items-center justify-center text-gray-500 hover:text-primary-contrast hover:bg-gray-50 dark:hover:bg-white/10 rounded-l-lg transition-colors"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span class="w-6 text-center text-xs font-bold tabular-nums">1</span>
+<button class="w-7 h-full flex items-center justify-center text-primary-contrast hover:bg-gray-50 dark:hover:bg-white/10 rounded-r-lg transition-colors"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-3 pl-8 flex items-center justify-end border-t border-dashed border-gray-100 dark:border-white/5 pt-2">
+<label class="relative inline-flex items-center cursor-pointer group/toggle">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-8 h-4 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0 after:left-[0px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:shadow-sm after:transition-all peer-checked:bg-primary-contrast peer-checked:after:border-primary-contrast"></div>
+<span class="ml-2 text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wide peer-checked:text-primary-contrast dark:peer-checked:text-primary transition-colors">Mua định kỳ</span>
+</label>
+</div>
+</div>
+<div class="px-3 py-2.5 bg-gray-50 dark:bg-white/5 flex justify-between items-center text-xs border-t border-gray-100 dark:border-white/5">
+<span class="text-gray-500 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">local_shipping</span>Giao nhanh 2h</span>
+<div class="flex gap-1 text-gray-600 dark:text-gray-300">
+<span>Phí dịch vụ:</span>
+<span class="font-bold text-[#111811] dark:text-white">15.000đ</span>
+</div>
+</div>
+</div>
+<div class="mt-4 bg-white dark:bg-white/5 mx-4 rounded-xl shadow-sm border border-gray-100 dark:border-white/5 overflow-hidden">
+<div class="flex items-center gap-3 p-3 border-b border-gray-100 dark:border-white/5 bg-gray-50/50 dark:bg-white/5">
+<input checked="" class="w-5 h-5 rounded text-primary-contrast border-gray-300 focus:ring-primary-contrast bg-white dark:bg-white/10" type="checkbox"/>
+<div class="flex items-center gap-2 flex-1">
+<span class="material-symbols-outlined text-gray-500" style="font-size: 20px;">storefront</span>
+<span class="font-bold text-sm">Bách Hóa Xanh</span>
+</div>
+</div>
+<div class="p-3 border-b border-gray-100 dark:border-white/5 last:border-0 relative hover:bg-gray-50 dark:hover:bg-white/5 transition-colors group">
+<div class="flex gap-3 items-start">
+<div class="flex items-center pt-2">
+<input checked="" class="w-5 h-5 rounded text-primary-contrast border-gray-300 focus:ring-primary-contrast bg-white dark:bg-white/10" type="checkbox"/>
+</div>
+<div class="w-16 h-16 bg-gray-100 dark:bg-white/10 rounded-lg shrink-0 overflow-hidden border border-gray-100 dark:border-white/5">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBKQIQ3irk8b_8H8Pcqu8uo2aGx6y8l7Xb5pXlmuS-WKmyPeD3oqEEgSoIAr7K9gJ_bv1xaOVoIVi-75p8We_i66oGB-ug5PEKNi00tyrJYIrAS7WgfwbddqoofEvBALnQ0fqHkqNZ8182PLDMo6JJ7rTIsFkAG2Xil0I4sCaInODEYTfn5w5zfZYm6WsYtAqNHggnNd8Iwd7tVf2XYK1R1fi0OUrXEZE8tej8OC6cV7tUIjAbuDkDxyWIZYniwue4yhfUSX9aoblnw')"></div>
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between gap-1">
+<div>
+<h3 class="text-sm font-bold text-[#111811] dark:text-white line-clamp-1">Sữa tươi Vinamilk (1L)</h3>
+<p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Có đường • HSD: 6 tháng</p>
+</div>
+<div class="flex items-end justify-between mt-1">
+<div class="flex items-baseline gap-1.5">
+<span class="text-primary-contrast dark:text-primary font-bold text-base">32k</span>
+<span class="text-xs text-gray-400 line-through decoration-gray-400">34k</span>
+</div>
+<div class="flex items-center border border-gray-200 dark:border-white/20 rounded-lg h-7 bg-white dark:bg-white/5 shadow-sm">
+<button class="w-7 h-full flex items-center justify-center text-gray-500 hover:text-primary-contrast hover:bg-gray-50 dark:hover:bg-white/10 rounded-l-lg transition-colors"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span class="w-6 text-center text-xs font-bold tabular-nums">2</span>
+<button class="w-7 h-full flex items-center justify-center text-primary-contrast hover:bg-gray-50 dark:hover:bg-white/10 rounded-r-lg transition-colors"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-3 pl-8 flex items-center justify-end border-t border-dashed border-gray-100 dark:border-white/5 pt-2">
+<label class="relative inline-flex items-center cursor-pointer group/toggle">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-8 h-4 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0 after:left-[0px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:shadow-sm after:transition-all peer-checked:bg-primary-contrast peer-checked:after:border-primary-contrast"></div>
+<span class="ml-2 text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wide peer-checked:text-primary-contrast dark:peer-checked:text-primary transition-colors">Mua định kỳ</span>
+</label>
+</div>
+</div>
+<div class="px-3 py-2.5 bg-gray-50 dark:bg-white/5 flex justify-between items-center text-xs border-t border-gray-100 dark:border-white/5">
+<span class="text-gray-500 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span>Giao tiêu chuẩn</span>
+<div class="flex gap-1 text-gray-600 dark:text-gray-300">
+<span>Phí dịch vụ:</span>
+<span class="font-bold text-[#111811] dark:text-white">10.000đ</span>
+</div>
+</div>
+</div>
+<div class="mt-4 bg-white dark:bg-white/5 mx-4 rounded-xl shadow-sm border border-gray-100 dark:border-white/5 overflow-hidden">
+<div class="flex items-center gap-3 p-3 border-b border-gray-100 dark:border-white/5 bg-gray-50/50 dark:bg-white/5">
+<input checked="" class="w-5 h-5 rounded text-primary-contrast border-gray-300 focus:ring-primary-contrast bg-white dark:bg-white/10" type="checkbox"/>
+<div class="flex items-center gap-2 flex-1">
+<span class="material-symbols-outlined text-gray-500" style="font-size: 20px;">storefront</span>
+<span class="font-bold text-sm">Co.op Food</span>
+</div>
+</div>
+<div class="p-3 border-b border-gray-100 dark:border-white/5 last:border-0 relative hover:bg-gray-50 dark:hover:bg-white/5 transition-colors group">
+<div class="flex gap-3 items-start">
+<div class="flex items-center pt-2">
+<input checked="" class="w-5 h-5 rounded text-primary-contrast border-gray-300 focus:ring-primary-contrast bg-white dark:bg-white/10" type="checkbox"/>
+</div>
+<div class="w-16 h-16 bg-gray-100 dark:bg-white/10 rounded-lg shrink-0 overflow-hidden border border-gray-100 dark:border-white/5">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCvM0vCxm079gGx2cZnHCBbP2YrojMhFNfmH16CW01rVSTF1ueU17zR1XR7zLQRG4xTTSHf9TUu4wEq6i_ddRfgrLcL0sfwaFpZ17j5g3jBTojvnioJ90hE2rd7ARj1olNi95W-1nwWNqPZlSftOMmJYZ6MvYZTxwPz2HKnJUb3bIAJAtKflOnBVjBSkPcewuBGNnQb1MtH9i-8m-OSjbcQwbEuXRkJxU2vhhfjugPMHyIJwNiwr_g-_doq9Mxw1Qt9-u6quRtJzd0M')"></div>
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between gap-1">
+<div>
+<h3 class="text-sm font-bold text-[#111811] dark:text-white line-clamp-1">Gạo ST25 (5kg)</h3>
+<p class="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">Thơm ngon • Hàng mới</p>
+</div>
+<div class="flex items-end justify-between mt-1">
+<div class="flex items-baseline gap-1.5">
+<span class="text-primary-contrast dark:text-primary font-bold text-base">180k</span>
+<span class="text-xs text-gray-400 line-through decoration-gray-400">200k</span>
+</div>
+<div class="flex items-center border border-gray-200 dark:border-white/20 rounded-lg h-7 bg-white dark:bg-white/5 shadow-sm">
+<button class="w-7 h-full flex items-center justify-center text-gray-500 hover:text-primary-contrast hover:bg-gray-50 dark:hover:bg-white/10 rounded-l-lg transition-colors"><span class="material-symbols-outlined text-sm">remove</span></button>
+<span class="w-6 text-center text-xs font-bold tabular-nums">1</span>
+<button class="w-7 h-full flex items-center justify-center text-primary-contrast hover:bg-gray-50 dark:hover:bg-white/10 rounded-r-lg transition-colors"><span class="material-symbols-outlined text-sm">add</span></button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-3 pl-8 flex items-center justify-end border-t border-dashed border-gray-100 dark:border-white/5 pt-2">
+<label class="relative inline-flex items-center cursor-pointer group/toggle">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-8 h-4 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0 after:left-[0px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:shadow-sm after:transition-all peer-checked:bg-primary-contrast peer-checked:after:border-primary-contrast"></div>
+<span class="ml-2 text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wide peer-checked:text-primary-contrast dark:peer-checked:text-primary transition-colors">Mua định kỳ</span>
+</label>
+</div>
+</div>
+<div class="px-3 py-2.5 bg-gray-50 dark:bg-white/5 flex justify-between items-center text-xs border-t border-gray-100 dark:border-white/5">
+<span class="text-gray-500 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">calendar_today</span>Giao ngày mai</span>
+<div class="flex gap-1 text-gray-600 dark:text-gray-300">
+<span>Phí dịch vụ:</span>
+<span class="font-bold text-[#111811] dark:text-white">12.000đ</span>
+</div>
+</div>
+</div>
+<div class="fixed bottom-0 left-0 right-0 bg-white dark:bg-[#102210] border-t border-gray-100 dark:border-white/5 px-4 pt-3 pb-8 z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+<div class="flex flex-col gap-3 max-w-md mx-auto">
+<div class="flex justify-between items-center text-sm px-1">
+<div class="flex items-center gap-2 text-primary-contrast dark:text-primary">
+<span class="material-symbols-outlined fill-current" style="font-size: 20px;">local_offer</span>
+<span class="font-bold">2 voucher được áp dụng</span>
+</div>
+<div class="flex items-center gap-1 text-gray-500 dark:text-gray-400 font-medium cursor-pointer hover:text-gray-700 dark:hover:text-gray-200">
+<span class="text-xs">Xem thêm</span>
+<span class="material-symbols-outlined" style="font-size: 16px;">chevron_right</span>
+</div>
+</div>
+<div class="flex items-center justify-between mt-1 gap-4">
+<div class="flex flex-col items-start">
+<div class="flex items-center gap-2">
+<input checked="" class="w-4 h-4 rounded text-primary-contrast border-gray-300 focus:ring-primary-contrast bg-white dark:bg-white/10" type="checkbox"/>
+<span class="text-xs font-medium text-gray-500 dark:text-gray-400">Tất cả</span>
+</div>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="text-xl font-bold text-[#111811] dark:text-white">479k</span>
+<span class="text-xs text-gray-400 line-through">524k</span>
+</div>
+</div>
+<button class="bg-primary-contrast hover:bg-primary-contrast-dark text-white font-bold h-12 px-8 rounded-xl shadow-lg shadow-primary-contrast/20 transition-all active:scale-95 flex items-center gap-2 flex-1 justify-center">
+                    Thanh toán (4)
+                </button>
+</div>
+</div>
+</div>
+
+</body></html>
