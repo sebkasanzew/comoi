@@ -4,6 +4,6 @@
     "rootDir": ".",
     "outDir": "./dist"
   },
-  "include": ["convex/**/*"],
+  "include": ["convex/**/*", "index.ts"],
   "exclude": ["node_modules", "dist", "convex/_generated"]
 }
