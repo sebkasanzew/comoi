@@ -19,7 +19,13 @@ export default {
     {
       // Clerk's issuer domain for JWT verification
       // Set CLERK_JWT_ISSUER_DOMAIN in Convex Dashboard environment variables
-      domain: process.env.CLERK_JWT_ISSUER_DOMAIN!,
+      domain: (() => {
+        const issuerDomain = process.env.CLERK_JWT_ISSUER_DOMAIN;
+        if (!issuerDomain) {
+          throw new Error("CLERK_JWT_ISSUER_DOMAIN is not set");
+        }
+        return issuerDomain;
+      })(),
       // Application ID must match what Clerk uses (default: "convex")
       applicationID: "convex",
     },

@@ -1,0 +1,43 @@
+{
+  "name": "@comoi/theme",
+  "version": "0.0.1",
+  "private": true,
+  "license": "AGPL-3.0-or-later",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./css": "./dist/variables.css",
+    "./tailwind": {
+      "types": "./dist/tailwind-preset.d.ts",
+      "import": "./dist/tailwind-preset.js"
+    },
+    "./gluestack": {
+      "types": "./dist/gluestack-config.d.ts",
+      "import": "./dist/gluestack-config.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "lint": "biome check . && eslint .",
+    "lint:fix": "biome check --write . && eslint . --fix",
+    "format": "biome format --write .",
+    "format:check": "biome format .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "clean": "rm -rf dist .turbo"
+  },
+  "devDependencies": {
+    "@comoi/eslint-config": "workspace:*",
+    "@comoi/typescript-config": "workspace:*",
+    "eslint": "9.39.2",
+    "vitest": "4.0.18"
+  }
+}
