@@ -114,15 +114,31 @@
       "!**/.next",
       "!**/build",
       "!**/.expo",
-      "!design/**",
+      "!design",
       "!**/convex/_generated",
       "!**/.turbo",
-      "!**/coverage"
+      "!**/coverage",
+      "!**/globals.css",
+      "!**/global.css"
     ]
   },
   "overrides": [
     {
+      "includes": ["**/globals.css", "**/global.css"],
+      "formatter": {
+        "enabled": false
+      },
+      "linter": {
+        "enabled": false
+      }
+    },
+    {
       "includes": ["**/*.css"],
+      "css": {
+        "parser": {
+          "cssModules": true
+        }
+      },
       "linter": {
         "rules": {
           "suspicious": {

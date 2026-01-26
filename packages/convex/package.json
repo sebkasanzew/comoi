@@ -4,6 +4,10 @@
   "private": true,
   "license": "AGPL-3.0-or-later",
   "type": "module",
+  "exports": {
+    ".": "./index.ts",
+    "./dataModel": "./convex/_generated/dataModel.d.ts"
+  },
   "scripts": {
     "dev": "convex dev",
     "deploy": "convex deploy --typecheck=disable",

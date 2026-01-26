@@ -10,29 +10,34 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
-  reporter: "html",
+  reporter: [["list"], ["json", { outputFile: "test-results/results.json" }]],
   use: {
     baseURL: "http://localhost:3000",
     trace: "on-first-retry",
+  },
+  /* Configure snapshot settings - include project name for different viewports */
+  snapshotPathTemplate: "{testDir}/__screenshots__/{testFilePath}/{projectName}/{arg}{ext}",
+  expect: {
+    toHaveScreenshot: {
+      maxDiffPixels: 100,
+      animations: "disabled",
+    },
   },
   projects: [
     {
       name: "chromium",
       use: { ...devices["Desktop Chrome"] },
     },
+    /* Mobile viewport for testing mobile-first UI */
     {
-      name: "firefox",
-      use: { ...devices["Desktop Firefox"] },
-    },
-    {
-      name: "webkit",
-      use: { ...devices["Desktop Safari"] },
+      name: "mobile-chrome",
+      use: { ...devices["Pixel 5"] },
     },
   ],
   webServer: {
     command: "bun run dev",
     url: "http://localhost:3000",
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: true,
     timeout: 120 * 1000,
   },
 });

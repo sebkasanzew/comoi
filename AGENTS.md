@@ -220,6 +220,10 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the complete workflow guide.
 
 ### Quick Reference for AI Agents
 
+#### Important Rules
+- **DO NOT start the dev server** — The user runs the dev server in a separate terminal. Never run `bun run dev`, `next dev`, or similar commands to start development servers.
+- **Use snapshot tests** — When creating UI components, add Playwright snapshot tests using `.toHaveScreenshot()`.
+
 #### Context Files to Reference
 When starting a new session, provide these files for context:
 - `AGENTS.md` — Project overview and decisions
