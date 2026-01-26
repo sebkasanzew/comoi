@@ -15,6 +15,10 @@ const config = {
     },
     launchApp: "auto",
   },
+  session: {
+    server: "ws://localhost:8099",
+    autoStart: true,
+  },
   apps: {
     "ios.debug": {
       type: "ios.app",
@@ -31,13 +35,17 @@ const config = {
     "android.debug": {
       type: "android.apk",
       binaryPath: "android/app/build/outputs/apk/debug/app-debug.apk",
+      testBinaryPath: "android/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk",
       build:
-        "cd android && EXPO_USE_COMMUNITY_AUTOLINKING=1 ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug",
+        "cd android && ./gradlew :app:assembleDebug :app:assembleAndroidTest -DtestBuildType=debug",
     },
     "android.release": {
       type: "android.apk",
       binaryPath: "android/app/build/outputs/apk/release/app-release.apk",
-      build: "cd android && ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release",
+      testBinaryPath:
+        "android/app/build/outputs/apk/androidTest/release/app-release-androidTest.apk",
+      build:
+        "cd android && ./gradlew :app:assembleRelease :app:assembleAndroidTest -DtestBuildType=release",
     },
   },
   devices: {
@@ -56,7 +64,7 @@ const config = {
     emulator: {
       type: "android.emulator",
       device: {
-        avdName: "Pixel_3a_API_34",
+        avdName: "Pixel_9_Pro_XL",
       },
     },
   },

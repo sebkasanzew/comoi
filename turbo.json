@@ -1,6 +1,15 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "ui": "tui",
+  "globalEnv": [
+    "ANDROID_HOME",
+    "ANDROID_SDK_ROOT",
+    "EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY",
+    "EXPO_PUBLIC_CONVEX_URL",
+    "EXPO_PUBLIC_SITE_URL",
+    "LOCALAPPDATA",
+    "NODE_ENV"
+  ],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
@@ -44,6 +53,17 @@
     "test:ui": {
       "cache": false,
       "persistent": true
+    },
+    "test:e2e": {
+      "cache": false
+    },
+    "e2e:build:android": {
+      "cache": false,
+      "outputs": ["android/app/build/outputs/apk/**"]
+    },
+    "e2e:test:android": {
+      "cache": false,
+      "dependsOn": ["e2e:build:android"]
     },
     "clean": {
       "cache": false

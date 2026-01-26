@@ -2,18 +2,15 @@ import { by, device, element, waitFor } from "detox";
 
 describe("App", () => {
   beforeAll(async () => {
+    if (device.getPlatform() === "android") {
+      await device.reverseTcpPort(8099);
+    }
     // Launch app with synchronization disabled for NativeWind/Tailwind apps
     await device.launchApp({
       newInstance: true,
-      launchArgs: { detoxDisableSynchronization: "YES" },
+      launchArgs: { detoxEnableSynchronization: 0 },
     });
-  });
-
-  beforeEach(async () => {
-    await device.launchApp({
-      newInstance: false,
-      launchArgs: { detoxDisableSynchronization: "YES" },
-    });
+    await device.disableSynchronization();
   });
 
   it("should display welcome screen", async () => {
