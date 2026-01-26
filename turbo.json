@@ -6,6 +6,12 @@
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**"]
     },
+    "@comoi/theme#build": {
+      "outputs": []
+    },
+    "@comoi/convex#build": {
+      "outputs": []
+    },
     "dev": {
       "cache": false,
       "persistent": true
