@@ -18,6 +18,8 @@
     "test:watch": "turbo run test:watch",
     "test:ui": "turbo run test:ui",
     "check": "turbo run lint typecheck test",
+    "seed": "cd packages/convex && bun run seed",
+    "seed:reset": "cd packages/convex && bun run seed:reset",
     "clean": "turbo run clean && rm -rf node_modules .turbo"
   },
   "devDependencies": {
