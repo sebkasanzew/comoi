@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Live Tracking Map</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec13",
+                        "primary-dark": "#0eb50e",
+                        "primary-contrast": "#117a11",
+                        "primary-contrast-dark": "#0d630d",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102210",
+                    },
+                    fontFamily: {
+                        "display": ["Be Vietnam Pro", "sans-serif"],
+                        "body": ["Be Vietnam Pro", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#111811] dark:text-white font-display">
+<div class="relative flex h-full min-h-screen w-full flex-col overflow-hidden pb-0 bg-background-light dark:bg-background-dark">
+<div class="absolute top-0 z-50 w-full p-4 pt-6">
+<button class="flex items-center justify-center rounded-full h-10 w-10 bg-white dark:bg-[#102210] shadow-lg text-[#111811] dark:text-white hover:bg-gray-50 dark:hover:bg-white/20 transition-all">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+</div>
+<div class="relative w-full h-[55vh] bg-gray-200 dark:bg-gray-800">
+<div class="w-full h-full bg-cover bg-center relative" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAlcBThBeTojRMkftcTmfMxTHXq9XHWQ2treSmCZl0P14OnemdhQK2Oqnw3ecsmixwo3bzBQTM2qskz07wG13M6E_sCO_B3fsysFiCfj1lsxZaZGBk9uV7eqX4f10pxGKNDbi4nDexlCgpjPbMauLRdv1ONDt0xlRlBPc6PsRcwwKPPr0En3E4prEU38tDBSF8sUO6whGOM51MLx5WO8DDKc87-UeTl_z3TqMM-TztKEHtrc3qWj4JxDbzvlmD7gr4ejtIM6PtcCrGS'); background-color: #e5e7eb;">
+<div class="absolute inset-0 bg-opacity-10 bg-gray-200 pointer-events-none" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBT-EQnyKI6k5ymbdlHwAufhVWmikj0DztSMO4cY_TmjHgqjxmSessTi6Cgld3Ft21AwL2WVg3zpNqlr5GSa8_AkIO1z3X_13Kv6WWfBd6WRJoQxyRRDius6KpOoXBrd0LBHnM1Pj8ninxtduAmfA6AkSRwp5CTQPN5xFaigOuSovccGmanIDGmbgBjgDX05xSCRXrBK2hfjc6c7SR2dhKWvlZ5GJIJIkdyMfUxkef7xvWxbeTVg6IR8KtdSEqMB1tXHh-LaRjEMxeE'); background-size: cover; background-position: center; opacity: 0.4; filter: grayscale(0.5);"></div>
+<div class="absolute top-1/4 left-1/3 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+<div class="bg-white dark:bg-gray-900 p-1.5 rounded-lg shadow-md mb-1 animate-bounce" style="animation-duration: 2s;">
+<span class="material-symbols-outlined text-red-600 fill-1" style="font-size: 24px;">storefront</span>
+</div>
+<div class="bg-white dark:bg-gray-900 px-2 py-0.5 rounded shadow text-[10px] font-bold whitespace-nowrap">WinMart+</div>
+</div>
+<div class="absolute bottom-1/3 right-1/4 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+<div class="bg-primary-contrast p-2 rounded-full shadow-lg shadow-primary-contrast/30 mb-1 border-2 border-white dark:border-gray-800">
+<span class="material-symbols-outlined text-white" style="font-size: 20px;">home</span>
+</div>
+<div class="bg-white dark:bg-gray-900 px-2 py-0.5 rounded shadow text-[10px] font-bold whitespace-nowrap">Nhà Tôi</div>
+</div>
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center transition-all duration-1000">
+<div class="bg-white dark:bg-gray-900 p-1.5 rounded-full shadow-lg mb-1 border border-gray-100">
+<span class="material-symbols-outlined text-primary-contrast fill-1" style="font-size: 24px;">two_wheeler</span>
+</div>
+<div class="bg-primary-contrast text-white px-2 py-0.5 rounded-full shadow text-[10px] font-bold whitespace-nowrap">Đang giao</div>
+</div>
+<svg class="absolute inset-0 w-full h-full pointer-events-none" style="z-index: 0;">
+<path d="M140,200 Q200,280 210,400 T300,500" fill="none" stroke="#117a11" stroke-dasharray="10,5" stroke-linecap="round" stroke-width="4"></path>
+</svg>
+</div>
+</div>
+<div class="flex-1 -mt-6 rounded-t-3xl bg-white dark:bg-[#102210] shadow-[0_-4px_20px_rgba(0,0,0,0.1)] relative z-10 flex flex-col">
+<div class="w-12 h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full mx-auto mt-3 mb-4"></div>
+<div class="px-6 flex-1 overflow-y-auto pb-8">
+<div class="flex items-start justify-between mb-6">
+<div>
+<p class="text-sm text-gray-500 dark:text-gray-400 font-medium">Thời gian dự kiến</p>
+<h2 class="text-2xl font-bold text-[#111811] dark:text-white mt-1">15 - 20 phút</h2>
+</div>
+<div class="bg-green-50 dark:bg-green-900/20 px-3 py-1.5 rounded-lg text-primary-contrast dark:text-primary font-bold text-sm border border-green-100 dark:border-green-900/30">
+                        Đúng giờ
+                    </div>
+</div>
+<div class="mb-8 relative">
+<div class="absolute left-0 top-1/2 transform -translate-y-1/2 w-full h-1 bg-gray-100 dark:bg-white/10 rounded-full z-0"></div>
+<div class="absolute left-0 top-1/2 transform -translate-y-1/2 w-3/4 h-1 bg-primary-contrast rounded-full z-0 transition-all duration-1000"></div>
+<div class="flex justify-between items-center relative z-10 w-full">
+<div class="flex flex-col items-center gap-2 w-1/4">
+<div class="w-8 h-8 rounded-full bg-primary-contrast text-white flex items-center justify-center border-4 border-white dark:border-[#102210] shadow-sm">
+<span class="material-symbols-outlined text-[16px]">receipt_long</span>
+</div>
+<span class="text-[10px] font-bold text-primary-contrast text-center leading-tight">Đã đặt</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-1/4">
+<div class="w-8 h-8 rounded-full bg-primary-contrast text-white flex items-center justify-center border-4 border-white dark:border-[#102210] shadow-sm">
+<span class="material-symbols-outlined text-[16px]">inventory_2</span>
+</div>
+<span class="text-[10px] font-bold text-primary-contrast text-center leading-tight">Đã soạn</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-1/4">
+<div class="w-8 h-8 rounded-full bg-primary-contrast text-white flex items-center justify-center border-4 border-white dark:border-[#102210] shadow-lg ring-2 ring-primary-contrast/20 animate-pulse">
+<span class="material-symbols-outlined text-[16px]">two_wheeler</span>
+</div>
+<span class="text-[10px] font-bold text-primary-contrast text-center leading-tight">Đang giao</span>
+</div>
+<div class="flex flex-col items-center gap-2 w-1/4">
+<div class="w-8 h-8 rounded-full bg-white dark:bg-gray-700 text-gray-300 dark:text-gray-500 flex items-center justify-center border-4 border-white dark:border-[#102210] shadow-sm">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<span class="text-[10px] font-medium text-gray-400 text-center leading-tight">Hoàn tất</span>
+</div>
+</div>
+</div>
+<div class="border border-gray-100 dark:border-white/10 rounded-2xl p-4 bg-gray-50 dark:bg-white/5 flex items-center gap-4 mb-6">
+<div class="relative">
+<div class="w-14 h-14 rounded-full overflow-hidden bg-gray-200 border-2 border-white dark:border-gray-600">
+<div class="w-full h-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD7IiCEf9g1hkxpCHuQ8psd_ETsi_pvv16B7X4JfxFaEHivV0GQtjBIBA35vnxwDBXblu0wX_z_6JZ7wJcguo7H0OVma7Cs8AbglrN3WZsStW7dO99DbJauHCL5STq-6jBJ6yz2gFyIImz_nGd8tezQg-97cj5di5wz-75HNnLwlSknFS6YHaCpyh-Ph9o7LM1zXnGRDWi75-Z4SrITUczSVOth0kQTEH_RPWdZL7iYqrJFOIlgu7dRQ5plFY20tzRfBTrODEaErCZv')"></div>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-yellow-400 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full border-2 border-white dark:border-gray-800 flex items-center gap-0.5">
+                            4.9 <span class="material-symbols-outlined text-[10px] fill-current">star</span>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<h3 class="font-bold text-[#111811] dark:text-white">Nguyễn Văn Tài</h3>
+<span class="bg-primary-contrast/10 text-primary-contrast dark:text-primary text-[10px] px-1.5 py-0.5 rounded font-bold uppercase tracking-wider">Tài xế</span>
+</div>
+<p class="text-xs text-gray-500 dark:text-gray-400">Honda Vision • 59-C1 123.45</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary-contrast text-white flex items-center justify-center shadow-lg shadow-primary-contrast/30 hover:bg-primary-contrast-dark transition-colors">
+<span class="material-symbols-outlined">call</span>
+</button>
+</div>
+<div class="space-y-3 border-t border-gray-100 dark:border-white/5 pt-6">
+<h3 class="font-bold text-lg mb-2 dark:text-white">Chi tiết đơn hàng</h3>
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-gray-50 dark:bg-white/5 p-2 border border-gray-100 dark:border-white/5 flex-shrink-0">
+<div class="w-full h-full bg-contain bg-center bg-no-repeat" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC0WSkS5XoJVl1WkrVPQqlEtjKKqgyRbBl2-d95elrtJmAZdsWxk_p9ZNlQN3o5SwS7DOMkGYKWOOvFEcfdifDlACwq1jKI81oRR_lAHlAVkMq7Pm_MK6qmhPEaFNpZTL3p-FwaUytHQ9rBKEQjdLEm0R6RwWbPLq905kXXU1ZIJnkVK7yZn2Y8Qazh-aH2V8RaHb-VIU9PyeG_6Ym1ljEPTV0kmxFMWcvdyqoxnGrOQpCmvVkaY3dA9f0hKUxqtu8JLwoEudp21wDL')"></div>
+</div>
+<div class="flex-1">
+<h4 class="font-semibold text-sm dark:text-white">WinMart+ Quận 1</h4>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Mã đơn: #8823GHA</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-primary-contrast">325.000đ</p>
+<p class="text-xs text-gray-400">5 món</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body></html>

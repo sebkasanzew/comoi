@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec13",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#101410", /* Deep dark green-black for that 'forest' vibe fitting the component samples */
+                        "surface-dark": "#1A261A", /* Slightly lighter for cards */
+                        "surface-darker": "#111811",
+                    },
+                    fontFamily: {
+                        "display": ["Be Vietnam Pro", "Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                    boxShadow: {
+                        "glow": "0 0 15px rgba(19, 236, 19, 0.3)",
+                        "card": "0 4px 20px -2px rgba(0, 0, 0, 0.5)",
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding for cleaner horizontal scrolls */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased text-gray-900 dark:text-white">
+<div class="relative flex h-full min-h-screen w-full flex-col overflow-x-hidden pb-28">
+<!-- Header -->
+<header class="sticky top-0 z-30 flex items-center bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md px-4 py-4 justify-between border-b border-gray-200 dark:border-white/5">
+<button class="text-gray-900 dark:text-white flex size-10 shrink-0 items-center justify-center rounded-full active:bg-gray-200 dark:active:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<h2 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Checkout</h2>
+<div class="size-10"></div> <!-- Spacer for centering -->
+</header>
+<!-- Main Content -->
+<main class="flex flex-col px-4 gap-6 mt-4">
+<!-- Delivery Address Section -->
+<section class="flex flex-col gap-3">
+<h3 class="text-gray-900 dark:text-white text-lg font-bold leading-tight px-1">Delivery Address</h3>
+<div class="bg-white dark:bg-surface-dark rounded-2xl shadow-card overflow-hidden border border-gray-100 dark:border-white/5">
+<!-- Map Preview -->
+<div class="relative h-32 w-full bg-gray-800">
+<div class="absolute inset-0 bg-cover bg-center opacity-80" data-alt="Dark map preview of Ho Chi Minh City streets" data-location="Ho Chi Minh City" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuADJpOrDu9SIggwLYRQv_FxuFtTIwDwk_Rs_Q_V0earf7Kj-j_o8hQXOv3n-dxVAj0sidFU9oJlvx2ljd7omp8z4BQTgJqCRjEsm9beWLc4guTe43pvqvCQV6tefLq5ZExReMBG8h83P_dzXdq24hxNkfi0kGm_GohlDGnX8vKrDcVix4ugLYTP0uE6IRqfPIHaRniH1Zy-UNrl1REqOWbWcuY_7Vc1CKHWmPpUdqVFGQ3B4CxARCfxeuib7a9FieAYPH2HiF9T5JQ8"); filter: grayscale(100%) invert(90%) hue-rotate(180deg) brightness(85%) contrast(120%);'>
+</div>
+<!-- Overlay gradient for depth -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dark to-transparent"></div>
+<!-- High Contrast Pin -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+<span class="material-symbols-outlined text-primary text-4xl drop-shadow-[0_2px_8px_rgba(19,236,19,0.5)]" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<div class="w-2 h-1 bg-primary/50 rounded-full blur-[2px] mt-[-4px]"></div>
+</div>
+</div>
+<!-- Address Details -->
+<div class="p-4 flex justify-between items-center gap-4">
+<div class="flex items-start gap-3">
+<div class="flex flex-1 flex-col">
+<p class="text-gray-900 dark:text-white text-base font-bold leading-normal">Home</p>
+<p class="text-gray-500 dark:text-gray-300 text-sm font-medium leading-relaxed mt-1">123 Nguyen Hue, Ben Nghe Ward<br/>District 1, Ho Chi Minh City</p>
+</div>
+</div>
+<button class="shrink-0 text-primary text-sm font-bold px-3 py-1.5 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors">
+                            Change
+                        </button>
+</div>
+</div>
+</section>
+<!-- Delivery Time Section -->
+<section class="flex flex-col gap-3">
+<h3 class="text-gray-900 dark:text-white text-lg font-bold leading-tight px-1">Delivery Time</h3>
+<div class="bg-white dark:bg-surface-dark rounded-2xl shadow-card p-4 border border-gray-100 dark:border-white/5">
+<div class="flex gap-3 overflow-x-auto no-scrollbar pb-1">
+<!-- Option 1: Selected -->
+<button class="flex-shrink-0 flex flex-col items-center justify-center p-3 rounded-xl border-2 border-primary bg-primary/5 min-w-[100px] relative">
+<div class="absolute top-2 right-2 text-primary">
+<span class="material-symbols-outlined text-sm font-bold">check_circle</span>
+</div>
+<span class="text-xs font-medium text-primary mb-1">Today</span>
+<span class="text-gray-900 dark:text-white font-bold text-lg">14:00</span>
+<span class="text-xs text-gray-500 dark:text-gray-400">15:00</span>
+</button>
+<!-- Option 2 -->
+<button class="flex-shrink-0 flex flex-col items-center justify-center p-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 min-w-[100px]">
+<span class="text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">Today</span>
+<span class="text-gray-900 dark:text-white font-bold text-lg">16:00</span>
+<span class="text-xs text-gray-500 dark:text-gray-400">17:00</span>
+</button>
+<!-- Option 3 -->
+<button class="flex-shrink-0 flex flex-col items-center justify-center p-3 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 min-w-[100px]">
+<span class="text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">Tomorrow</span>
+<span class="text-xs font-bold text-primary bg-primary/10 px-1.5 rounded mb-0.5">Free</span>
+<span class="text-gray-900 dark:text-white font-bold text-lg">09:00</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Order Summary Section -->
+<section class="flex flex-col gap-3">
+<h3 class="text-gray-900 dark:text-white text-lg font-bold leading-tight px-1">Order Summary</h3>
+<div class="bg-white dark:bg-surface-dark rounded-2xl shadow-card border border-gray-100 dark:border-white/5 overflow-hidden">
+<!-- Item 1 -->
+<div class="flex gap-4 p-4 border-b border-gray-100 dark:border-white/5">
+<div class="h-16 w-16 bg-gray-200 dark:bg-gray-700 rounded-lg bg-cover bg-center shrink-0" data-alt="Fresh organic apples in a basket" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDKlOA9CEacyP8CTSJGkvcehSEgESRR7hvWE8CpsHIjoAwnXzFvp2m3qMQA90WXhJ0Wq-S7kvFbUTen3-UWrruUZQD0lZBxl-nHg-GAgjPj7oiL3FYpLSqtkPde97QnCjBIWvyzD-T4pLRAldHAH0CaCq4njHLOQdTFI5kRC4zRMiXIOd6lAEMBTBS7hsUBPQzVcWDBtxa6AT8LZJSH4g30EuYZWxLG8XmWN9cjFpYhQLTz5nAJ95Scs_45DwNdhzax9IaH9t5MDqGN");'>
+</div>
+<div class="flex flex-1 flex-col justify-between py-0.5">
+<div class="flex justify-between items-start">
+<p class="text-gray-900 dark:text-white font-medium text-sm leading-tight line-clamp-2">Organic Fuji Apples (1kg)</p>
+<p class="text-gray-900 dark:text-white font-bold text-sm ml-2">65.000đ</p>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-xs">Qty: 1</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex gap-4 p-4 border-b border-gray-100 dark:border-white/5">
+<div class="h-16 w-16 bg-gray-200 dark:bg-gray-700 rounded-lg bg-cover bg-center shrink-0" data-alt="Packet of Vietnamese coffee beans" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBAMiPPhvVAyE9a6s5XY9l7ChxStHk6Dvkwvb3FLatwewqgDajloS26rhRQfhihLH8xccxJ-089ZmVIjmMnhP1fqZy3HiO_27OED56oFlK02Ox6SJSiv_wk9HYi0sVstPfJkhOPUNV66toeEvdzhp6APTqX0fiSnOMV6u9Ya-G2VshfJxwQrTcIOoXWKPG-dm6VXr95L8i4j9rm__VehlS0Hlipdy0I5Bl2jbmlLS8wV0vb9sJrew8JRnnaMir5Za3ATV9cPIq0Sy_j");'>
+</div>
+<div class="flex flex-1 flex-col justify-between py-0.5">
+<div class="flex justify-between items-start">
+<p class="text-gray-900 dark:text-white font-medium text-sm leading-tight line-clamp-2">Trung Nguyen Coffee G7 (500g)</p>
+<p class="text-gray-900 dark:text-white font-bold text-sm ml-2">120.000đ</p>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-xs">Qty: 2</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex gap-4 p-4">
+<div class="h-16 w-16 bg-gray-200 dark:bg-gray-700 rounded-lg bg-cover bg-center shrink-0" data-alt="Loaf of fresh sandwich bread" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDsvrU8vEPVQrLY2ApzMO8tqceZgvw9egqJiJnLwVeds8ynym-Qt_eOB8xZRL7i0WFLT89xc-3lZxy5qLz8oT5cu6xKOUoZIGO7O_jBozeTFc1uklUAUgCFiAlfurp8YTH9WgkaElIeYuUnfKBGB_O34fta1_P8QXL7YtCDExUeOCsqQQnPUT-lCYDMMtl7lF54V_KrbtjZEK__Gq3Jw6wJt6S7sLSEih-rDzPBAX0mz9-mEGSefbpLd-ALPNxuepLcE-wJbwOoQyCE");'>
+</div>
+<div class="flex flex-1 flex-col justify-between py-0.5">
+<div class="flex justify-between items-start">
+<p class="text-gray-900 dark:text-white font-medium text-sm leading-tight line-clamp-2">Sandwich Bread</p>
+<p class="text-gray-900 dark:text-white font-bold text-sm ml-2">25.000đ</p>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-xs">Qty: 1</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Payment Method Section -->
+<section class="flex flex-col gap-3">
+<h3 class="text-gray-900 dark:text-white text-lg font-bold leading-tight px-1">Payment Method</h3>
+<div class="bg-white dark:bg-surface-dark rounded-2xl shadow-card overflow-hidden border border-gray-100 dark:border-white/5">
+<!-- Momo (Selected) -->
+<label class="flex items-center gap-4 p-4 border-b border-gray-100 dark:border-white/5 cursor-pointer bg-primary/5">
+<input checked="" class="w-5 h-5 text-primary bg-transparent border-gray-400 focus:ring-primary focus:ring-2" name="payment" type="radio"/>
+<div class="size-10 rounded-lg bg-[#A50064] flex items-center justify-center text-white shrink-0">
+<!-- Placeholder icon for Momo -->
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+<div class="flex flex-1 flex-col">
+<p class="text-gray-900 dark:text-white font-bold text-sm">Momo E-Wallet</p>
+<p class="text-gray-500 dark:text-gray-400 text-xs">Ending in 8839</p>
+</div>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</label>
+<!-- COD -->
+<label class="flex items-center gap-4 p-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+<input class="w-5 h-5 text-primary bg-transparent border-gray-400 focus:ring-primary focus:ring-2" name="payment" type="radio"/>
+<div class="size-10 rounded-lg bg-green-700 flex items-center justify-center text-white shrink-0">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div class="flex flex-1 flex-col">
+<p class="text-gray-900 dark:text-white font-bold text-sm">Cash on Delivery</p>
+<p class="text-gray-500 dark:text-gray-400 text-xs">Pay when you receive</p>
+</div>
+</label>
+</div>
+</section>
+<!-- Totals Breakdown -->
+<section class="px-2 py-2 mb-4">
+<div class="flex justify-between py-1">
+<span class="text-gray-500 dark:text-gray-400 text-sm">Subtotal</span>
+<span class="text-gray-900 dark:text-white font-medium text-sm">250.000đ</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-gray-500 dark:text-gray-400 text-sm">Shipping Fee</span>
+<span class="text-gray-900 dark:text-white font-medium text-sm">15.000đ</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-primary text-sm">Discount</span>
+<span class="text-primary font-medium text-sm">-0đ</span>
+</div>
+</section>
+</main>
+<!-- Glassmorphic Footer -->
+<div class="fixed bottom-0 left-0 right-0 z-50">
+<!-- Blur Backdrop -->
+<div class="absolute inset-0 bg-background-light/80 dark:bg-[#0c120c]/80 backdrop-blur-xl border-t border-gray-200 dark:border-white/5 shadow-[0_-5px_20px_rgba(0,0,0,0.3)]"></div>
+<div class="relative flex items-center justify-between px-6 py-4 pb-8 max-w-md mx-auto w-full">
+<div class="flex flex-col">
+<span class="text-xs text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wide">Total Amount</span>
+<span class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">265.000đ</span>
+</div>
+<button class="bg-gradient-to-r from-[#13ec13] to-[#0ebc0e] hover:to-[#13ec13] text-black font-bold text-base px-8 py-3.5 rounded-full shadow-glow transform active:scale-95 transition-all duration-200 flex items-center gap-2">
+<span>Place Order</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>

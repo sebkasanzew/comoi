@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vendor Orders Queue</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec13",
+                        "primary-dark": "#0fb80f",
+                        "primary-content": "#022c02", // Much darker green for button text
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102210",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a331a",
+                        "text-main-light": "#111811",
+                        "text-main-dark": "#f0fdf0",
+                        "text-sub-light": "#4b664b",
+                        "text-sub-dark": "#a3bca3",
+                        "badge-green-text": "#054205", // Darker green for badges
+                        "badge-green-border": "#13ec13",
+                    },
+                    fontFamily: {
+                        "display": ["Be Vietnam Pro", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem", 
+                        "lg": "0.5rem", 
+                        "xl": "0.75rem", 
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                    borderWidth: {
+                        DEFAULT: '1px',
+                        '0': '0',
+                        '2': '2px',
+                        '3': '3px',
+                        '4': '4px',
+                        '8': '8px',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-text-main-light dark:text-text-main-dark font-display antialiased min-h-screen flex flex-col">
+<header class="sticky top-0 z-50 bg-surface-light dark:bg-surface-dark shadow-sm border-b-2 border-gray-200 dark:border-gray-700 transition-colors duration-200">
+<div class="flex items-center justify-between px-4 py-3">
+<div class="flex items-center gap-3">
+<button class="p-2 -ml-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors border-2 border-transparent hover:border-gray-200">
+<span class="material-symbols-outlined text-text-main-light dark:text-text-main-dark">menu</span>
+</button>
+<h1 class="text-xl font-bold tracking-tight">Orders Queue</h1>
+</div>
+<div class="flex items-center gap-3 bg-gray-50 dark:bg-gray-800/50 pl-3 pr-4 py-1.5 rounded-full border-2 border-gray-300 dark:border-gray-600">
+<div class="relative flex items-center">
+<input checked="" class="peer sr-only" id="store-status" type="checkbox"/>
+<div class="h-6 w-11 bg-gray-300 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary/50 rounded-full peer dark:bg-gray-600 peer-checked:bg-primary transition-colors border border-gray-400 peer-checked:border-primary-dark"></div>
+<div class="absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform peer-checked:translate-x-5 shadow-sm"></div>
+</div>
+<label class="text-sm font-bold text-green-800 dark:text-green-400 select-none cursor-pointer" for="store-status">Open</label>
+</div>
+</div>
+<div class="flex w-full px-2 pt-1">
+<button class="flex-1 pb-3 pt-2 relative group flex flex-col items-center justify-center">
+<span class="text-base font-bold text-text-main-light dark:text-white">New (3)</span>
+<span class="absolute bottom-0 h-1.5 w-full bg-primary rounded-t-lg"></span>
+</button>
+<button class="flex-1 pb-3 pt-2 relative group flex flex-col items-center justify-center">
+<span class="text-base font-medium text-text-sub-light dark:text-text-sub-dark group-hover:text-text-main-light dark:group-hover:text-white transition-colors">Processing (1)</span>
+<span class="absolute bottom-0 h-1.5 w-full bg-transparent group-hover:bg-gray-200 dark:group-hover:bg-gray-700 rounded-t-lg transition-colors"></span>
+</button>
+<button class="flex-1 pb-3 pt-2 relative group flex flex-col items-center justify-center">
+<span class="text-base font-medium text-text-sub-light dark:text-text-sub-dark group-hover:text-text-main-light dark:group-hover:text-white transition-colors">Ready</span>
+<span class="absolute bottom-0 h-1.5 w-full bg-transparent group-hover:bg-gray-200 dark:group-hover:bg-gray-700 rounded-t-lg transition-colors"></span>
+</button>
+</div>
+</header>
+<main class="flex-1 p-4 flex flex-col gap-5 max-w-md mx-auto w-full pb-24">
+<div class="bg-blue-50 dark:bg-blue-900/20 border-2 border-blue-200 dark:border-blue-800 rounded-lg p-3 flex items-start gap-3">
+<span class="material-symbols-outlined text-blue-700 dark:text-blue-400 mt-0.5 icon-filled">info</span>
+<div>
+<p class="text-sm text-blue-900 dark:text-blue-200 font-bold">High demand area!</p>
+<p class="text-xs text-blue-800 dark:text-blue-300 font-medium">Keep order prep time under 10 minutes.</p>
+</div>
+</div>
+<article class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-md border-2 border-gray-200 dark:border-gray-700 border-l-8 border-l-red-500 overflow-hidden flex flex-col">
+<div class="p-4 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-2">
+<h3 class="text-2xl font-extrabold text-text-main-light dark:text-white tracking-tight">#4922</h3>
+<span class="bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200 text-xs font-bold px-2 py-0.5 rounded uppercase tracking-wider border-2 border-red-200 dark:border-red-800">Urgent</span>
+</div>
+<p class="text-text-sub-light dark:text-text-sub-dark text-sm font-medium mt-1">Nguyen Van A. • Payment Pending</p>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1 text-red-700 dark:text-red-400 font-bold">
+<span class="material-symbols-outlined text-[20px] font-bold">timer</span>
+<span>12m</span>
+</div>
+<span class="text-xs text-text-sub-light dark:text-text-sub-dark font-medium">ago</span>
+</div>
+</div>
+<hr class="border-t-2 border-gray-100 dark:border-gray-700"/>
+<div>
+<div class="flex justify-between items-center mb-2">
+<span class="text-sm font-bold text-text-main-light dark:text-white uppercase tracking-wide">8 Items</span>
+<span class="text-xs font-bold text-text-sub-light dark:text-text-sub-dark">Total: 450.000₫</span>
+</div>
+<ul class="text-base text-text-main-light dark:text-gray-200 leading-snug space-y-1">
+<li class="flex gap-2">
+<span class="font-bold min-w-[24px]">2x</span>
+<span class="font-medium">Hao Hao Noodles (Sour Shrimp)</span>
+</li>
+<li class="flex gap-2">
+<span class="font-bold min-w-[24px]">1x</span>
+<span class="font-medium">Nam Ngu Fish Sauce 750ml</span>
+</li>
+<li class="flex gap-2">
+<span class="font-bold min-w-[24px]">5x</span>
+<span class="font-medium">ST25 Fragrant Rice (1kg)</span>
+</li>
+</ul>
+<p class="text-xs text-text-sub-light dark:text-text-sub-dark mt-2 font-medium italic">+ Customer note: "Please double bag."</p>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-primary-dark active:bg-green-600 text-primary-content border-t-2 border-green-700/20 font-extrabold text-lg py-4 flex items-center justify-center gap-2 transition-colors touch-manipulation">
+<span class="material-symbols-outlined icon-filled">check_circle</span>
+                ACCEPT ORDER
+            </button>
+</article>
+<article class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-md border-2 border-gray-200 dark:border-gray-700 border-l-8 border-l-primary overflow-hidden flex flex-col">
+<div class="p-4 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-2xl font-extrabold text-text-main-light dark:text-white tracking-tight">#4925</h3>
+<p class="text-text-sub-light dark:text-text-sub-dark text-sm font-medium mt-1">Tran Thi B. • COD</p>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1 text-text-main-light dark:text-white font-bold">
+<span class="material-symbols-outlined text-[20px] text-green-700 dark:text-green-500 font-bold">timer</span>
+<span>5m</span>
+</div>
+<span class="text-xs text-text-sub-light dark:text-text-sub-dark font-medium">ago</span>
+</div>
+</div>
+<hr class="border-t-2 border-gray-100 dark:border-gray-700"/>
+<div>
+<div class="flex justify-between items-center mb-2">
+<span class="text-sm font-bold text-text-main-light dark:text-white uppercase tracking-wide">3 Items</span>
+<span class="text-xs font-bold text-text-sub-light dark:text-text-sub-dark">Total: 120.000₫</span>
+</div>
+<ul class="text-base text-text-main-light dark:text-gray-200 leading-snug space-y-1">
+<li class="flex gap-2">
+<span class="font-bold min-w-[24px]">1x</span>
+<span class="font-medium">Coca Cola 1.5L</span>
+</li>
+<li class="flex gap-2">
+<span class="font-bold min-w-[24px]">2x</span>
+<span class="font-medium">Oishi Snack Pack</span>
+</li>
+</ul>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-primary-dark active:bg-green-600 text-primary-content border-t-2 border-green-700/20 font-extrabold text-lg py-4 flex items-center justify-center gap-2 transition-colors touch-manipulation">
+<span class="material-symbols-outlined icon-filled">check_circle</span>
+                ACCEPT ORDER
+            </button>
+</article>
+<article class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-md border-2 border-gray-200 dark:border-gray-700 border-l-8 border-l-primary overflow-hidden flex flex-col opacity-100">
+<div class="p-4 flex flex-col gap-3">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-2">
+<h3 class="text-2xl font-extrabold text-text-main-light dark:text-white tracking-tight">#4930</h3>
+<span class="bg-green-100 dark:bg-green-900/30 text-badge-green-text dark:text-green-200 text-xs font-bold px-2 py-0.5 rounded uppercase tracking-wider border-2 border-green-600 dark:border-green-700">New</span>
+</div>
+<p class="text-text-sub-light dark:text-text-sub-dark text-sm font-medium mt-1">Le Van C. • Paid</p>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1 text-text-sub-light dark:text-gray-400 font-bold">
+<span class="material-symbols-outlined text-[20px] font-bold">timer</span>
+<span>1m</span>
+</div>
+<span class="text-xs text-text-sub-light dark:text-text-sub-dark font-medium">ago</span>
+</div>
+</div>
+<hr class="border-t-2 border-gray-100 dark:border-gray-700"/>
+<div>
+<div class="flex justify-between items-center mb-2">
+<span class="text-sm font-bold text-text-main-light dark:text-white uppercase tracking-wide">12 Items</span>
+<span class="text-xs font-bold text-text-sub-light dark:text-text-sub-dark">Total: 890.000₫</span>
+</div>
+<p class="text-base text-text-sub-light dark:text-gray-300 font-medium line-clamp-2">
+                        2x Tiger Beer Carton, 5x Dried Squid, 5x Peanuts...
+                    </p>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-primary-dark active:bg-green-600 text-primary-content border-t-2 border-green-700/20 font-extrabold text-lg py-4 flex items-center justify-center gap-2 transition-colors touch-manipulation">
+<span class="material-symbols-outlined icon-filled">check_circle</span>
+                ACCEPT ORDER
+            </button>
+</article>
+</main>
+<div class="fixed bottom-6 right-6 z-40">
+<button aria-label="Pause Store" class="flex items-center justify-center w-14 h-14 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-full shadow-lg border-2 border-gray-300 dark:border-gray-600 active:scale-95 transition-transform hover:bg-gray-50">
+<span class="material-symbols-outlined text-3xl font-bold">pause_circle</span>
+</button>
+</div>
+
+</body></html>

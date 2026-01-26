@@ -114,6 +114,7 @@
       "!**/.next",
       "!**/build",
       "!**/.expo",
+      "!design/**",
       "!**/convex/_generated",
       "!**/.turbo",
       "!**/coverage"

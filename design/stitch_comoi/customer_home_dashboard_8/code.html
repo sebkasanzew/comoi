@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Detail - Eco-Minimalist</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4ade80", 
+                        "primary-dark": "#22c55e",
+                        "forest": "#14532d", 
+                        "forest-light": "#166534",
+                        "eco-bg": "#F9FAF9",
+                        "surface": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Playfair Display", "serif"],
+                        "body": ["Be Vietnam Pro", "sans-serif"],
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0,0,0,0.03)',
+                        'glow': '0 4px 25px -4px rgba(74, 222, 128, 0.25)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(800px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-eco-bg text-gray-800 font-body antialiased">
+<nav class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center p-6 bg-gradient-to-b from-black/20 to-transparent pointer-events-none">
+<button class="pointer-events-auto w-10 h-10 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center shadow-sm text-gray-800 hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<div class="flex gap-3 pointer-events-auto">
+<button class="w-10 h-10 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center shadow-sm text-gray-800 hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite_border</span>
+</button>
+<button class="w-10 h-10 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center shadow-sm text-gray-800 hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</button>
+</div>
+</nav>
+<div class="relative pb-[280px]"> 
+<div class="relative w-full h-[55vh] bg-gray-100 overflow-hidden group">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-1000 ease-out group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCvM0vCxm079gGx2cZnHCBbP2YrojMhFNfmH16CW01rVSTF1ueU17zR1XR7zLQRG4xTTSHf9TUu4wEq6i_ddRfgrLcL0sfwaFpZ17j5g3jBTojvnioJ90hE2rd7ARj1olNi95W-1nwWNqPZlSftOMmJYZ6MvYZTxwPz2HKnJUb3bIAJAtKflOnBVjBSkPcewuBGNnQb1MtH9i-8m-OSjbcQwbEuXRkJxU2vhhfjugPMHyIJwNiwr_g-_doq9Mxw1Qt9-u6quRtJzd0M')"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-eco-bg/90"></div>
+</div>
+<div class="px-6 -mt-12 relative z-10">
+<div class="flex flex-col animate-fade-in-up">
+<div class="flex items-center gap-2 mb-2">
+<span class="px-3 py-1 rounded-full border border-forest/10 bg-white/50 backdrop-blur text-[10px] font-bold tracking-widest uppercase text-forest">Gạo Đặc Sản</span>
+<span class="px-3 py-1 rounded-full bg-green-100 text-[10px] font-bold tracking-widest uppercase text-forest-light flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">eco</span> Organic
+                    </span>
+</div>
+<h1 class="font-display text-4xl text-gray-900 leading-[1.15] mb-4">Gạo Thơm ST25<br/>Thượng Hạng</h1>
+<div class="flex items-center gap-4 text-sm text-gray-500 mb-6">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-500 fill-current text-[18px]">star</span>
+<span class="font-bold text-gray-900">4.9</span>
+<span>(128)</span>
+</div>
+<div class="w-px h-3 bg-gray-300"></div>
+<div>Đã bán 1.2k</div>
+<div class="w-px h-3 bg-gray-300"></div>
+<div class="text-forest font-medium">Top 1 Bán chạy</div>
+</div>
+<hr class="border-t border-gray-200 w-16 mb-6"/>
+<div class="space-y-4">
+<h3 class="font-display text-xl text-gray-900">Câu chuyện sản phẩm</h3>
+<p class="text-gray-500 font-light leading-relaxed text-[15px]">
+                        Gạo ST25 "Gạo ngon nhất thế giới" được trồng theo phương pháp canh tác hữu cơ bền vững. Hạt gạo dài, trắng trong, khi nấu cho cơm dẻo, thơm mùi lá dứa và cốm non, giữ nguyên vị ngọt thanh tự nhiên ngay cả khi để nguội.
+                    </p>
+<button class="text-forest font-medium text-sm border-b border-forest pb-0.5 hover:opacity-80 transition-opacity w-max">Xem chi tiết</button>
+</div>
+<div class="grid grid-cols-3 gap-3 mt-8">
+<div class="p-4 rounded-2xl bg-white border border-gray-100 shadow-sm flex flex-col items-center justify-center gap-1">
+<span class="material-symbols-outlined text-gray-300 font-light text-[24px]">weight</span>
+<span class="text-xs text-gray-400 uppercase tracking-wide mt-1">Khối lượng</span>
+<span class="font-display text-lg text-gray-900 font-medium">5kg</span>
+</div>
+<div class="p-4 rounded-2xl bg-white border border-gray-100 shadow-sm flex flex-col items-center justify-center gap-1">
+<span class="material-symbols-outlined text-gray-300 font-light text-[24px]">calendar_month</span>
+<span class="text-xs text-gray-400 uppercase tracking-wide mt-1">Hạn dùng</span>
+<span class="font-display text-lg text-gray-900 font-medium">6 Tháng</span>
+</div>
+<div class="p-4 rounded-2xl bg-white border border-gray-100 shadow-sm flex flex-col items-center justify-center gap-1">
+<span class="material-symbols-outlined text-gray-300 font-light text-[24px]">location_on</span>
+<span class="text-xs text-gray-400 uppercase tracking-wide mt-1">Xuất xứ</span>
+<span class="font-display text-lg text-gray-900 font-medium">Việt Nam</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed bottom-0 left-0 right-0 z-40">
+<div class="absolute bottom-0 w-full h-[120%] bg-gradient-to-t from-white via-white/95 to-transparent pointer-events-none -z-10"></div>
+<div class="bg-white/80 backdrop-blur-xl border-t border-white/50 shadow-[0_-10px_40px_rgba(0,0,0,0.03)] pb-8 pt-6 rounded-t-[2rem]">
+<div class="px-6 mb-4 flex justify-between items-end">
+<div>
+<h3 class="font-display text-2xl text-gray-900">So sánh giá</h3>
+<p class="text-xs text-gray-400 font-medium mt-1">Tìm thấy 3 cửa hàng gần bạn</p>
+</div>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded-full border border-gray-100 flex items-center justify-center hover:bg-gray-50 transition-colors">
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-full border border-gray-100 flex items-center justify-center hover:bg-gray-50 transition-colors">
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex overflow-x-auto gap-4 px-6 no-scrollbar pb-4 snap-x snap-mandatory">
+<div class="snap-center min-w-[280px] p-5 rounded-2xl bg-white border-[1.5px] border-green-400 shadow-glow relative flex flex-col gap-4 group transition-transform hover:scale-[1.02]">
+<div class="absolute -top-3 left-0 right-0 flex justify-center">
+<div class="bg-green-500 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg shadow-green-500/30 flex items-center gap-1 tracking-wider uppercase">
+<span class="material-symbols-outlined text-[14px] fill-current">verified</span> Giá tốt nhất
+                        </div>
+</div>
+<div class="flex justify-between items-start mt-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-[#E5F3EA] border border-white flex items-center justify-center text-forest font-bold text-xs shadow-sm">
+                                BHX
+                            </div>
+<div class="flex flex-col">
+<span class="text-sm font-bold text-gray-900">Bách Hóa Xanh</span>
+<div class="flex items-center gap-1 text-[11px] text-gray-500">
+<span class="material-symbols-outlined text-[12px]">near_me</span> 1.2km
+                                    <span class="w-0.5 h-0.5 rounded-full bg-gray-300"></span>
+<span class="text-green-600 font-medium">Free ship</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between border-t border-dashed border-gray-100 pt-3 mt-1">
+<div class="flex flex-col">
+<span class="text-xs text-gray-400 line-through decoration-gray-300">200.000đ</span>
+<span class="text-2xl font-display font-bold text-forest">180.000đ</span>
+</div>
+<button class="bg-forest hover:bg-forest-light text-white h-10 px-5 rounded-full flex items-center justify-center shadow-lg shadow-green-900/10 transition-all active:scale-95 font-medium text-sm gap-1">
+                            Mua <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="snap-center min-w-[280px] p-5 rounded-2xl bg-white border border-gray-100 shadow-soft relative flex flex-col gap-4 group opacity-80 hover:opacity-100 transition-opacity">
+<div class="flex justify-between items-start mt-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-red-50 border border-white flex items-center justify-center text-red-700 font-bold text-xs shadow-sm">
+                                WM
+                            </div>
+<div class="flex flex-col">
+<span class="text-sm font-bold text-gray-900">WinMart+</span>
+<div class="flex items-center gap-1 text-[11px] text-gray-500">
+<span class="material-symbols-outlined text-[12px]">near_me</span> 0.5km
+                                    <span class="w-0.5 h-0.5 rounded-full bg-gray-300"></span>
+<span>Ship 15k</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between border-t border-dashed border-gray-100 pt-3 mt-1">
+<div class="flex flex-col">
+<span class="text-xs text-gray-400 line-through decoration-gray-300">200.000đ</span>
+<span class="text-2xl font-display font-bold text-gray-900">185.000đ</span>
+</div>
+<button class="bg-gray-50 hover:bg-gray-100 text-gray-900 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<div class="snap-center min-w-[280px] p-5 rounded-2xl bg-white border border-gray-100 shadow-soft relative flex flex-col gap-4 group opacity-80 hover:opacity-100 transition-opacity">
+<div class="flex justify-between items-start mt-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-blue-50 border border-white flex items-center justify-center text-blue-700 font-bold text-xs shadow-sm">
+                                CF
+                            </div>
+<div class="flex flex-col">
+<span class="text-sm font-bold text-gray-900">Co.op Food</span>
+<div class="flex items-center gap-1 text-[11px] text-gray-500">
+<span class="material-symbols-outlined text-[12px]">near_me</span> 2.0km
+                                    <span class="w-0.5 h-0.5 rounded-full bg-gray-300"></span>
+<span>Ship 20k</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between border-t border-dashed border-gray-100 pt-3 mt-1">
+<div class="flex flex-col">
+<span class="text-xs text-gray-400 line-through decoration-gray-300"></span>
+<span class="text-2xl font-display font-bold text-gray-900">192.000đ</span>
+</div>
+<button class="bg-gray-50 hover:bg-gray-100 text-gray-900 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</body></html>

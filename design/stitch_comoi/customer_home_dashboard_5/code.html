@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vendor Inventory Management</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1b5e20",
+                        "primary-dark": "#144a18",
+                        "primary-light": "#2e7d32",
+                        "background-light": "#f8faf8",
+                        "background-dark": "#102210",
+                    },
+                    fontFamily: {
+                        "display": ["Be Vietnam Pro", "sans-serif"],
+                        "body": ["Be Vietnam Pro", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }.toggle-checkbox:checked {
+            right: 0;
+            border-color: #1b5e20;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #1b5e20;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#111811] dark:text-white font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden pb-24">
+<div class="sticky top-0 z-50 bg-white dark:bg-[#102210] shadow-sm border-b border-gray-200 dark:border-white/5 px-4 pt-12 pb-4">
+<div class="flex items-center justify-between">
+<div>
+<span class="text-xs font-bold text-primary dark:text-green-500 uppercase tracking-wider">Cửa hàng</span>
+<h1 class="text-2xl font-bold text-[#111811] dark:text-white leading-tight">Quản lý kho hàng</h1>
+</div>
+<button class="w-10 h-10 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-primary dark:text-white hover:bg-gray-200 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+<div class="mt-4">
+<div class="flex w-full items-center rounded-xl bg-gray-100 dark:bg-white/5 border border-transparent focus-within:border-primary focus-within:ring-1 focus-within:ring-primary px-3 h-12 transition-all">
+<span class="material-symbols-outlined text-gray-500 dark:text-gray-400 mr-2">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-[#111811] dark:text-white placeholder:text-gray-500 font-medium text-base" placeholder="Tìm tên sản phẩm, mã SKU..."/>
+</div>
+</div>
+<div class="flex gap-2 overflow-x-auto no-scrollbar mt-4 pb-1">
+<button class="whitespace-nowrap px-4 py-2.5 rounded-lg bg-primary text-white text-sm font-bold shadow-sm shadow-primary/30 active:scale-95 transition-transform">
+                    Tất cả
+                </button>
+<button class="whitespace-nowrap px-4 py-2.5 rounded-lg bg-white dark:bg-white/10 border border-gray-300 dark:border-white/10 text-[#111811] dark:text-white text-sm font-bold hover:bg-gray-50 dark:hover:bg-white/20 transition-colors active:scale-95">
+                    Hết hàng <span class="ml-1 bg-red-100 text-red-700 px-1.5 py-0.5 rounded text-xs">2</span>
+</button>
+<button class="whitespace-nowrap px-4 py-2.5 rounded-lg bg-white dark:bg-white/10 border border-gray-300 dark:border-white/10 text-[#111811] dark:text-white text-sm font-bold hover:bg-gray-50 dark:hover:bg-white/20 transition-colors active:scale-95">
+                    Rau củ
+                </button>
+<button class="whitespace-nowrap px-4 py-2.5 rounded-lg bg-white dark:bg-white/10 border border-gray-300 dark:border-white/10 text-[#111811] dark:text-white text-sm font-bold hover:bg-gray-50 dark:hover:bg-white/20 transition-colors active:scale-95">
+                    Thịt &amp; Cá
+                </button>
+<button class="whitespace-nowrap px-4 py-2.5 rounded-lg bg-white dark:bg-white/10 border border-gray-300 dark:border-white/10 text-[#111811] dark:text-white text-sm font-bold hover:bg-gray-50 dark:hover:bg-white/20 transition-colors active:scale-95">
+                    Đồ uống
+                </button>
+</div>
+</div>
+<div class="px-4 py-4 space-y-4">
+<div class="flex flex-col bg-white dark:bg-white/5 p-4 rounded-xl shadow-sm border border-gray-200 dark:border-white/10">
+<div class="flex gap-4">
+<div class="w-20 h-20 rounded-lg bg-gray-100 dark:bg-white/10 overflow-hidden flex-shrink-0 border border-gray-100 dark:border-white/5">
+<div class="w-full h-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBB8t5p4NwDqvOLNZoMcAJGM9cwpO16HXWDuYYG9FeXHCZ0Nzv9JpF4rC4IvljPbMxpOhAOGeDReZbEyUzq2dyRDB5F5yZn7OukAMjrcg78fatYJWjsMfpULAYDhXmRM6bgcxEfi-b_IZWKfHsTFcP5UNhQZlwS7xpmUwx4sDZkgu01wwY_WRpuY2KnnXb8cUtyv_13N38kxJcatfQIR_6zbRwVzZeLgkPRSrCXZ8teJZX1OGlvNKqf-5a902zEEFWrK-_PgbZJKjPA")'></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-[#111811] dark:text-white text-base line-clamp-2 leading-tight">Thịt Ba Chỉ Heo (500g)</h3>
+<p class="text-xs font-medium text-gray-500 dark:text-gray-400 mt-1">SKU: MEAT-001</p>
+</div>
+</div>
+<div class="mt-2 text-lg font-bold text-primary dark:text-green-400">
+                            85.000đ
+                        </div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-gray-100 dark:border-white/10 flex items-center justify-between">
+<label class="inline-flex items-center cursor-pointer group">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="relative w-11 h-6 bg-gray-300 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary transition-colors"></div>
+<span class="ms-3 text-sm font-bold text-[#111811] dark:text-white group-hover:text-primary transition-colors">Đang bán</span>
+</label>
+<button class="flex items-center gap-1.5 px-4 py-2 rounded-lg border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all text-sm font-bold dark:border-green-500 dark:text-green-500 dark:hover:bg-green-500 dark:hover:text-[#102210] active:scale-95">
+<span class="material-symbols-outlined" style="font-size: 18px;">edit</span>
+                        Sửa giá
+                    </button>
+</div>
+</div>
+<div class="flex flex-col bg-white dark:bg-white/5 p-4 rounded-xl shadow-sm border border-gray-200 dark:border-white/10 relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-400 text-[10px] font-bold px-3 py-1.5 rounded-bl-lg border-l border-b border-red-200 dark:border-red-900/50">
+                    HẾT HÀNG
+                </div>
+<div class="flex gap-4 opacity-60">
+<div class="w-20 h-20 rounded-lg bg-gray-100 dark:bg-white/10 overflow-hidden flex-shrink-0 grayscale border border-gray-100 dark:border-white/5">
+<div class="w-full h-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCvM0vCxm079gGx2cZnHCBbP2YrojMhFNfmH16CW01rVSTF1ueU17zR1XR7zLQRG4xTTSHf9TUu4wEq6i_ddRfgrLcL0sfwaFpZ17j5g3jBTojvnioJ90hE2rd7ARj1olNi95W-1nwWNqPZlSftOMmJYZ6MvYZTxwPz2HKnJUb3bIAJAtKflOnBVjBSkPcewuBGNnQb1MtH9i-8m-OSjbcQwbEuXRkJxU2vhhfjugPMHyIJwNiwr_g-_doq9Mxw1Qt9-u6quRtJzd0M")'></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-[#111811] dark:text-white text-base line-clamp-2 leading-tight">Gạo ST25 (5kg)</h3>
+<p class="text-xs font-medium text-gray-500 dark:text-gray-400 mt-1">SKU: RICE-ST25</p>
+</div>
+</div>
+<div class="mt-2 text-lg font-bold text-gray-500 dark:text-gray-400">
+                            180.000đ
+                        </div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-gray-100 dark:border-white/10 flex items-center justify-between">
+<label class="inline-flex items-center cursor-pointer group">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="relative w-11 h-6 bg-gray-300 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary transition-colors"></div>
+<span class="ms-3 text-sm font-bold text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">Tạm ngưng</span>
+</label>
+<button class="flex items-center gap-1.5 px-4 py-2 rounded-lg border-2 border-gray-200 text-gray-500 hover:border-primary hover:text-primary transition-all text-sm font-bold dark:border-white/20 dark:text-gray-400 dark:hover:text-white active:scale-95">
+<span class="material-symbols-outlined" style="font-size: 18px;">edit</span>
+                        Sửa giá
+                    </button>
+</div>
+</div>
+<div class="flex flex-col bg-white dark:bg-white/5 p-4 rounded-xl shadow-sm border border-gray-200 dark:border-white/10">
+<div class="flex gap-4">
+<div class="w-20 h-20 rounded-lg bg-gray-100 dark:bg-white/10 overflow-hidden flex-shrink-0 border border-gray-100 dark:border-white/5">
+<div class="w-full h-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBKQIQ3irk8b_8H8Pcqu8uo2aGx6y8l7Xb5pXlmuS-WKmyPeD3oqEEgSoIAr7K9gJ_bv1xaOVoIVi-75p8We_i66oGB-ug5PEKNi00tyrJYIrAS7WgfwbddqoofEvBALnQ0fqHkqNZ8182PLDMo6JJ7rTIsFkAG2Xil0I4sCaInODEYTfn5w5zfZYm6WsYtAqNHggnNd8Iwd7tVf2XYK1R1fi0OUrXEZE8tej8OC6cV7tUIjAbuDkDxyWIZYniwue4yhfUSX9aoblnw")'></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-[#111811] dark:text-white text-base line-clamp-2 leading-tight">Sữa tươi Vinamilk (1L)</h3>
+<p class="text-xs font-medium text-gray-500 dark:text-gray-400 mt-1">SKU: MILK-VNM1L</p>
+</div>
+</div>
+<div class="mt-2 text-lg font-bold text-primary dark:text-green-400">
+                            32.000đ
+                        </div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-gray-100 dark:border-white/10 flex items-center justify-between">
+<label class="inline-flex items-center cursor-pointer group">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="relative w-11 h-6 bg-gray-300 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary transition-colors"></div>
+<span class="ms-3 text-sm font-bold text-[#111811] dark:text-white group-hover:text-primary transition-colors">Đang bán</span>
+</label>
+<button class="flex items-center gap-1.5 px-4 py-2 rounded-lg border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all text-sm font-bold dark:border-green-500 dark:text-green-500 dark:hover:bg-green-500 dark:hover:text-[#102210] active:scale-95">
+<span class="material-symbols-outlined" style="font-size: 18px;">edit</span>
+                        Sửa giá
+                    </button>
+</div>
+</div>
+<div class="flex flex-col bg-white dark:bg-white/5 p-4 rounded-xl shadow-sm border border-gray-200 dark:border-white/10">
+<div class="flex gap-4">
+<div class="w-20 h-20 rounded-lg bg-gray-100 dark:bg-white/10 overflow-hidden flex-shrink-0 border border-gray-100 dark:border-white/5">
+<div class="w-full h-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA2ZZl6HwfMKQ1DlwTRauM_0qdSz1PELm9RII-TVv_k6_EA4hpjQRUvBJ7eSC5T86tcCPS3g7kJKkcMrwO7P_8bMx38qdvs7dg4jQ8XeWQdFESuezp-cEP6NO6B8tWIa2gTO69gyefuBGUx5R-64IFwdce9zBRrtsUjzXTIkrArgxaD6N-c84V61Hf4SXX82jFXxP9GJYuw0kNAPOs-8E3aA4kN6OEQ55S-XtKpvDqCY3jv5mKS7NDFFoLeLdMxpz7-w60rohD7YiPL")'></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-[#111811] dark:text-white text-base line-clamp-2 leading-tight">Mì Hảo Hảo Tôm Chua Cay (Thùng 30 gói)</h3>
+<p class="text-xs font-medium text-gray-500 dark:text-gray-400 mt-1">SKU: NOOD-HH30</p>
+</div>
+</div>
+<div class="mt-2 text-lg font-bold text-primary dark:text-green-400">
+                            105.000đ
+                        </div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-gray-100 dark:border-white/10 flex items-center justify-between">
+<label class="inline-flex items-center cursor-pointer group">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="relative w-11 h-6 bg-gray-300 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary transition-colors"></div>
+<span class="ms-3 text-sm font-bold text-[#111811] dark:text-white group-hover:text-primary transition-colors">Đang bán</span>
+</label>
+<button class="flex items-center gap-1.5 px-4 py-2 rounded-lg border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all text-sm font-bold dark:border-green-500 dark:text-green-500 dark:hover:bg-green-500 dark:hover:text-[#102210] active:scale-95">
+<span class="material-symbols-outlined" style="font-size: 18px;">edit</span>
+                        Sửa giá
+                    </button>
+</div>
+</div>
+<div class="flex flex-col bg-white dark:bg-white/5 p-4 rounded-xl shadow-sm border border-gray-200 dark:border-white/10 relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-400 text-[10px] font-bold px-3 py-1.5 rounded-bl-lg border-l border-b border-red-200 dark:border-red-900/50">
+                    HẾT HÀNG
+                </div>
+<div class="flex gap-4 opacity-60">
+<div class="w-20 h-20 rounded-lg bg-gray-100 dark:bg-white/10 overflow-hidden flex-shrink-0 grayscale border border-gray-100 dark:border-white/5">
+<div class="w-full h-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDuz8RBiUNhK2Rqh4HHRpBR9gv0tnP97cIypY11F1L0cK_utt9LjkdSIw2iOK0jJFdS2iiw8ra-u0DUFnxovE8ig5FrqHAnPjGQNOzTViKlCcBiPDy-EBj7LUWf-vQz_VGQzizjP6o2OyxOcYRkJOrKPXd39HDEreinJHE6v3K8BxKO2KQ1obJpMzWI4Ot_sxK1wiw-l4JaMorqV08SSPKYQ5V_T9ZjVpKMG0Kh1usXcrTIsDvzsQ7q4N-5iGdbowMz04EjVtITyjMj")'></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-[#111811] dark:text-white text-base line-clamp-2 leading-tight">Thịt Bò Mỹ (300g)</h3>
+<p class="text-xs font-medium text-gray-500 dark:text-gray-400 mt-1">SKU: BEEF-US300</p>
+</div>
+</div>
+<div class="mt-2 text-lg font-bold text-gray-500 dark:text-gray-400">
+                            150.000đ
+                        </div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-gray-100 dark:border-white/10 flex items-center justify-between">
+<label class="inline-flex items-center cursor-pointer group">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="relative w-11 h-6 bg-gray-300 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary transition-colors"></div>
+<span class="ms-3 text-sm font-bold text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">Tạm ngưng</span>
+</label>
+<button class="flex items-center gap-1.5 px-4 py-2 rounded-lg border-2 border-gray-200 text-gray-500 hover:border-primary hover:text-primary transition-all text-sm font-bold dark:border-white/20 dark:text-gray-400 dark:hover:text-white active:scale-95">
+<span class="material-symbols-outlined" style="font-size: 18px;">edit</span>
+                        Sửa giá
+                    </button>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center p-6 border-2 border-dashed border-gray-300 dark:border-white/10 rounded-xl cursor-pointer hover:bg-gray-50 dark:hover:bg-white/5 hover:border-primary dark:hover:border-primary-light transition-colors group">
+<div class="w-12 h-12 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-400 group-hover:text-primary dark:text-gray-500 dark:group-hover:text-primary-light mb-2 transition-colors">
+<span class="material-symbols-outlined">add</span>
+</div>
+<span class="text-sm font-bold text-gray-500 group-hover:text-primary dark:text-gray-400 dark:group-hover:text-primary-light uppercase tracking-wide">Thêm sản phẩm mới</span>
+</div>
+</div>
+</div>
+<div class="fixed bottom-0 left-0 right-0 bg-white dark:bg-[#102210] border-t border-gray-200 dark:border-white/5 px-6 py-2 pb-6 z-50 shadow-lg">
+<div class="flex justify-between items-end">
+<button class="flex flex-col items-center gap-1 text-primary dark:text-green-500 w-16">
+<span class="material-symbols-outlined fill-current" style="font-size: 26px;">inventory_2</span>
+<span class="text-[10px] font-bold">Kho hàng</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 w-16 group transition-colors">
+<div class="relative">
+<span class="material-symbols-outlined group-hover:-translate-y-1 transition-transform" style="font-size: 26px;">receipt_long</span>
+<span class="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-600 text-[9px] text-white font-bold border border-white dark:border-[#102210]">3</span>
+</div>
+<span class="text-[10px] font-bold">Đơn hàng</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 w-16 transition-colors">
+<span class="material-symbols-outlined hover:scale-110 transition-transform" style="font-size: 26px;">monitoring</span>
+<span class="text-[10px] font-bold">Báo cáo</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 w-16 transition-colors">
+<span class="material-symbols-outlined hover:scale-110 transition-transform" style="font-size: 26px;">store</span>
+<span class="text-[10px] font-bold">Cửa hàng</span>
+</button>
+</div>
+</div>
+
+</body></html>

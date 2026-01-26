@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Detail - Grocery App</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec13",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102210",
+                        "card-dark": "#1a2c1a",
+                        "glass-dark": "rgba(26, 44, 26, 0.6)",
+                    },
+                    fontFamily: {
+                        "display": ["Be Vietnam Pro", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                    boxShadow: {
+                        'neon': '0 0 20px -5px rgba(19, 236, 19, 0.5)',
+                        'neon-sm': '0 0 10px -2px rgba(19, 236, 19, 0.4)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for horizontal scrolling if needed */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .glass-panel {
+            background: rgba(30, 45, 30, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .bg-pedestal {
+            background: radial-gradient(circle at center, rgba(19, 236, 19, 0.15) 0%, rgba(16, 34, 16, 0) 70%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen font-display text-gray-900 dark:text-white pb-24 overflow-x-hidden selection:bg-primary selection:text-black">
+<!-- Sticky Top App Bar -->
+<div class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+<!-- Blur backdrop container -->
+<div class="absolute inset-0 bg-background-light/80 dark:bg-[#102210]/80 backdrop-blur-md border-b border-black/5 dark:border-white/5"></div>
+<div class="relative flex items-center justify-between p-4 h-16">
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-gray-900 dark:text-white">arrow_back</span>
+</button>
+<h2 class="text-base font-bold text-gray-900 dark:text-white opacity-0 transition-opacity duration-300 pointer-events-none" id="scroll-title">
+                Gạo ST25 Ông Cua
+            </h2>
+<div class="flex items-center gap-2">
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-gray-900 dark:text-white">favorite</span>
+</button>
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors relative">
+<span class="material-symbols-outlined text-gray-900 dark:text-white">shopping_cart</span>
+<span class="absolute top-2 right-2 flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Main Content Wrapper -->
+<main class="relative w-full flex flex-col pt-20">
+<!-- Hero Product Section (Pedestal Effect) -->
+<div class="relative w-full px-4 mb-6 @container">
+<div class="w-full aspect-[4/3] relative rounded-2xl overflow-hidden flex items-center justify-center bg-pedestal border border-white/5 shadow-neon-sm">
+<!-- Subtle noise texture overlay could go here, keeping it simple for now -->
+<!-- Product Image -->
+<div class="relative z-10 w-[70%] h-auto transform transition-transform hover:scale-105 duration-500">
+<img alt="Bag of premium Vietnamese rice on a dark surface" class="w-full h-auto object-contain drop-shadow-2xl" data-alt="Bag of premium Vietnamese rice on a dark surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATrznMo-EcRBB273UU5HcAU9RN3K7Qjpi08Q84G10-WuEZlD1XnO6JOOyjy7mOZq8jskhOXMMvlJCtt_wvUJmJiunnApEyzPkWap9zHZwzm0WVzvUOmEeGtZjhMfTcSIVXB8wQMpMKIn-imamGWARO4b0BYrrpgseD9I-XO8jznQxl_MHHZuxtGXa9a2gshLTvWdEMBEACCX4lrANhXpiU5xoLkdJG04OMNBROm97OlQz_34zsc_6NhQLoFwVvBOUlSxlB79hujJk2"/>
+</div>
+<!-- Floating Tags -->
+<div class="absolute top-4 left-4 z-20">
+<span class="inline-flex items-center rounded-full bg-primary/90 px-3 py-1 text-xs font-bold text-black backdrop-blur-sm">
+                        Best Seller
+                    </span>
+</div>
+</div>
+</div>
+<!-- Product Info Block -->
+<div class="px-4 flex flex-col gap-2 mb-6">
+<!-- Brand / Category -->
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium text-primary uppercase tracking-wider">Hồ Quang Trí</span>
+<!-- Rating Chip -->
+<div class="flex items-center gap-1.5 bg-white/5 rounded-full px-2.5 py-1 border border-white/5">
+<span class="material-symbols-outlined text-yellow-400 text-[18px] fill-1">star</span>
+<span class="text-sm font-bold text-white">4.9</span>
+<span class="text-xs text-gray-400">(1.2k)</span>
+<span class="material-symbols-outlined text-gray-500 text-[16px] ml-1">chevron_right</span>
+</div>
+</div>
+<!-- Headline Text -->
+<h1 class="text-white text-3xl font-bold leading-tight tracking-tight mt-1">
+                Gạo ST25 Ông Cua (5kg)
+            </h1>
+<!-- Price and Unit -->
+<div class="flex items-end gap-3 mt-2">
+<h2 class="text-primary text-3xl font-bold tracking-tight">180.000₫</h2>
+<span class="text-gray-400 text-lg mb-1 line-through decoration-gray-500">210.000₫</span>
+<span class="text-xs font-medium bg-red-500/20 text-red-400 px-2 py-0.5 rounded mb-1.5">-14%</span>
+</div>
+<p class="text-gray-400 text-sm mt-1">36.000₫ / kg</p>
+</div>
+<!-- Compare Prices Module (Glassmorphic) -->
+<div class="px-4 mb-8">
+<div class="flex items-center justify-between mb-3 px-1">
+<h3 class="text-white text-lg font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">price_check</span>
+                    Compare Prices
+                </h3>
+<button class="text-xs font-medium text-primary hover:text-white transition-colors">View Map</button>
+</div>
+<div class="glass-panel rounded-xl overflow-hidden shadow-lg">
+<!-- Header of Table -->
+<div class="grid grid-cols-12 gap-2 px-4 py-3 bg-white/5 border-b border-white/5 text-xs font-medium text-gray-400 uppercase tracking-wider">
+<div class="col-span-6">Vendor</div>
+<div class="col-span-3 text-right">Price</div>
+<div class="col-span-3 text-right">Action</div>
+</div>
+<!-- Vendor List -->
+<div class="flex flex-col">
+<!-- Item 1 (Best Price) -->
+<div class="grid grid-cols-12 gap-2 px-4 py-4 items-center border-b border-white/5 hover:bg-white/5 transition-colors group cursor-pointer relative overflow-hidden">
+<!-- Glow effect for best price -->
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary shadow-[0_0_10px_rgba(19,236,19,0.5)]"></div>
+<div class="col-span-6 flex items-center gap-3">
+<div class="h-10 w-10 rounded-lg bg-white p-1 shrink-0 flex items-center justify-center">
+<img alt="Vendor Logo" class="h-full w-full object-contain" data-alt="Generic market vendor logo placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpuUqJm5HBbZ8rItv750Ew-LKpIuAIeH8MHCy-EV4S1tJFa8UnSPWFbmrbX8kC8UMO-KhSoyKJSu_N7XKkGOOgVE0qQU5EVSI5kQ7eiuY7cLd_SLUlOA1vqxXrZmIfyTZwcmmnplIvjNPlVFonOfEHtKXGZDGa4iQa7iFGTkRfbwDumrgaM1AaS408MbguK4XyeqSHVUGLczAl4KzWlrulTpcYcRb24b8bouStUSSogD7amL5DYy5ayjEN3vZKCDK-a6uLqqEEhGSs"/>
+</div>
+<div class="flex flex-col">
+<span class="text-white font-bold text-sm truncate">Chợ Bến Thành</span>
+<span class="text-xs text-gray-400 flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]">location_on</span> 1.2km
+                                </span>
+</div>
+</div>
+<div class="col-span-3 text-right flex flex-col justify-center">
+<span class="text-primary font-bold text-sm">175.000₫</span>
+<span class="text-[10px] text-primary/80 font-medium">Best Offer</span>
+</div>
+<div class="col-span-3 flex justify-end">
+<button class="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-black shadow-neon-sm hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</button>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="grid grid-cols-12 gap-2 px-4 py-4 items-center border-b border-white/5 hover:bg-white/5 transition-colors cursor-pointer">
+<div class="col-span-6 flex items-center gap-3">
+<div class="h-10 w-10 rounded-lg bg-white p-1 shrink-0 flex items-center justify-center">
+<img alt="Circle K Logo" class="h-5 w-auto object-contain" data-alt="Circle K red K logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbX6rCsOwXDHRSX1O2AP1zzutHCls6A9l9beOS0ceh4OuXRyZiFGTc10l87KM25dWEI1MTALdjBGSv7Gy6_nNaq_y27O_IG8T_xB61PBeqBzQFlHiXUX8XBhh7N-I3t0AAPVChA9-MNAG7NuLtd2NkCOaBpkiBFFJEOrE4K9sjj3-Mc3ETcoK00pHKH5mLg9Ck8sKJSAVAFUA40Cgs9sRWb7Kp_YrG-Uh81gixyZ6kLK_dXP2BSdDcEZxzHBR_3ltLuybHZO9b5e11"/>
+</div>
+<div class="flex flex-col">
+<span class="text-white font-bold text-sm truncate">Circle K</span>
+<span class="text-xs text-gray-400 flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]">location_on</span> 0.5km
+                                </span>
+</div>
+</div>
+<div class="col-span-3 text-right flex flex-col justify-center">
+<span class="text-white font-medium text-sm">185.000₫</span>
+</div>
+<div class="col-span-3 flex justify-end">
+<button class="h-8 w-8 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="grid grid-cols-12 gap-2 px-4 py-4 items-center hover:bg-white/5 transition-colors cursor-pointer">
+<div class="col-span-6 flex items-center gap-3">
+<div class="h-10 w-10 rounded-lg bg-white p-1 shrink-0 flex items-center justify-center">
+<img alt="WinMart Logo" class="h-6 w-auto object-contain" data-alt="WinMart red logo text" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-nHdCLGRuA0_l8MnILxyztlPqmEvFlz8EuiQ8hRX-JxML-BhoTeCx8tioJBWUx2KVF1g0JxphJGPYO73Z0P3bxeEvPWU2XLdJPLYDpyVAbW2qqeIIy1ZYdHGISfeAQcyz71He0hVEl3zNrlK5sCa7OSkayWfQjjd5udPR7vvdw_16AinpcC_HopklVgHfRNM8VFarYhqTx4fXwbl9a75XoQ1Igii9sEsxelPdljZh6zxONHXEtBFQyC9d7ZsSFmrnoWDJ9aBBHQBV"/>
+</div>
+<div class="flex flex-col">
+<span class="text-white font-bold text-sm truncate">WinMart+</span>
+<span class="text-xs text-gray-400 flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]">location_on</span> 2.4km
+                                </span>
+</div>
+</div>
+<div class="col-span-3 text-right flex flex-col justify-center">
+<span class="text-white font-medium text-sm">182.000₫</span>
+</div>
+<div class="col-span-3 flex justify-end">
+<button class="h-8 w-8 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Details Text -->
+<div class="px-4 mb-24">
+<h3 class="text-white text-lg font-bold mb-2">Description</h3>
+<div class="text-gray-400 text-sm leading-relaxed space-y-2">
+<p>
+                    World's Best Rice Winner (2019). Gạo ST25 Ông Cua is a premium aromatic rice variety developed in Vietnam. It is known for its sweet flavor, soft texture, and Pandan leaf fragrance.
+                </p>
+<p>
+                    Produced directly by Ho Quang Tri private enterprise, ensuring authentic quality and traceability. Best consumed within 6 months of milling date.
+                </p>
+</div>
+<!-- Delivery Chip -->
+<div class="mt-4 flex items-start gap-3 p-3 rounded-lg bg-white/5 border border-white/5">
+<div class="bg-primary/20 p-2 rounded-full text-primary">
+<span class="material-symbols-outlined text-[20px]">local_shipping</span>
+</div>
+<div>
+<h4 class="text-white text-sm font-bold">Fast Delivery</h4>
+<p class="text-xs text-gray-400 mt-0.5">Free shipping for orders over 300k within 5km radius.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Sticky Bottom Action Bar -->
+<div class="fixed bottom-0 left-0 right-0 z-50 p-4">
+<!-- Floating Glass Container -->
+<div class="glass-panel rounded-2xl p-2 flex items-center justify-between shadow-[0_-5px_20px_rgba(0,0,0,0.5)]">
+<!-- Quantity Selector -->
+<div class="flex items-center gap-3 px-2">
+<button class="size-10 rounded-xl bg-white/10 flex items-center justify-center text-white hover:bg-white/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<span class="text-white font-bold text-lg w-6 text-center">1</span>
+<button class="size-10 rounded-xl bg-white/10 flex items-center justify-center text-white hover:bg-white/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<!-- Primary CTA -->
+<button class="flex-1 ml-4 h-12 bg-gradient-to-r from-primary to-[#0eb50e] rounded-xl flex items-center justify-center gap-2 text-black font-extrabold text-base shadow-neon hover:brightness-110 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined font-bold">shopping_bag</span>
+                Add to Cart
+            </button>
+</div>
+</div>
+<!-- Scroll Handling Script for visual polish -->
+<script>
+        const scrollTitle = document.getElementById('scroll-title');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 150) {
+                scrollTitle.classList.remove('opacity-0');
+            } else {
+                scrollTitle.classList.add('opacity-0');
+            }
+        });
+    </script>
+</body></html>
