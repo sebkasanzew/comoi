@@ -2,9 +2,7 @@ import { by, device, element, waitFor } from "detox";
 
 describe("App", () => {
   beforeAll(async () => {
-    if (device.getPlatform() === "android") {
-      await device.reverseTcpPort(8099);
-    }
+    // Note: Port reversal for Android is now handled by Detox via reversePorts config
     // Launch app with synchronization disabled for NativeWind/Tailwind apps
     await device.launchApp({
       newInstance: true,

@@ -42,7 +42,9 @@
           }
         }
       ],
-      "./plugins/withDetoxAndroidFix.js"
+      "./plugins/withDetoxAndroidFix.js",
+      "./plugins/withDetoxProguardRules.js",
+      "./plugins/withIosPodfilePostInstall.js"
     ],
     "experiments": {
       "typedRoutes": true,
