@@ -9,8 +9,8 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "lint:fix": "turbo run lint:fix",
+    "lint": "bun biome check --diagnostic-level=error . && turbo run lint",
+    "lint:fix": "bun biome check --write --unsafe . && turbo run lint:fix",
     "format": "turbo run format",
     "format:check": "turbo run format:check",
     "typecheck": "turbo run typecheck",

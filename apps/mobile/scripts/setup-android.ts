@@ -3,6 +3,25 @@ import { createRequire } from "node:module";
 import { homedir } from "node:os";
 import { dirname, join } from "node:path";
 
+// Resolve Detox version from installed package
+const getDetoxVersion = () => {
+  const require = createRequire(import.meta.url);
+  const detoxPackageJson = require.resolve("detox/package.json", {
+    paths: [process.cwd()],
+  });
+  const detoxPkg = JSON.parse(readFileSync(detoxPackageJson, "utf8"));
+  return detoxPkg.version;
+};
+
+const DETOX_VERSION = getDetoxVersion();
+
+const findGradleDependencyVersion = (gradle: string, group: string, artifact: string) => {
+  const groupPattern = group.replace(/\./g, "\\.");
+  const regex = new RegExp(`${groupPattern}:${artifact}:([^"']+)`);
+  const match = gradle.match(regex);
+  return match?.[1];
+};
+
 const findAndroidSdk = () => {
   if (process.env.ANDROID_HOME) return process.env.ANDROID_HOME;
   if (process.env.ANDROID_SDK_ROOT) return process.env.ANDROID_SDK_ROOT;
@@ -88,6 +107,13 @@ const ensureGradleConfig = (androidDir: string) => {
 
   let gradle = readFileSync(appGradlePath, "utf8");
 
+  const androidXRunnerVersion =
+    findGradleDependencyVersion(gradle, "androidx.test", "runner") ?? "1.5.2";
+  const androidXRulesVersion =
+    findGradleDependencyVersion(gradle, "androidx.test", "rules") ?? "1.5.0";
+  const androidXEspressoVersion =
+    findGradleDependencyVersion(gradle, "androidx.test.espresso", "espresso-core") ?? "3.5.1";
+
   if (!gradle.includes("debuggableVariants")) {
     gradle = gradle.replace(/react\s*\{\n/, "react {\n    debuggableVariants = []\n");
   }
@@ -109,14 +135,14 @@ const ensureGradleConfig = (androidDir: string) => {
   }
 
   const detoxDeps = [
-    'androidTestImplementation("com.wix:detox:20.37.0")',
-    'androidTestImplementation("androidx.test:runner:1.5.2")',
-    'androidTestImplementation("androidx.test:rules:1.5.0")',
-    'androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")',
+    `androidTestImplementation("com.wix:detox:${DETOX_VERSION}")`,
+    `androidTestImplementation("androidx.test:runner:${androidXRunnerVersion}")`,
+    `androidTestImplementation("androidx.test:rules:${androidXRulesVersion}")`,
+    `androidTestImplementation("androidx.test.espresso:espresso-core:${androidXEspressoVersion}")`,
   ];
 
   if (gradle.includes("com.wix:detox")) {
-    gradle = gradle.replace(/com\.wix:detox:[^"']+/g, "com.wix:detox:20.37.0");
+    gradle = gradle.replace(/com\.wix:detox:[^"']+/g, `com.wix:detox:${DETOX_VERSION}`);
   } else {
     gradle = gradle.replace(
       /dependencies\s*\{\n/,

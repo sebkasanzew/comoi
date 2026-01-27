@@ -6,6 +6,25 @@ This guide walks you through setting up the Comoi development environment and ex
 
 - **Bun** - Install with `curl -fsSL https://bun.sh/install | bash`
 - **VS Code** - [Download](https://code.visualstudio.com/)
+- **xcpretty** (optional) - Improves Xcode build output formatting (used by our Detox scripts). Install locally with:
+
+  ```bash
+  gem install --user-install xcpretty
+  ```
+
+  Then ensure the gem bin directory is on your PATH (add to `~/.zshrc`):
+
+  ```bash
+  echo 'export PATH="$(ruby -e '\''print Gem.user_dir'\'')/bin:$PATH"' >> ~/.zshrc
+  source ~/.zshrc
+  ```
+
+  For CI (macOS runners) add a step before building:
+
+  ```yaml
+  - name: Install xcpretty
+    run: gem install xcpretty
+  ```
 
 ## Quick Start
 

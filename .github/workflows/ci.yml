@@ -44,10 +44,7 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
-      - name: Check formatting (Biome)
-        run: bun biome check --diagnostic-level=error .
-
-      - name: Run ESLint
+      - name: Run lint
         run: bun run lint
 
   typecheck:
@@ -139,3 +136,319 @@ jobs:
 
       - name: Build all packages and apps
         run: bun run build
+
+  # Mobile E2E Tests - iOS (macOS runner required)
+  # Free for public repositories, 10x minute multiplier
+  e2e-ios:
+    name: E2E Tests (iOS)
+    environment: development
+    runs-on: macos-15
+    needs: [lint, typecheck, test]
+    timeout-minutes: 60
+    defaults:
+      run:
+        working-directory: apps/mobile
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: ${{ env.BUN_VERSION }}
+
+      - name: Setup Node.js (for Detox)
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Cache Bun dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+        working-directory: .
+
+      - name: Install Detox CLI, applesimutils, and xcbeautify
+        run: |
+          npm install -g detox-cli
+          brew tap wix/brew
+          brew install applesimutils xcbeautify
+
+      # Cache the prebuild output (ios folder) to avoid regenerating
+      - name: Cache Expo prebuild
+        uses: actions/cache@v4
+        id: expo-prebuild-cache
+        with:
+          path: |
+            apps/mobile/ios
+            apps/mobile/android
+          key: ${{ runner.os }}-expo-prebuild-${{ hashFiles('apps/mobile/app.json', 'apps/mobile/package.json', 'packages/*/package.json') }}
+
+      - name: Run Expo prebuild
+        if: steps.expo-prebuild-cache.outputs.cache-hit != 'true'
+        run: EXPO_NO_GIT_STATUS=1 CI=1 npx expo prebuild --non-interactive
+
+      - name: Cache CocoaPods
+        uses: actions/cache@v4
+        id: pods-cache
+        with:
+          path: apps/mobile/ios/Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('apps/mobile/ios/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
+
+      - name: Install CocoaPods
+        if: steps.pods-cache.outputs.cache-hit != 'true'
+        run: cd ios && pod install
+
+      # Cache Xcode derived data for faster incremental builds
+      - name: Cache Xcode Derived Data
+        uses: actions/cache@v4
+        with:
+          path: apps/mobile/ios/build
+          key: ${{ runner.os }}-xcode-${{ hashFiles('apps/mobile/ios/Podfile.lock', 'apps/mobile/package.json') }}-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-xcode-${{ hashFiles('apps/mobile/ios/Podfile.lock', 'apps/mobile/package.json') }}-
+            ${{ runner.os }}-xcode-
+
+      - name: Boot iOS Simulator
+        run: |
+          # Get first available iPhone 16 or 15 Pro
+          DEVICE=$(xcrun simctl list devices available | grep -E "iPhone (16|15) Pro[^M]" | head -1 | sed 's/.*(\([^)]*\)).*/\1/')
+          if [ -z "$DEVICE" ]; then
+            echo "Error: No suitable iPhone simulator found"
+            xcrun simctl list devices available
+            exit 1
+          fi
+          DEVICE_NAME=$(xcrun simctl list devices available | grep "$DEVICE" | head -1 | sed 's/ *(.*//' | xargs)
+          echo "Booting simulator: $DEVICE_NAME ($DEVICE)"
+          xcrun simctl boot "$DEVICE" 2>/dev/null || true
+          echo "DETOX_DEVICE_TYPE=$DEVICE_NAME" >> $GITHUB_ENV
+
+      - name: Build iOS app for Detox
+        run: |
+          # Use xcodebuild with xcbeautify for clean, readable output
+          set -o pipefail
+          cd ios && xcodebuild \
+            -workspace Comoi.xcworkspace \
+            -scheme Comoi \
+            -configuration Release \
+            -sdk iphonesimulator \
+            -derivedDataPath build \
+            -destination 'generic/platform=iOS Simulator' \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            2>&1 | xcbeautify --quiet
+        env:
+          EXPO_PUBLIC_CONVEX_URL: ${{ vars.EXPO_PUBLIC_CONVEX_URL }}
+          EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ secrets.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY }}
+
+      - name: Run Detox E2E tests (iOS)
+        run: detox test --configuration ios.sim.release --headless --record-logs failing
+        env:
+          EXPO_PUBLIC_CONVEX_URL: ${{ vars.EXPO_PUBLIC_CONVEX_URL }}
+          EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ secrets.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY }}
+
+      - name: Upload iOS E2E artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-e2e-artifacts
+          path: |
+            apps/mobile/artifacts/
+          retention-days: 7
+
+  # Mobile E2E Tests - Android (Linux runner with KVM)
+  # Free for public repositories, uses hardware acceleration
+  e2e-android:
+    name: E2E Tests (Android)
+    environment: development
+    runs-on: ubuntu-latest
+    needs: [lint, typecheck, test]
+    timeout-minutes: 60
+    defaults:
+      run:
+        working-directory: apps/mobile
+    steps:
+      - name: Free disk space
+        run: |
+          # Remove unnecessary tools to free up space for Android SDK/emulator
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /usr/local/lib/android/sdk/ndk
+          sudo rm -rf /opt/ghc
+          sudo rm -rf /opt/hostedtoolcache/CodeQL
+          df -h
+        working-directory: .
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: ${{ env.BUN_VERSION }}
+
+      - name: Setup Node.js (for Detox)
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Accept Android SDK licenses
+        run: yes | sdkmanager --licenses > /dev/null 2>&1 || true
+        working-directory: .
+
+      - name: Cache Bun dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-
+
+      - name: Cache Gradle
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+            apps/mobile/android/.gradle
+            apps/mobile/android/app/build
+          key: ${{ runner.os }}-gradle-${{ hashFiles('apps/mobile/android/**/*.gradle*', 'apps/mobile/android/**/gradle-wrapper.properties') }}-${{ hashFiles('apps/mobile/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-${{ hashFiles('apps/mobile/android/**/*.gradle*', 'apps/mobile/android/**/gradle-wrapper.properties') }}-
+            ${{ runner.os }}-gradle-
+
+      # Cache AVD for faster emulator startup
+      - name: Cache AVD
+        uses: actions/cache@v4
+        id: avd-cache
+        with:
+          path: |
+            ~/.android/avd/*
+            ~/.android/adb*
+          key: avd-api31-x86_64-${{ hashFiles('apps/mobile/.detoxrc.js') }}
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+        working-directory: .
+
+      - name: Install Detox CLI
+        run: npm install -g detox-cli
+
+      # Cache the prebuild output to avoid regenerating
+      - name: Cache Expo prebuild
+        uses: actions/cache@v4
+        id: expo-prebuild-cache
+        with:
+          path: |
+            apps/mobile/ios
+            apps/mobile/android
+          key: ${{ runner.os }}-expo-prebuild-${{ hashFiles('apps/mobile/app.json', 'apps/mobile/package.json', 'packages/*/package.json') }}
+
+      - name: Run Expo prebuild
+        if: steps.expo-prebuild-cache.outputs.cache-hit != 'true'
+        run: EXPO_NO_GIT_STATUS=1 CI=1 npx expo prebuild --non-interactive
+
+      - name: Setup Android for Detox
+        if: steps.expo-prebuild-cache.outputs.cache-hit != 'true'
+        run: npx tsx scripts/setup-android.ts
+
+      - name: Build Android app for Detox
+        run: |
+          # Build release APK and release androidTest APK for Detox
+          # Note: testBuildType is set to "release" in app/build.gradle
+          cd android && ./gradlew :app:assembleRelease :app:assembleReleaseAndroidTest \
+            --build-cache \
+            --parallel \
+            --max-workers=4 \
+            -Dorg.gradle.jvmargs="-Xmx4g -XX:+HeapDumpOnOutOfMemoryError" \
+            -Dorg.gradle.parallel=true \
+            -Dorg.gradle.caching=true \
+            -Dkotlin.incremental=true
+        env:
+          EXPO_PUBLIC_CONVEX_URL: ${{ vars.EXPO_PUBLIC_CONVEX_URL }}
+          EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ secrets.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY }}
+
+      - name: Verify Android APKs exist
+        run: |
+          echo "=== Checking APK outputs ==="
+          ls -laR android/app/build/outputs/apk/
+          echo "=== Verifying required APKs ==="
+          test -f android/app/build/outputs/apk/release/app-release.apk || (echo "ERROR: Release APK not found" && exit 1)
+          # Test APK is built for the same variant as the app (release -> release)
+          test -f android/app/build/outputs/apk/androidTest/release/app-release-androidTest.apk || (echo "ERROR: Test APK not found" && exit 1)
+          echo "All required APKs found!"
+
+      # Create AVD and generate snapshot for caching (if not cached)
+      - name: Create AVD and generate snapshot
+        if: steps.avd-cache.outputs.cache-hit != 'true'
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 31
+          target: google_apis
+          arch: x86_64
+          profile: pixel_6
+          avd-name: test
+          force-avd-creation: false
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none -camera-front none
+          disable-animations: false
+          working-directory: apps/mobile
+          script: echo "AVD snapshot generated for caching"
+
+      - name: Run Detox E2E tests (Android)
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 31
+          target: google_apis
+          arch: x86_64
+          profile: pixel_6
+          avd-name: test
+          force-avd-creation: false
+          emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none -camera-front none
+          disable-animations: true
+          emulator-boot-timeout: 900
+          working-directory: apps/mobile
+          script: |
+            # Wait a bit for emulator to fully stabilize
+            sleep 10
+            # Verify ADB connection
+            adb devices
+            adb wait-for-device
+            # Clear logcat
+            adb logcat -c
+            # Run Detox tests with trace logging for debugging
+            npx detox test --configuration android.emu.release --headless --record-logs failing --loglevel verbose 2>&1 || (adb logcat -d > /tmp/logcat.txt && cat /tmp/logcat.txt | tail -300 && exit 1)
+        env:
+          EXPO_PUBLIC_CONVEX_URL: ${{ vars.EXPO_PUBLIC_CONVEX_URL }}
+          EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ secrets.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY }}
+
+      - name: Upload Android E2E artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-e2e-artifacts
+          path: |
+            apps/mobile/artifacts/
+          retention-days: 7
