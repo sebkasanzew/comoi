@@ -1,0 +1,22 @@
+# Tech stack decisions
+
+- Next.js with App Router for web frontend and API layer
+- Effect.js for type-safe error handling, DI, and business logic composition
+- Convex for database, real-time sync, and backend functions
+- Clerk for authentication (Email/Password, OAuth, Passkeys, 2FA)
+- React Native + Expo for mobile apps
+- Convex optimistic updates for offline tolerance (no WatermelonDB needed for MVP)
+- Testing with Playwright (E2E), Vitest (unit/integration), Convex Test
+- Turborepo for monorepo management
+- Bun as package manager and runtime
+- Biome for linting and formatting
+- ESLint for additional code quality checks
+- TypeScript for all layers
+- CI/CD with GitHub Actions
+- Renovate for automated dependency updates
+- Infrastructure on Vercel (Next.js) + Convex Cloud
+- Payment integration: MoMo + VNPay + PayOS (COD fallback)
+- Messaging: Zalo OA + ZNS for vendor communication
+- i18n: i18next + react-i18next
+- Maps: Google Maps Platform
+- Vendor dashboard merged into web app (route-based separation at /vendor/*)
