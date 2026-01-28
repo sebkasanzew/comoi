@@ -986,32 +986,35 @@ comoi/
 **Goal:** Set up infrastructure, learn Effect.js, establish patterns
 
 1. **Week 1: Project Setup**
-   - Initialize developer AI agents workflow with subagents, skills, worktrees, graphite, linear (project management)
-   - Initialize Turborepo monorepo
-   - Set up Convex project
-   - Configure Next.js (web + vendor apps)
-   - Set up React Native with Expo
-   - Configure TypeScript, ESLint, Prettier
+  - [x] Initialize developer AI agents workflow with subagents, skills, worktrees, graphite, linear (project management)
+  - [x] Initialize Turborepo monorepo
+  - [x] Set up shared packages (ui, shared, configs)
+  - [x] Set up Convex project
+  - [x] Configure Next.js (web + vendor apps)
+  - [x] Set up React Native with Expo
+  - [x] Configure TypeScript
+  - [x] Configure Biome + ESLint
+  - [x] Set up CI/CD with GitHub Actions
 
 2. **Week 2: Effect.js Foundation**
-   - Study Effect.js docs and examples
-   - Create base service structure
-   - Implement ConfigService (environment variables)
-   - Implement DatabaseService (Convex wrapper)
-   - Write first tests with Effect test utilities
+  - [ ] Study Effect.js docs and examples
+  - [ ] Create base service structure
+  - [ ] Implement ConfigService (environment variables)
+  - [ ] Implement DatabaseService (Convex wrapper)
+  - [ ] Write first tests with Effect test utilities
 
 3. **Week 3: Convex Schema & Auth**
-   - Define complete Convex schema
-   - Set up Convex Auth (phone OTP)
-   - Implement auth flows in web and mobile
-   - Create authentication Effect service
+  - [x] Define complete Convex schema
+  - [ ] Set up Convex/Clerk Auth (phone OTP)
+  - [ ] Implement auth flows in web and mobile
+  - [ ] Create authentication Effect service
 
 4. **Week 4: Core Services Structure**
-   - Implement CatalogService skeleton
-   - Implement OrderService skeleton
-   - Implement VendorService skeleton
-   - Set up dependency injection layers
-   - Document Effect.js patterns for team
+  - [ ] Implement CatalogService skeleton
+  - [ ] Implement OrderService skeleton
+  - [ ] Implement VendorService skeleton
+  - [ ] Set up dependency injection layers
+  - [ ] Document Effect.js patterns for team
 
 ### Phase 2: Consumer MVP - Web (Weeks 5-8)
 **Goal:** Functional web app for browsing and ordering
