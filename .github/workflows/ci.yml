@@ -391,16 +391,6 @@ jobs:
           EXPO_PUBLIC_CONVEX_URL: ${{ vars.EXPO_PUBLIC_CONVEX_URL }}
           EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ secrets.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY }}
 
-      - name: Verify Android APKs exist
-        run: |
-          echo "=== Checking APK outputs ==="
-          ls -laR android/app/build/outputs/apk/
-          echo "=== Verifying required APKs ==="
-          test -f android/app/build/outputs/apk/release/app-release.apk || (echo "ERROR: Release APK not found" && exit 1)
-          # Test APK is built for the same variant as the app (release -> release)
-          test -f android/app/build/outputs/apk/androidTest/release/app-release-androidTest.apk || (echo "ERROR: Test APK not found" && exit 1)
-          echo "All required APKs found!"
-
       # Create AVD and generate snapshot for caching (if not cached)
       - name: Create AVD and generate snapshot
         if: steps.avd-cache.outputs.cache-hit != 'true'
@@ -433,13 +423,11 @@ jobs:
           script: |
             # Wait a bit for emulator to fully stabilize
             sleep 10
-            # Verify ADB connection
-            adb devices
             adb wait-for-device
             # Clear logcat
             adb logcat -c
-            # Run Detox tests with trace logging for debugging
-            npx detox test --configuration android.emu.release --headless --record-logs failing --loglevel verbose 2>&1 || (adb logcat -d > /tmp/logcat.txt && cat /tmp/logcat.txt | tail -300 && exit 1)
+            # Run Detox tests
+            npx detox test --configuration android.emu.release --headless --record-logs failing 2>&1 || (adb logcat -d > /tmp/logcat.txt && cat /tmp/logcat.txt | tail -200 && exit 1)
         env:
           EXPO_PUBLIC_CONVEX_URL: ${{ vars.EXPO_PUBLIC_CONVEX_URL }}
           EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ secrets.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY }}
