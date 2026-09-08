@@ -23,7 +23,7 @@
     "clean": "rm -rf dist .turbo"
   },
   "dependencies": {
-    "effect": "3.19.15"
+    "effect": "3.22.1"
   },
   "devDependencies": {
     "@comoi/eslint-config": "workspace:*",
