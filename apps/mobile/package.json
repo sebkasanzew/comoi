@@ -36,7 +36,7 @@
     "@comoi/convex": "workspace:*",
     "@comoi/shared": "workspace:*",
     "@comoi/theme": "workspace:*",
-    "@convex-dev/auth": "^0.0.90",
+    "@convex-dev/auth": "^0.0.95",
     "@expo/html-elements": "^0.10.1",
     "@expo/vector-icons": "15.0.3",
     "@gluestack-ui/core": "^3.0.10",
