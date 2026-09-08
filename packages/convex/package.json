@@ -27,7 +27,7 @@
     "@comoi/shared": "workspace:*",
     "@faker-js/faker": "10.2.0",
     "convex": "1.31.6",
-    "effect": "3.19.15"
+    "effect": "3.22.1"
   },
   "devDependencies": {
     "@comoi/eslint-config": "workspace:*",
